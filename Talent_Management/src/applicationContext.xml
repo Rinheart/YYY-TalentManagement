@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<context:component-scan base-package="com" />-->
+
+
+    <!--注入数据源配置信息-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/hibernatedb?serverTimezone=GMT%2b8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!--注入SessionFactory实例配置信息-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+            </props>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/po/Customer.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="baseDAO" class="com.dao.BaseHibernateDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="userDAO" class="com.dao.CustomerDAO" parent="baseDAO"/>
+
+    <bean id="userService" class="com.service.UserService">
+        <property name="customerDAO" ref="userDAO"/>
+    </bean>
+
+    <bean id="userAction1" class="com.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <!--构造器注入-->
+    <bean id="item1" class="com.bean.Item" scope="singleton">
+        <constructor-arg index="0" type="java.lang.String">
+            <value>978-7-121-12345-1</value>
+        </constructor-arg>
+        <constructor-arg index="1" type="java.lang.String">
+            <value>JAVAEE 技术实验指导教程</value>
+        </constructor-arg>
+        <constructor-arg index="2" type="java.lang.String">
+            <value>WEB 程序设计知识回顾、轻量级 JAVAEE 应用框架、企业级 EJB 组件编程技术、JAVAEE 综合应用开发</value>
+        </constructor-arg>
+        <constructor-arg index="3" type="double">
+            <value>19.95</value>
+        </constructor-arg>
+    </bean>
+
+
+    <!--国际化-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>com.local.message</value>
+        </property>
+    </bean>
+
+    <!--注册监听器-->
+    <bean class="com.listener.EmailNotifier"/>
+
+
+</beans>
