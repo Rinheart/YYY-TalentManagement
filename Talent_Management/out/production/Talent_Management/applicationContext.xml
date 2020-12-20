@@ -8,7 +8,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<context:component-scan base-package="cn.edu.zjut" />-->
+    <!--<context:component-scan base-package="com" />-->
 
 
     <!--注入数据源配置信息-->
@@ -63,96 +63,20 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             <value>19.95</value>
         </constructor-arg>
     </bean>
-    <bean id="item2" class="com.bean.Item" scope="prototype">
-        <constructor-arg index="0" type="java.lang.String">
-            <value>978-7-121-12345-2</value>
-        </constructor-arg>
-        <constructor-arg index="1" type="java.lang.String">
-            <value>JAVAEE 技术</value>
-        </constructor-arg>
-        <constructor-arg index="2" type="java.lang.String">
-            <value>Struts 框架、Hibernate 框架、Spring 框架、会话 Bean、实体Bean、消息驱动 Bean</value>
-        </constructor-arg>
-        <constructor-arg index="3" type="double">
-            <value>29.95</value>
-        </constructor-arg>
-    </bean>
-    <!--set注入-->
-    <bean id="itemorder1" class="com.bean.ItemOrder" init-method="init">
-        <property name="numItems" value="1"/>
-        <property name="item" ref="item1"/>
-    </bean>
-    <!--<bean id="itemorder2" class="ItemOrder" destroy-method="des_xml">
-        <property name="numItems">
-            <value>2</value>
-        </property>
-        <property name="item">
-            <ref bean="item2"/>
-        </property>
-    </bean>-->
-    <!--注入list形式的bean-->
-    <bean id="shoppingcart" class="com.bean.ShoppingCart">
-        <property name="itemsOrdered">
-            <list>
-                <ref bean="itemorder1"/>
-                <ref bean="itemorder2"/>
-            </list>
-        </property>
-    </bean>
-    <!--set\map\properties-->
-    <!--<bean id="testset" class="TestSet">
-        <property name="set">
-            <set>
-                <value>3</value>
-                <value>2</value>
-                <value>1</value>
-                <value>1</value>
-            </set>
-        </property>
-    </bean>
-    <bean id="testmap" class="TestMap">
-        <property name="map">
-            <map>
-                <entry key="k1" value="v1" />
-                <entry key="k2" value="v2" />
-                <entry key="k3" value="v3" />
-            </map>
-        </property>
-    </bean>
-    <bean id="testprop" class="TestProperties">
-        <property name="properties">
-            <props>
-                <prop key="key1">properties&#45;&#45;value1</prop>
-                <prop key="key2">properties&#45;&#45;value2</prop>
-            </props>
-        </property>
-    </bean>-->
 
-    <!--通过调用静态工厂-->
-    <!--<bean id="itemorder2" class="ItemOrderFactory"
-          factory-method="createItemOrder">
-        <property name="numItems"> <value>1</value> </property>
-        <property name="item"> <ref bean="item1"/> </property>
-    </bean>-->
-
-    <!--调用实例工厂-->
-    <bean id="itemorderFactory" class="com.bean.ItemOrderFactory"/>
-    <bean id="itemorder2" class="com.bean.ItemOrder"
-          factory-method="createItemOrder" factory-bean="itemorderFactory">
-        <property name="numItems"> <value>1</value> </property>
-        <property name="item"> <ref bean="item1"/> </property>
-    </bean>
 
     <!--国际化-->
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename">
-            <value>cn.edu.zjut.local.message</value>
+            <value>com.local.message</value>
         </property>
     </bean>
 
     <!--注册监听器-->
     <bean class="com.listener.EmailNotifier"/>
+
+    <!--测试git-->
 
 
 </beans>

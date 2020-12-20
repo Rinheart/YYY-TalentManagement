@@ -1,6 +1,5 @@
-package com.app;
+package com.test;
 
-import com.bean.*;
 import com.event.EmailEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

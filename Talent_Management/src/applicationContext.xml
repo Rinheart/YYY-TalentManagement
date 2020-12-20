@@ -76,5 +76,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
     <!--注册监听器-->
     <bean class="com.listener.EmailNotifier"/>
 
+    <!--测试git-->
+
 
 </beans>
