@@ -1,5 +1,6 @@
 # YYY-TalentManagement  
 用maven构建的，可以试试  
+更新：配不好了，报错太多
 
 软工课设+JAVAEE  
 
