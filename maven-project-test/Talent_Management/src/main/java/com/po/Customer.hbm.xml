@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.po.Customer" table="customer" schema="hibernatedb">
+        <id name="customerId" type="int">
+            <column name="customerID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="account" column="Account"/>
+        <property name="password" column="Password"/>
+        <property name="name" column="Name"/>
+        <property name="sex" column="Sex"/>
+        <property name="birthday" column="Birthday"/>
+
+        <property name="phone" column="Phone"/>
+        <property name="email" column="Email"/>
+        <property name="address" column="Address"/>
+        <property name="zipcode" column="Zipcode"/>
+        <property name="fax" column="Fax"/>
+    </class>
+</hibernate-mapping>
