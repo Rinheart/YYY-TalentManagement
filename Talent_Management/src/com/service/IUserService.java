@@ -1,7 +1,9 @@
 package com.service;
 
-import com.po.Customer;
+import com.entity.Talent;
+
 
 public interface IUserService {
-    public void register(Customer reg_customer);
+    public boolean register(Talent talent);
+    public boolean login(Talent talent);
 }

@@ -14,7 +14,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
     <!--注入数据源配置信息-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/hibernatedb?serverTimezone=GMT%2b8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT%2b8"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -26,11 +26,20 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT
+                </prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
             </props>
         </property>
         <property name="mappingResources">
             <list>
                 <value>com/po/Customer.hbm.xml</value>
+                <value>classpath:com/entity/Talent.hbm.xml</value>
+            </list>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.entity.Talent</value>
             </list>
         </property>
     </bean>
@@ -48,35 +57,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="userService" ref="userService"/>
     </bean>
 
-    <!--构造器注入-->
-    <bean id="item1" class="com.bean.Item" scope="singleton">
-        <constructor-arg index="0" type="java.lang.String">
-            <value>978-7-121-12345-1</value>
-        </constructor-arg>
-        <constructor-arg index="1" type="java.lang.String">
-            <value>JAVAEE 技术实验指导教程</value>
-        </constructor-arg>
-        <constructor-arg index="2" type="java.lang.String">
-            <value>WEB 程序设计知识回顾、轻量级 JAVAEE 应用框架、企业级 EJB 组件编程技术、JAVAEE 综合应用开发</value>
-        </constructor-arg>
-        <constructor-arg index="3" type="double">
-            <value>19.95</value>
-        </constructor-arg>
-    </bean>
 
-
-    <!--国际化-->
-    <bean id="messageSource"
-          class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename">
-            <value>com.local.message</value>
-        </property>
-    </bean>
-
-    <!--注册监听器-->
-    <bean class="com.listener.EmailNotifier"/>
-
-    <!--测试git-->
 
 
 </beans>

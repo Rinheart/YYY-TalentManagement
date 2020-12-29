@@ -1,9 +1,10 @@
 package com.service;
 import com.dao.ICustomerDAO;
-import com.po.Customer;
+import com.entity.Talent;
 
 
 public class UserService implements IUserService {
+    /*此处，talentdao没写*/
     private ICustomerDAO customerDAO = null;
 
     public UserService() {
@@ -15,10 +16,14 @@ public class UserService implements IUserService {
         this.customerDAO = customerDAO;
     }
 
-    public void register(Customer reg_customer) {
-        System.out.println("execute --register()-- method.");
+    public boolean register(Talent talent) {
+        /*System.out.println("execute --register()-- method.");
         customerDAO.save(reg_customer);
-        System.out.println("成功注册一个customer"+reg_customer.toString());
+        System.out.println("成功注册一个customer"+reg_customer.toString());*/
+        return true;
+    }
+    public boolean login(Talent talent){
+        return true;
     }
 
 
