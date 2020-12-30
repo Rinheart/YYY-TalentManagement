@@ -1,30 +1,34 @@
 package com.service;
-import com.dao.ICustomerDAO;
+import com.dao.ITalentDAO;
 import com.entity.Talent;
 
 
 public class UserService implements IUserService {
-    /*此处，talentdao没写*/
-    private ICustomerDAO customerDAO = null;
+
+    private ITalentDAO talentDAO = null;
 
     public UserService() {
         System.out.println("create UserService.");
     }
 
-    public void setCustomerDAO(ICustomerDAO customerDAO) {
-        System.out.println("--setCustomerDAO--");
-        this.customerDAO = customerDAO;
+    public void setTalentDAO(ITalentDAO talentDAO) {
+        this.talentDAO = talentDAO;
     }
 
     public boolean register(Talent talent) {
-        /*System.out.println("execute --register()-- method.");
-        customerDAO.save(reg_customer);
-        System.out.println("成功注册一个customer"+reg_customer.toString());*/
+        /*待写入逻辑*/
         return true;
     }
     public boolean login(Talent talent){
+        /*待写入逻辑*/
         return true;
     }
-
-
+    public boolean update(Talent talent){
+        /*待写入逻辑*/
+        return true;
+    }
+    public boolean delete(Talent talent){
+        /*待写入逻辑*/
+        return true;
+    }
 }

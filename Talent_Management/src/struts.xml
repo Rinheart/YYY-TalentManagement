@@ -8,26 +8,22 @@
     <package name="strutsBean" extends="struts-default" namespace="/">
 
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
-        <action name="login" class="cn.edu.zjut.action.UserAction" method="login">
+        <action name="login" class="userAction" method="login">
             <result name="loginsuccess">/loginSuccess.jsp</result>
             <result name="loginfail">/login.jsp</result>
         </action>
-        <action name="register" class="cn.edu.zjut.action.UserAction" method="register">
+        <action name="register" class="userAction" method="register">
             <result name="registersuccess">/registerSuccess.jsp</result>
             <result name="registerfail">/register.jsp</result>
         </action>
-        <action name="Userupdate" class="cn.edu.zjut.action.UserAction" method="update">
+        <action name="Userupdate" class="userAction" method="update">
             <result name="updatesuccess">/login.jsp</result>
             <result name="updatefail">/CURDFail.jsp</result>
         </action>
-        <action name="Userdelete" class="cn.edu.zjut.action.UserAction" method="delete">
+        <action name="Userdelete" class="userAction" method="delete">
             <result name="deletesuccess">/login.jsp</result>
             <result name="deletefail">/CURDFail.jsp</result>
         </action>
 
-        <action name="allItems" class="cn.edu.zjut.action.ItemAction" method="findItems">
-            <result name="login">/login.jsp</result>
-            <result name="success">/itemList.jsp</result>
-        </action>
     </package>
 </struts>

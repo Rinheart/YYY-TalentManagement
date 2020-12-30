@@ -26,15 +26,19 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT
+                <prop key="hibernate.connection.url">
+                    jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT
                 </prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="hibernate.connection.driver_class">
+                    com.mysql.cj.jdbc.Driver
+                </prop>
+                <prop key="connection.autocommit">true</prop>
             </props>
         </property>
         <property name="mappingResources">
             <list>
-                <value>com/po/Customer.hbm.xml</value>
-                <value>classpath:com/entity/Talent.hbm.xml</value>
+                <value>com/entity/Talent.hbm.xml</value>
+                <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
         <property name="annotatedClasses">
@@ -43,21 +47,15 @@ http://www.springframework.org/schema/context/spring-context.xsd">
             </list>
         </property>
     </bean>
-    <bean id="baseDAO" class="com.dao.BaseHibernateDAO">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
 
-    <bean id="userDAO" class="com.dao.CustomerDAO" parent="baseDAO"/>
+    <bean id="baseDAO" class="com.dao.BaseHibernateDAO" autowire="byName"/>
 
-    <bean id="userService" class="com.service.UserService">
-        <property name="customerDAO" ref="userDAO"/>
-    </bean>
+    <bean id="talentDAO" class="com.dao.TalentDAO" parent="baseDAO"/>
 
-    <bean id="userAction1" class="com.action.UserAction" scope="prototype">
-        <property name="userService" ref="userService"/>
-    </bean>
+    <!--引用类型的自动注入autowire(by name)-->
+    <bean id="userService" class="com.service.UserService" autowire="byName"/>
 
-
+    <bean id="userAction" class="com.action.UserAction" scope="prototype" autowire="byName"/>
 
 
 </beans>
