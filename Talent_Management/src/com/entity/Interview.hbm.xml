@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Interview" table="interview" schema="talent_management">
+        <id name="interviewId" column="InterviewID"/>
+        <property name="resumeId" column="ResumeID"/>
+        <property name="hrInterviewer" column="HRInterviewer"/>
+        <property name="headInterviewer" column="HeadInterviewer"/>
+        <property name="interviewTime" column="InterviewTime"/>
+        <property name="interviewAdd" column="InterviewAdd"/>
+        <property name="hrScore" column="HRScore"/>
+        <property name="headScore" column="HeadScore"/>
+        <property name="hrComment" column="HRComment"/>
+        <property name="headComment" column="HeadComment"/>
+        <property name="interviewResult" column="InterviewResult"/>
+    </class>
+</hibernate-mapping>

@@ -26,12 +26,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
-                <prop key="hibernate.connection.url">
-                    jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT
-                </prop>
-                <prop key="hibernate.connection.driver_class">
-                    com.mysql.cj.jdbc.Driver
-                </prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
                 <!--自动提交-->
                 <!--<prop key="connection.autocommit">true</prop>-->
             </props>
@@ -39,12 +35,44 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="mappingResources">
             <list>
                 <value>com/entity/Talent.hbm.xml</value>
+                <value>classpath:com/entity/Enterprise.hbm.xml</value>
+                <value>classpath:com/entity/Achievement.hbm.xml</value>
+                <value>classpath:com/entity/Attend.hbm.xml</value>
+                <value>classpath:com/entity/BigEvent.hbm.xml</value>
+                <value>classpath:com/entity/Department.hbm.xml</value>
+                <value>classpath:com/entity/Disciplinary.hbm.xml</value>
+                <value>classpath:com/entity/EmployApplicate.hbm.xml</value>
+                <value>classpath:com/entity/EnterpriseUdit.hbm.xml</value>
+                <value>classpath:com/entity/Evaluate.hbm.xml</value>
+                <value>classpath:com/entity/Interview.hbm.xml</value>
+                <value>classpath:com/entity/Recruit.hbm.xml</value>
+                <value>classpath:com/entity/ResignApplicate.hbm.xml</value>
+                <value>classpath:com/entity/Resume.hbm.xml</value>
+                <value>classpath:com/entity/Reward.hbm.xml</value>
+                <value>classpath:com/entity/TalentUdit.hbm.xml</value>
+                <value>classpath:com/entity/WorkExperience.hbm.xml</value>
                 <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
                 <value>com.entity.Talent</value>
+                <value>com.entity.Enterprise</value>
+                <value>com.entity.Achievement</value>
+                <value>com.entity.Attend</value>
+                <value>com.entity.BigEvent</value>
+                <value>com.entity.Department</value>
+                <value>com.entity.Disciplinary</value>
+                <value>com.entity.EmployApplicate</value>
+                <value>com.entity.EnterpriseUdit</value>
+                <value>com.entity.Evaluate</value>
+                <value>com.entity.Interview</value>
+                <value>com.entity.Recruit</value>
+                <value>com.entity.ResignApplicate</value>
+                <value>com.entity.Resume</value>
+                <value>com.entity.Reward</value>
+                <value>com.entity.TalentUdit</value>
+                <value>com.entity.WorkExperience</value>
             </list>
         </property>
     </bean>

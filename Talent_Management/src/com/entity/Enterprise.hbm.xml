@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Enterprise" table="enterprise" schema="talent_management">
+        <id name="enterpriseId" column="EnterpriseID"/>
+        <property name="password" column="Password"/>
+        <property name="enterpriseName" column="EnterpriseName"/>
+        <property name="establishTime" column="EstablishTime"/>
+        <property name="address" column="Address"/>
+        <property name="businessScope" column="BusinessScope"/>
+        <property name="enterpriseType" column="EnterpriseType"/>
+        <property name="annualTurnover" column="AnnualTurnover"/>
+        <property name="staffNumber" column="StaffNumber"/>
+        <property name="founder" column="Founder"/>
+        <property name="ceo" column="CEO"/>
+        <property name="resignNumber" column="ResignNumber"/>
+        <property name="registrar" column="Registrar"/>
+        <property name="registeredCapital" column="RegisteredCapital"/>
+        <property name="websiteAddress" column="WebsiteAddress"/>
+        <property name="informationReview" column="InformationReview"/>
+    </class>
+</hibernate-mapping>

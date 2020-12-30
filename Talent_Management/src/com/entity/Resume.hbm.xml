@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Resume" table="resume" schema="talent_management">
+        <id name="resumeId" column="ResumeID"/>
+        <property name="talentId" column="TalentID"/>
+        <property name="enterpriseId" column="EnterpriseID"/>
+        <property name="departmentId" column="DepartmentID"/>
+        <property name="hrReviewer" column="HRReviewer"/>
+        <property name="headReviewer" column="HeadReviewer"/>
+        <property name="examineResult" column="ExamineResult"/>
+        <property name="attendView" column="AttendView"/>
+        <property name="content" column="Content"/>
+    </class>
+</hibernate-mapping>

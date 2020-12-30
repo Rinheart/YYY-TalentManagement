@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.TalentUdit" table="talent_udit" schema="talent_management">
+        <id name="talentUditId" column="TalentUditID"/>
+        <property name="talentId" column="TalentID"/>
+        <property name="auditFile1" column="AuditFile1"/>
+        <property name="auditFile2" column="AuditFile2"/>
+        <property name="auditFile3" column="AuditFile3"/>
+        <property name="auditer" column="Auditer"/>
+    </class>
+</hibernate-mapping>

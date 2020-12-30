@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Evaluate" table="evaluate" schema="talent_management">
+        <id name="evaluateId" column="EvaluateID"/>
+        <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="valuator" column="Valuator"/>
+        <property name="totalScore" column="TotalScore"/>
+        <property name="abilityScore" column="AbilityScore"/>
+        <property name="abilityComment" column="AbilityComment"/>
+        <property name="attitudeScore" column="AttitudeScore"/>
+        <property name="attitudeComment" column="AttitudeComment"/>
+        <property name="time" column="Time"/>
+    </class>
+</hibernate-mapping>

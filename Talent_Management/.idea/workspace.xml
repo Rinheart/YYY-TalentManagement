@@ -89,19 +89,19 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.entity" />
-      <recent name="com." />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
       <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\web" />
       <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\src\cn\edu\zjut\po" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.entity" />
+      <recent name="com." />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
     </key>
   </component>
   <component name="RunDashboard">

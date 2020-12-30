@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.WorkExperience" table="work_experience" schema="talent_management">
+        <id name="workExperienceId" column="WorkExperienceID"/>
+        <property name="talentId" column="TalentID"/>
+        <property name="enterpriseId" column="EnterpriseID"/>
+        <property name="departmentId" column="DepartmentID"/>
+        <property name="startTime" column="StartTime"/>
+        <property name="endTime" column="EndTime"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Achievement" table="achievement" schema="talent_management">
+        <id name="achievementId" column="AchievementID"/>
+        <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="content" column="Content"/>
+        <property name="startTime" column="StartTime"/>
+        <property name="endTime" column="EndTime"/>
+        <property name="achievementScore" column="AchievementScore"/>
+        <property name="achievementComment" column="AchievementComment"/>
+        <property name="recorder" column="Recorder"/>
+        <property name="recordTime" column="RecordTime"/>
+    </class>
+</hibernate-mapping>

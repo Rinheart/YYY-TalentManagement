@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.ResignApplicate" table="resign_applicate" schema="talent_management">
+        <id name="resignApplicateId" column="ResignApplicateID"/>
+        <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="applicateTime" column="ApplicateTime"/>
+        <property name="applicateResult" column="ApplicateResult"/>
+        <property name="hrReviewer" column="HRReviewer"/>
+        <property name="revieweTime" column="RevieweTime"/>
+    </class>
+</hibernate-mapping>

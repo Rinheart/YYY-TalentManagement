@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Attend" table="attend" schema="talent_management">
+        <id name="attendId" column="AttendID"/>
+        <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="event" column="Event"/>
+        <property name="date" column="Date"/>
+        <property name="recorder" column="Recorder"/>
+        <property name="recordTime" column="RecordTime"/>
+    </class>
+</hibernate-mapping>

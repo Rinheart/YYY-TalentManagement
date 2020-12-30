@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.Recruit" table="recruit" schema="talent_management">
+        <id name="recruitId" column="RecruitID"/>
+        <property name="enterpriseId" column="EnterpriseID"/>
+        <property name="departmentId" column="DepartmentID"/>
+        <property name="jobTitle" column="JobTitle"/>
+        <property name="demandNum" column="DemandNum"/>
+        <property name="startDate" column="StartDate"/>
+        <property name="salary" column="Salary"/>
+        <property name="treatment" column="Treatment"/>
+        <property name="jobContent" column="JobContent"/>
+        <property name="time" column="Time"/>
+    </class>
+</hibernate-mapping>
