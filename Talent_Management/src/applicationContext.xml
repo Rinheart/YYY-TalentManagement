@@ -32,7 +32,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.connection.driver_class">
                     com.mysql.cj.jdbc.Driver
                 </prop>
-                <prop key="connection.autocommit">true</prop>
+                <!--自动提交-->
+                <!--<prop key="connection.autocommit">true</prop>-->
             </props>
         </property>
         <property name="mappingResources">
@@ -48,14 +49,19 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         </property>
     </bean>
 
-    <bean id="baseDAO" class="com.dao.BaseHibernateDAO" autowire="byName"/>
+    <bean id="baseDAO" class="com.dao.BaseHibernateDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <bean id="talentDAO" class="com.dao.TalentDAO" parent="baseDAO"/>
 
-    <!--引用类型的自动注入autowire(by name)-->
-    <bean id="userService" class="com.service.UserService" autowire="byName"/>
+    <bean id="userService" class="com.service.UserService">
+        <property name="talentDAO" ref="talentDAO"/>
+    </bean>
 
-    <bean id="userAction" class="com.action.UserAction" scope="prototype" autowire="byName"/>
+    <bean id="userAction" class="com.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
 
 
 </beans>

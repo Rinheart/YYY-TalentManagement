@@ -14,8 +14,9 @@
         <configuration>
           <fileset id="s2fileset" name="Default File Set" removed="false">
             <file>file://$MODULE_DIR$/src/struts.xml</file>
-            <file>jar://$MODULE_DIR$/../lib/struts2/struts2-core-2.3.37.jar!/struts-default.xml</file>
-            <file>jar://$MODULE_DIR$/../lib/struts2/struts2-dojo-plugin-2.3.37.jar!/struts-plugin.xml</file>
+            <file>jar://$MODULE_DIR$/lib/Struts2/struts2-core-2.3.37.jar!/struts-default.xml</file>
+            <file>jar://$MODULE_DIR$/lib/Struts2/struts2-dojo-plugin-2.3.37.jar!/struts-plugin.xml</file>
+            <file>jar://$MODULE_DIR$/lib/Struts2/struts2-spring-plugin-2.5.25.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>

@@ -26,7 +26,7 @@
                                  type="text" placeholder="请输入用户名"
                                  onfocus="if(value==defaultValue){value='';this.style.color='#000'}"
                                  onblur="if(!value){value='';this.style.color='#999'}"
-                                 name="loginUser.account" id="username"></td>
+                                 name="talent.talentId" id="username"></td>
         </tr>
 
 
@@ -36,7 +36,7 @@
                                  type="password" placeholder="请输入密码"
                                  onfocus="if(value==defaultValue){value='';this.style.color='#000'}"
                                  onblur="if(!value){value='';this.style.color='#999'}"
-                                 name="loginUser.password" id="password"></td>
+                                 name="talent.password" id="password"></td>
         </tr>
 
 
@@ -72,8 +72,8 @@
             return false;
         }
 
-        if(n2.value.length>=6||n3.value().length>=6){
-            alert("用户名/密码不能超过6位");
+        if(n2.value.length>8||n3.value().length>8){
+            alert("用户名/密码不能超过8位");
             return false;
         }
     }

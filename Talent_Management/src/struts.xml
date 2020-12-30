@@ -9,20 +9,20 @@
 
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
         <action name="login" class="userAction" method="login">
-            <result name="loginsuccess">/loginSuccess.jsp</result>
-            <result name="loginfail">/login.jsp</result>
+            <result name="loginsuccess">/basic/loginSuccess.jsp</result>
+            <result name="loginfail">/basic/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
-            <result name="registersuccess">/registerSuccess.jsp</result>
-            <result name="registerfail">/register.jsp</result>
+            <result name="registersuccess">/basic/regSuccess.jsp</result>
+            <result name="registerfail">/basic/register.jsp</result>
         </action>
         <action name="Userupdate" class="userAction" method="update">
-            <result name="updatesuccess">/login.jsp</result>
-            <result name="updatefail">/CURDFail.jsp</result>
+            <result name="updatesuccess">/basic/login.jsp</result>
+            <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
         <action name="Userdelete" class="userAction" method="delete">
-            <result name="deletesuccess">/login.jsp</result>
-            <result name="deletefail">/CURDFail.jsp</result>
+            <result name="deletesuccess">/basic/login.jsp</result>
+            <result name="deletefail">/basic/CURDFail.jsp</result>
         </action>
 
     </package>
