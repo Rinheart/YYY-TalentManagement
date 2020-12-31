@@ -1,15 +1,14 @@
 package com.action;
 
 import com.entity.Talent;
-import com.opensymphony.xwork2.ModelDriven;
-import com.service.IUserService;
+import com.service.ITalentService;
 /*
 * UserAction为人才进行的系列操作
 *
 * */
-public class UserAction {
+public class TalentAction {
     private Talent talent;
-    private IUserService userService;
+    private ITalentService userService;
 
     public Talent getTalent() {
         return talent;
@@ -19,11 +18,11 @@ public class UserAction {
         this.talent = talent;
     }
 
-    public IUserService getUserService() {
+    public ITalentService getUserService() {
         return userService;
     }
 
-    public void setUserService(IUserService userService) {
+    public void setUserService(ITalentService userService) {
         this.userService = userService;
     }
 

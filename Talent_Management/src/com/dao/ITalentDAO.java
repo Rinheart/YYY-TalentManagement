@@ -7,4 +7,5 @@ import java.util.List;
 public interface ITalentDAO {
     void save(Talent transientInstance);
     List findByHql(String hql);
+    void update(Talent transientInstance);
 }

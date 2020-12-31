@@ -89,26 +89,27 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/basic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/enterprise" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.19779006" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
-      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\web" />
-      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\src\cn\edu\zjut\po" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.entity" />
       <recent name="com." />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\enterprise" />
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
+      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\web" />
+      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\src\cn\edu\zjut\po" />
     </key>
   </component>
   <component name="RunDashboard">

@@ -8,19 +8,19 @@
     <package name="strutsBean" extends="struts-default" namespace="/">
 
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
-        <action name="login" class="userAction" method="login">
-            <result name="loginsuccess">/basic/loginSuccess.jsp</result>
+        <action name="login" class="talentAction" method="login">
+            <result name="loginsuccess">/basic/talentInfo.jsp</result>
             <result name="loginfail">/basic/login.jsp</result>
         </action>
-        <action name="register" class="userAction" method="register">
+        <action name="register" class="talentAction" method="register">
             <result name="registersuccess">/basic/regSuccess.jsp</result>
             <result name="registerfail">/basic/register.jsp</result>
         </action>
-        <action name="Userupdate" class="userAction" method="update">
+        <action name="TalentUpdate" class="talentAction" method="update">
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
-        <action name="Userdelete" class="userAction" method="delete">
+        <action name="TalentDelete" class="talentAction" method="delete">
             <result name="deletesuccess">/basic/login.jsp</result>
             <result name="deletefail">/basic/CURDFail.jsp</result>
         </action>
