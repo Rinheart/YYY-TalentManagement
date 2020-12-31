@@ -7,9 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e46f08af-197f-4f86-8443-1073b6c3fe73" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/fe67975c-1cb8-4496-b146-2ead213ee114.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fe67975c-1cb8-4496-b146-2ead213ee114.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/action/EnterpriseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/action/EnterpriseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/action/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/action/UserAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/dao/ITalentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dao/ITalentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/dao/TalentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dao/TalentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,25 +38,32 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management" type="feb32156:DbDataSourceImpl" />
+        <item name="hibernatedb" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management" type="feb32156:DbDataSourceImpl" />
+        <item name="hibernatedb" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management" type="feb32156:DbDataSourceImpl" />
+        <item name="hibernatedb" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="talent_udit: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernatedb" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="enterprise: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernatedb" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="talent: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -57,8 +73,8 @@
       <list>
         <option value="struts_2_3" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -73,7 +89,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1l5WkkKS7uNTQC4gwP1TOfK3jzi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -89,40 +107,31 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/enterprise" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/log4j" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.19779006" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\小坏坏\Documents\GitHub\YYY-TalentManagement_withoutlibs\Talent_Management\lib\log4j" />
+      <recent name="C:\Users\小坏坏\Documents\GitHub\YYY-TalentManagement_withoutlibs\Talent_Management\src" />
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
+      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\web" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.entity" />
       <recent name="com." />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\enterprise" />
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
-      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\web" />
-      <recent name="C:\Users\Connor\IdeaProjects\JavaEE\spring-prj1\src\cn\edu\zjut\po" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.311">
     <configuration name="SpringEnvTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -133,7 +142,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.311" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.311" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:80/Talent_Management/" />
+      <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
       <deployment>
         <artifact name="Talent_Management">
           <settings>
@@ -303,23 +312,25 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4cb975ad" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4cb975ad" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@101de852" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SpringBeansView">
@@ -336,15 +347,51 @@
       <option name="presentableId" value="Default" />
       <updated>1608794909491</updated>
       <workItem from="1608794912088" duration="91000" />
+      <workItem from="1609390044859" duration="7749000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/小坏坏/Documents/GitHub/YYY-TalentManagement_withoutlibs/Talent_Management/lib/log4j" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -356,17 +403,119 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608795010237">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="279" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609389931913">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="223" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1608795010237" />
+    <state x="279" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609389931913" />
+    <state x="721" y="163" key="#com.intellij.ide.util.MemberChooser" timestamp="1609390458998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="163" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609390458998" />
+    <state x="628" y="251" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1609390927841">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="628" y="251" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609390927841" />
     <state x="436" y="114" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1608794976122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="436" y="114" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1608794976122" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1608795000899">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1609389571695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609389571695" />
+    <state width="1318" height="327" key="GridCell.Tab.0.bottom" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.0.center" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.0.left" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.0.right" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.1.bottom" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.1.center" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.1.left" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.1.right" timestamp="1609397801173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801173" />
+    <state width="1318" height="327" key="GridCell.Tab.2.bottom" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.2.center" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.2.left" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.2.right" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.3.bottom" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.3.center" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.3.left" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state width="1318" height="327" key="GridCell.Tab.3.right" timestamp="1609397801174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1318" height="327" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609397801174" />
+    <state x="151" y="0" key="SettingsEditor" timestamp="1609388489738">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1608795000899" />
+    <state x="151" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609388489738" />
+    <state x="408" y="199" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1609395752599">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="408" y="199" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1609395752599" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1609396587166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609396587166" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/service/EnterpriseService.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/service/UserService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

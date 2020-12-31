@@ -6,7 +6,6 @@
 
 <struts>
     <package name="strutsBean" extends="struts-default" namespace="/">
-
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
         <action name="login" class="talentAction" method="login">
             <result name="loginsuccess">/basic/talentInfo.jsp</result>
@@ -23,6 +22,23 @@
         <action name="TalentDelete" class="talentAction" method="delete">
             <result name="deletesuccess">/basic/login.jsp</result>
             <result name="deletefail">/basic/CURDFail.jsp</result>
+        </action>
+
+        <action name="enterpriseLogin" class="enterpriseAction" method="login">
+            <result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>
+            <result name="loginfail">/enterprise/enterpriseLogin.jsp</result>
+        </action>
+        <action name="enterpriseRegister" class="enterpriseAction" method="register">
+            <result name="registersuccess">/enterprise/enterpriseLogin.jsp</result>
+            <result name="registerfail">/enterprise/enterpriseRegister.jsp</result>
+        </action>
+        <action name="enterpriseUpdate" class="enterpriseAction" method="update">
+            <result name="updatesuccess">/enterprise/enterpriseMessage.jsp</result>
+            <result name="updatefail">/enterprise/CURDFail.jsp</result>
+        </action>
+        <action name="enterpriseDelete" class="enterpriseAction" method="delete">
+            <result name="deletesuccess">/enterprise/enterpriseMessage.jsp</result>
+            <result name="deletefail">/enterprise/CURDFail.jsp</result>
         </action>
 
     </package>

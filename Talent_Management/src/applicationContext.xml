@@ -9,8 +9,6 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--<context:component-scan base-package="com" />-->
-
-
     <!--注入数据源配置信息-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -91,5 +89,14 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="userService" ref="userService"/>
     </bean>
 
+    <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
+
+    <bean id="enterpriseService" class="com.service.EnterpriseService">
+        <property name="enterpriseDAO" ref="enterpriseDAO"/>
+    </bean>
+
+    <bean id="enterpriseAction" class="com.action.EnterpriseAction" scope="prototype">
+        <property name="enterpriseService" ref="enterpriseService"/>
+    </bean>
 
 </beans>
