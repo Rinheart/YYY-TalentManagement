@@ -31,7 +31,7 @@ public class TalentService implements ITalentService {
         talentDAO.save(talent);
         return true;
     }
-    public boolean login(Talent talent) {
+    public List login(Talent talent) {
         /*待问，直接访问ctx，写到三大对象中给前端访问吗？还有无访问方法
         * */
         /*ActionContext ctx = ActionContext.getContext();
@@ -43,18 +43,19 @@ public class TalentService implements ITalentService {
 
         List list = talentDAO.findByHql(hql);
 
-        if (list.isEmpty()){
-            /*request.put("tip", "密码不正确，请重新登录");
-            System.out.println("登录查找为空!");*/
-            return false;
-        }
-        else {
-            /*session.put("user", account);
-            request.put("tip", "登录成功！");
-            talent = (Talent) list.get(0);
-            request.put("talent", talent);*/
-            return true;
-        }
+//        if (list.isEmpty()){
+//            request.put("tip", "密码不正确，请重新登录");
+//            System.out.println("登录查找为空!");
+//            return false;
+//        }
+//        else {
+//            session.put("user", account);
+//            request.put("tip", "登录成功！");
+//            talent = (Talent) list.get(0);
+//            request.put("talent", talent);
+//            return true;
+//        }
+        return list;
     }
     public boolean update(Talent talent){
         /*待写入逻辑*/
