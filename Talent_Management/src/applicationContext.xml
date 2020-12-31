@@ -9,12 +9,10 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--<context:component-scan base-package="com" />-->
-
-
     <!--注入数据源配置信息-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT%2b8"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=Asia/Shanghai"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -26,7 +24,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/talent_management?
+                    serverTimezone=GMT&amp;useSSL=false</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
                 <!--自动提交-->
                 <!--<prop key="connection.autocommit">true</prop>-->
@@ -35,22 +34,22 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="mappingResources">
             <list>
                 <value>com/entity/Talent.hbm.xml</value>
-                <value>classpath:com/entity/Enterprise.hbm.xml</value>
-                <value>classpath:com/entity/Achievement.hbm.xml</value>
-                <value>classpath:com/entity/Attend.hbm.xml</value>
-                <value>classpath:com/entity/BigEvent.hbm.xml</value>
-                <value>classpath:com/entity/Department.hbm.xml</value>
-                <value>classpath:com/entity/Disciplinary.hbm.xml</value>
-                <value>classpath:com/entity/EmployApplicate.hbm.xml</value>
-                <value>classpath:com/entity/EnterpriseUdit.hbm.xml</value>
-                <value>classpath:com/entity/Evaluate.hbm.xml</value>
-                <value>classpath:com/entity/Interview.hbm.xml</value>
-                <value>classpath:com/entity/Recruit.hbm.xml</value>
-                <value>classpath:com/entity/ResignApplicate.hbm.xml</value>
-                <value>classpath:com/entity/Resume.hbm.xml</value>
-                <value>classpath:com/entity/Reward.hbm.xml</value>
-                <value>classpath:com/entity/TalentUdit.hbm.xml</value>
-                <value>classpath:com/entity/WorkExperience.hbm.xml</value>
+                <value>com/entity/Enterprise.hbm.xml</value>
+                <value>com/entity/Achievement.hbm.xml</value>
+                <value>com/entity/Attend.hbm.xml</value>
+                <value>com/entity/BigEvent.hbm.xml</value>
+                <value>com/entity/Department.hbm.xml</value>
+                <value>com/entity/Disciplinary.hbm.xml</value>
+                <value>com/entity/EmployApplicate.hbm.xml</value>
+                <value>com/entity/EnterpriseUdit.hbm.xml</value>
+                <value>com/entity/Evaluate.hbm.xml</value>
+                <value>com/entity/Interview.hbm.xml</value>
+                <value>com/entity/Recruit.hbm.xml</value>
+                <value>com/entity/ResignApplicate.hbm.xml</value>
+                <value>com/entity/Resume.hbm.xml</value>
+                <value>com/entity/Reward.hbm.xml</value>
+                <value>com/entity/TalentUdit.hbm.xml</value>
+                <value>com/entity/WorkExperience.hbm.xml</value>
                 <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
@@ -91,5 +90,14 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="userService" ref="userService"/>
     </bean>
 
+    <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
+
+    <bean id="enterpriseService" class="com.service.EnterpriseService">
+        <property name="enterpriseDAO" ref="enterpriseDAO"/>
+    </bean>
+
+    <bean id="enterpriseAction" class="com.action.EnterpriseAction" scope="prototype">
+        <property name="enterpriseService" ref="enterpriseService"/>
+    </bean>
 
 </beans>
