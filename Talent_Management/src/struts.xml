@@ -8,8 +8,10 @@
     <package name="strutsBean" extends="struts-default" namespace="/">
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
         <action name="login" class="talentAction" method="login">
-            <result name="loginsuccess">/basic/talentInfo.jsp</result>
-            <result name="loginfail">/basic/login.jsp</result>
+            <result name="loginTalent">/basic/talentInfo.jsp</result>
+            <result name="loginHR">/basic/HRInfo.jsp</result>
+            <result name="loginHead">/basic/HeadInfo.jsp</result>
+            <result name="loginFail">/basic/login.jsp</result>
         </action>
         <action name="register" class="talentAction" method="register">
             <result name="registersuccess">/basic/regSuccess.jsp</result>

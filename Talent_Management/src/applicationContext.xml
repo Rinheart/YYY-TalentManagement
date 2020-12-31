@@ -81,12 +81,12 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="talentDAO" class="com.dao.TalentDAO" parent="baseDAO"/>
 
-    <bean id="userService" class="com.service.TalentService">
+    <bean id="talentService" class="com.service.TalentService">
         <property name="talentDAO" ref="talentDAO"/>
     </bean>
 
     <bean id="talentAction" class="com.action.TalentAction" scope="prototype">
-        <property name="userService" ref="userService"/>
+        <property name="talentService" ref="talentService"/>
     </bean>
 
     <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
