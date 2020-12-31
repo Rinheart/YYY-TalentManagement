@@ -18,6 +18,7 @@ public class TalentDAO
         try {
             session = getSession();
             tran = session.beginTransaction();
+
             session.save(transientInstance);
             session.flush();
             System.out.println("正在保存:\n"+transientInstance.toString());
@@ -54,5 +55,27 @@ public class TalentDAO
             }
         }
         return list;
+    }
+
+    public void update(Talent transientInstance) {
+        Transaction tran = null;
+        Session session = null;
+
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+
+            session.update(transientInstance);
+            session.flush();
+            System.out.println("正在更新:\n"+transientInstance.toString());
+            tran.commit();
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            if(session!=null){
+                session.close();
+            }
+        }
     }
 }

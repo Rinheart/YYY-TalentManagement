@@ -8,11 +8,11 @@ import java.util.List;
 *
 * */
 
-public class UserService implements IUserService {
+public class TalentService implements ITalentService {
 
     private ITalentDAO talentDAO = null;
 
-    public UserService() {
+    public TalentService() {
         System.out.println("create UserService.");
     }
 
@@ -21,13 +21,18 @@ public class UserService implements IUserService {
     }
 
     public boolean register(Talent talent) {
-        /*待写入逻辑*/
+        String talentId = talent.getTalentId();
+        String hql = "from Talent as talent where TalentId='" + talentId + "'";
+        List list = talentDAO.findByHql(hql);
+        if (!list.isEmpty()){
+            return false;
+        }
+        talent.setInformationReview(true);
+        talentDAO.save(talent);
         return true;
     }
     public boolean login(Talent talent) {
         /*待问，直接访问ctx，写到三大对象中给前端访问吗？还有无访问方法
-        *
-        *
         * */
         /*ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
