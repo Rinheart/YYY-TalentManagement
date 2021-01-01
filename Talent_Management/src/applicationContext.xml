@@ -14,7 +14,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT%2b8&amp;useSSL=false"/>
         <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="password" value="LYHwz13506657764"/>
     </bean>
     <!--注入SessionFactory实例配置信息-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -26,6 +26,10 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 </prop>
                 <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT&amp;useSSL=false</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
+                <!--控制台打印HQL语句和SQL语句-->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.use_sql_comments">true</prop>
                 <!--自动提交-->
                 <!--<prop key="connection.autocommit">true</prop>-->
             </props>
@@ -49,6 +53,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com/entity/Reward.hbm.xml</value>
                 <value>com/entity/TalentUdit.hbm.xml</value>
                 <value>com/entity/WorkExperience.hbm.xml</value>
+                <value>com/entity/v_WorkExperience.hbm.xml</value>
                 <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
@@ -71,6 +76,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com.entity.Reward</value>
                 <value>com.entity.TalentUdit</value>
                 <value>com.entity.WorkExperience</value>
+                <value>com.entity.v_WorkExperience</value>
             </list>
         </property>
     </bean>

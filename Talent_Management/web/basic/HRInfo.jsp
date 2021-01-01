@@ -5,10 +5,7 @@
     <title>HR登录成功</title>
 </head>
 <body>
-登录成功,欢迎您!
-<br>
-<a href="./allItems">查看所有商品详情信息</a>
-<br>
+登录成功,欢迎您!<br>
 <br>
 request tip:
 <s:property value="#request.tip"/><p>
@@ -28,7 +25,9 @@ request tip:
                   value="%{#request.loginUser.customerId}"/>
         <s:submit value="删除"/>
     </s:form>
-
-
+    <br>
+    <h3>员工管理</h3>
+    <a href="HRWorkExperience.action">查看员工工作信息</a><br>
+    <a href="">查看员工评价信息</a>
 </body>
 </html>

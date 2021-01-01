@@ -1,7 +1,12 @@
 package com.action;
 
 import com.entity.Talent;
+import com.entity.v_WorkExperience;
 import com.service.ITalentService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 * UserAction为人才进行的系列操作
 *
@@ -9,6 +14,7 @@ import com.service.ITalentService;
 public class TalentAction {
     private Talent talent;
     private ITalentService talentService;
+    List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
 
     public Talent getTalent() {
         return talent;
@@ -26,25 +32,23 @@ public class TalentAction {
         this.talentService = talentService;
     }
 
+    public List<v_WorkExperience> getHRworkExperiences() {
+        return HRworkExperiences;
+    }
+
     public String login() {
         if(talentService.login(talent).size()!=0) {
             talent=(Talent) talentService.login(talent).get(0);
-            System.out.println("aow:"+talent.getIdentity());
             if (talent.getIdentity()==0 || talent.getIdentity()==1) {
-                System.out.println("0/1");
                 return "loginTalent";
             }else if (talent.getIdentity()==2){
-                System.out.println("2");
                 return "loginHR";
             }else if (talent.getIdentity()==3){
-                System.out.println("3");
                 return "loginHead";
             }else {
-                System.out.println(">3");
                 return "loginFail";
             }
         }else {
-            System.out.println("Fail!!!");
             return "loginFail";
         }
     }
@@ -73,5 +77,12 @@ public class TalentAction {
     public String info() {
         return "";
     }
-
+    //HR查看员工工作信息
+    public String HRWorkExperience() {
+        List list=talentService.HRWorkExperience();
+        for (int i=0; i<list.size(); i++) {
+            HRworkExperiences.add((v_WorkExperience)list.get(i));
+        }
+        return "success";
+    }
 }

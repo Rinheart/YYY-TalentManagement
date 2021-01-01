@@ -10,4 +10,5 @@ public interface ITalentService {
     public List login(Talent talent);
     public boolean update(Talent talent);
     public boolean delete(Talent talent);
+    public List HRWorkExperience();
 }

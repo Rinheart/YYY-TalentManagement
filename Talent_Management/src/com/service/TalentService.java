@@ -65,4 +65,9 @@ public class TalentService implements ITalentService {
         /*待写入逻辑*/
         return true;
     }
+    //HR查看员工工作信息
+    public List HRWorkExperience() {
+        String hql = "from v_WorkExperience";
+        return talentDAO.findByHql(hql);
+    }
 }

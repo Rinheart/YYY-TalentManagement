@@ -42,6 +42,9 @@
             <result name="deletesuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="deletefail">/enterprise/CURDFail.jsp</result>
         </action>
+        <action name="HR*" class="talentAction" method="HR{1}">
+            <result name="success">/HR/HR{1}.jsp</result>
+        </action>
 
     </package>
 </struts>
