@@ -1,5 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<%--部门主管弃用--%>
 <html>
 <head>
     <title>部门主管登录成功</title>

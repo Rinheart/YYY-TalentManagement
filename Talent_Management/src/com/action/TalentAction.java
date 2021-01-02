@@ -15,6 +15,7 @@ public class TalentAction {
     private Talent talent;
     private ITalentService talentService;
     List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
+    
 
     public Talent getTalent() {
         return talent;
@@ -34,6 +35,10 @@ public class TalentAction {
 
     public List<v_WorkExperience> getHRworkExperiences() {
         return HRworkExperiences;
+    }
+
+    public void setHRworkExperiences(List<v_WorkExperience> HRworkExperiences) {
+        this.HRworkExperiences = HRworkExperiences;
     }
 
     public String login() {
@@ -74,9 +79,12 @@ public class TalentAction {
         return "deletefail";
     }
 
+    /*待补充员工查看自己工作信息*/
     public String info() {
         return "";
     }
+
+
     //HR查看员工工作信息
     public String HRWorkExperience() {
         List list=talentService.HRWorkExperience();

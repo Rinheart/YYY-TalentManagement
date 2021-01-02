@@ -32,8 +32,6 @@ public class TalentService implements ITalentService {
         return true;
     }
     public List login(Talent talent) {
-        /*待问，直接访问ctx，写到三大对象中给前端访问吗？还有无访问方法
-        * */
         /*ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");*/
@@ -42,6 +40,7 @@ public class TalentService implements ITalentService {
         String hql = "from Talent as talent where TalentId='" + talentId + "' and password='" + password + "'";
 
         List list = talentDAO.findByHql(hql);
+
 
 //        if (list.isEmpty()){
 //            request.put("tip", "密码不正确，请重新登录");
