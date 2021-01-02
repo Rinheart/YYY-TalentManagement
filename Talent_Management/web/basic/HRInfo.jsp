@@ -27,6 +27,7 @@ request tip:
     </s:form>
     <br>
     <h3>员工管理</h3>
-    <a href="HRWorkExperience.action">查看员工信息</a><br>
+    <a href="HRWorkExperience.action">查看员工工作信息</a><br>
+    <a href="">查看员工评价信息</a>
 </body>
 </html>

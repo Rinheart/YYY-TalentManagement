@@ -17,7 +17,7 @@
 <body>
 <h4>员工工作信息</h4>
 <table border=1>
-    <tr> <th>用户名</th> <th>姓名</th> <th>企业ID</th> <th>企业名称</th> <th>部门</th> <th>入职日期</th> <th>既往评价</th> </tr>
+    <tr> <th>用户名</th> <th>姓名</th> <th>企业ID</th> <th>企业名称</th> <th>部门</th> <th>入职日期</th> <th>离职日期</th> </tr>
     <s:iterator value="HRworkExperiences" id="object">
         <tr>
             <td><s:property value="#object.talentId"/></td>
@@ -26,23 +26,7 @@
             <td><s:property value="#object.enterpriseName"/></td>
             <td><s:property value="#object.departmentName"/></td>
             <td><s:property value="#object.startTime"/></td>
-            <td><a href="">查看</a></td>
-        </tr>
-    </s:iterator>
-</table>
-<br>
-<h4>过往员工工作信息</h4>
-<table border=1>
-    <tr> <th>用户名</th> <th>姓名</th> <th>企业ID</th> <th>企业名称</th> <th>部门</th> <th>入职日期</th> <th>既往评价</th> </tr>
-    <s:iterator value="HRworkedExperiences" id="object">
-        <tr>
-            <td><s:property value="#object.talentId"/></td>
-            <td><s:property value="#object.name"/></td>
-            <td><s:property value="#object.enterpriseId"/></td>
-            <td><s:property value="#object.enterpriseName"/></td>
-            <td><s:property value="#object.departmentName"/></td>
-            <td><s:property value="#object.startTime"/></td>
-            <td><a href="">查看</a></td>
+            <td><s:property value="#object.endTime"/></td>
         </tr>
     </s:iterator>
 </table>

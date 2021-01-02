@@ -49,6 +49,5 @@
     <orderEntry type="library" name="MySQLconnector" level="project" />
     <orderEntry type="library" name="Spring" level="project" />
     <orderEntry type="library" name="Struts2" level="project" />
-    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
