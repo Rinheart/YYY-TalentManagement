@@ -17,7 +17,7 @@
   </p>
   <p>
     <a href="basic/register.jsp">注册页面</a>
-    <a href="enterprise/">企业注册页面</a>
+    <a href="enterprise/enterpriseRegister.jsp">企业注册页面</a>
   </p>
   </body>
 </html>

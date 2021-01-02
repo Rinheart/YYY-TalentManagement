@@ -43,11 +43,4 @@ public class EnterpriseAction {
         }
         return "updatefail";
     }
-
-    public String delete() {
-        if (enterpriseService.delete(enterprise)) {
-            return "deletesuccess";
-        }
-        return "deletefail";
-    }
 }
