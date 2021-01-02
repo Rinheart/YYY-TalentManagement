@@ -34,7 +34,7 @@ request tip:
         <s:submit value="修改"/>
     </s:form>
     <s:form action="TalentDelete" method="post">
-        <s:hidden name="talent.talentId" value="%{talent.customerId}"/>
+        <s:hidden name="talent.talentId" value="%{#request.talent.customerId}"/>
         <s:submit value="删除"/>
     </s:form>
 
