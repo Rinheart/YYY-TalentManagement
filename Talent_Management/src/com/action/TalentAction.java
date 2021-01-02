@@ -2,10 +2,15 @@ package com.action;
 
 import com.entity.Talent;
 import com.entity.v_WorkExperience;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ModelDriven;
 import com.service.ITalentService;
+import javafx.application.Application;
+import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /*
 * UserAction为人才进行的系列操作
@@ -44,6 +49,9 @@ public class TalentAction {
     public String login() {
         if(talentService.login(talent)){
             talent=talentService.getFullTalent(talent);
+
+            //Map tmp = (Map)ActionContext.getContext().getValueStack();
+
             if (talent.getIdentity()==0 || talent.getIdentity()==1) {
                 return "loginTalent";
             }else if (talent.getIdentity()==2){
@@ -95,4 +103,5 @@ public class TalentAction {
         }
         return "success";
     }
+
 }
