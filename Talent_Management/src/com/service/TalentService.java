@@ -1,9 +1,12 @@
 package com.service;
 import com.dao.ITalentDAO;
 import com.entity.Talent;
+import com.entity.v_WorkExperience;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 /*
@@ -80,9 +83,51 @@ public class TalentService implements ITalentService {
         return true;
     }
 
-    //HR查看员工工作信息
-    public List HRWorkExperience() {
-        String hql = "from v_WorkExperience";
-        return talentDAO.findByHql(hql);
+    //查看当前登录的用户的工作经历信息
+    public v_WorkExperience MyWorkExperience(Talent talent) {
+        String hql = "from v_WorkExperience where talentId='"+talent.getTalentId()+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_WorkExperience> work=new ArrayList<v_WorkExperience>();
+        Date date = new Date();
+        for (int i=0; i<list.size(); i++) {
+            v_WorkExperience experience=(v_WorkExperience) list.get(i);
+            if(experience.getEndTime()== null && experience.getStartTime().compareTo(date)<=0) {
+                work.add(experience);
+            }
+        }
+        if (work.size()>1) {
+            System.out.println("你不讲工德，同时在两家企业工作！");
+        }else if (work.size()==0) {
+            System.out.println("hhh太惨了，你竟然没有工作！");
+        }
+        return work.get(0);
+    }
+    //HR查看本公司员工工作信息
+    public List HRWorkExperience(String enterpriseId) {
+        String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
+        Date date = new Date();
+        for (int i=0; i<list.size(); i++) {
+            v_WorkExperience experience = (v_WorkExperience) list.get(i);
+            if (experience.getEndTime() == null && experience.getStartTime().compareTo(date) <= 0) {
+                relist.add(experience);
+            }
+        }
+        return relist;
+    }
+    //HR查看本公司过去的员工工作信息
+    public List HRWorkedExperience(String enterpriseId) {
+        String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
+        Date date = new Date();
+        for (int i=0; i<list.size(); i++) {
+            v_WorkExperience experience = (v_WorkExperience) list.get(i);
+            if (experience.getEndTime() != null) {
+                relist.add(experience);
+            }
+        }
+        return relist;
     }
 }

@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.util.Date;
+
 public class v_WorkExperience {
     private int workExperienceId;
     private String talentId;
@@ -8,8 +10,8 @@ public class v_WorkExperience {
     private String enterpriseName;
     private String departmentId;
     private String departmentName;
-    private String startTime;
-    private String endTime;
+    private Date startTime;
+    private Date endTime;
 
     public int getWorkExperienceId() {
         return workExperienceId;
@@ -67,19 +69,19 @@ public class v_WorkExperience {
         this.departmentName = departmentName;
     }
 
-    public String getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 }
