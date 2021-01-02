@@ -15,7 +15,7 @@ public class TalentAction {
     private Talent talent;
     private ITalentService talentService;
     List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
-    
+
 
     public Talent getTalent() {
         return talent;
@@ -42,8 +42,8 @@ public class TalentAction {
     }
 
     public String login() {
-        if(talentService.login(talent).size()!=0) {
-            talent=(Talent) talentService.login(talent).get(0);
+        if(talentService.login(talent)){
+            talent=talentService.getFullTalent(talent);
             if (talent.getIdentity()==0 || talent.getIdentity()==1) {
                 return "loginTalent";
             }else if (talent.getIdentity()==2){
@@ -53,9 +53,11 @@ public class TalentAction {
             }else {
                 return "loginFail";
             }
-        }else {
+        }
+        else {
             return "loginFail";
         }
+
     }
 
     public String register() {

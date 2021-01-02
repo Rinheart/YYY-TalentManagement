@@ -6,6 +6,8 @@
 </head>
 <body>
 登录成功,欢迎您!
+<s:property value="talent.talentId" />
+
 <br>
 <a href="./allItems">查看所有商品详情信息</a>
 <br>
@@ -17,15 +19,14 @@ request tip:
 <p>
     <s:form action="TalentUpdate" method="post">
         <s:textfield name="talent.talentId" label="用户名不能修改"
-                     value="%{#request.loginUser.account}" readonly="true"/>
+                     value="%{#request.talent.account}" readonly="true"/>
         <s:textfield type="password" name="talent.password"
-                     label="修改密码" value="%{#request.loginUser.password}"/>
+                     label="修改密码" value="%{#request.talent.password}"/>
     <!-- 省略其它表单域 -->
         <s:submit value="修改"/>
     </s:form>
     <s:form action="TalentDelete" method="post">
-        <s:hidden name="loginUser.customerId"
-                  value="%{#request.loginUser.customerId}"/>
+        <s:hidden name="talent.talentId" value="%{#request.talent.customerId}"/>
         <s:submit value="删除"/>
     </s:form>
 
