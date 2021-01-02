@@ -2,10 +2,15 @@ package com.action;
 
 import com.entity.Talent;
 import com.entity.v_WorkExperience;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ModelDriven;
 import com.service.ITalentService;
+import javafx.application.Application;
+import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /*
 * UserAction为人才进行的系列操作
@@ -15,6 +20,7 @@ public class TalentAction {
     private Talent talent;
     private ITalentService talentService;
     List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
+
 
     public Talent getTalent() {
         return talent;
@@ -36,9 +42,16 @@ public class TalentAction {
         return HRworkExperiences;
     }
 
+    public void setHRworkExperiences(List<v_WorkExperience> HRworkExperiences) {
+        this.HRworkExperiences = HRworkExperiences;
+    }
+
     public String login() {
-        if(talentService.login(talent).size()!=0) {
-            talent=(Talent) talentService.login(talent).get(0);
+        if(talentService.login(talent)){
+            talent=talentService.getFullTalent(talent);
+
+            //Map tmp = (Map)ActionContext.getContext().getValueStack();
+
             if (talent.getIdentity()==0 || talent.getIdentity()==1) {
                 return "loginTalent";
             }else if (talent.getIdentity()==2){
@@ -48,9 +61,11 @@ public class TalentAction {
             }else {
                 return "loginFail";
             }
-        }else {
+        }
+        else {
             return "loginFail";
         }
+
     }
 
     public String register() {
@@ -74,9 +89,12 @@ public class TalentAction {
         return "deletefail";
     }
 
+    /*待补充员工查看自己工作信息*/
     public String info() {
         return "";
     }
+
+
     //HR查看员工工作信息
     public String HRWorkExperience() {
         List list=talentService.HRWorkExperience();
@@ -85,4 +103,5 @@ public class TalentAction {
         }
         return "success";
     }
+
 }

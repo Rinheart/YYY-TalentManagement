@@ -8,7 +8,7 @@
     <package name="strutsBean" extends="struts-default" namespace="/">
         <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
         <action name="login" class="talentAction" method="login">
-            <result name="loginTalent">/basic/talentInfo.jsp</result>
+            <result name="loginTalent">/basic/TalentInfo.jsp</result>
             <result name="loginHR">/basic/HRInfo.jsp</result>
             <result name="loginHead">/basic/HeadInfo.jsp</result>
             <result name="loginFail">/basic/login.jsp</result>
@@ -26,6 +26,7 @@
             <result name="deletefail">/basic/CURDFail.jsp</result>
         </action>
 
+
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
             <result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="loginfail">/enterprise/enterpriseLogin.jsp</result>
@@ -42,6 +43,9 @@
             <result name="deletesuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="deletefail">/enterprise/CURDFail.jsp</result>
         </action>
+
+
+
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
         </action>

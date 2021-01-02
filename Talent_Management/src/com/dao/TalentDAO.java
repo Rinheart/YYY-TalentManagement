@@ -7,9 +7,7 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 
-public class TalentDAO
-        extends BaseHibernateDAO
-        implements ITalentDAO {
+public class TalentDAO extends BaseHibernateDAO implements ITalentDAO {
 
     public void save(Talent transientInstance) {
         Transaction tran = null;
@@ -35,27 +33,8 @@ public class TalentDAO
 
 
     /*是否在hibernate配置文件加入自动提交，实验书p67*/
-    public List findByHql(String hql){
-        Transaction tran=null;
-        Session session=getSession();//直接getSession()，否则报空指针错误
-        List list=null;
-        try{
-            tran=session.beginTransaction();
-            Query query=session.createQuery(hql);
-            list=query.list();
-            tran.commit();
-        }
-        catch (RuntimeException re){
-            if(tran != null) tran.rollback();
-            throw re;
-        }
-        finally{
-            if(session!=null){
-                session.close();
-            }
-        }
-        return list;
-    }
+    /*无覆写，直接用父类的findHql*/
+    /*public List findByHql(String hql){}*/
 
     public void update(Talent transientInstance) {
         Transaction tran = null;

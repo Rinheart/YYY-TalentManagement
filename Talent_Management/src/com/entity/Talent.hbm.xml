@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.entity.Talent" table="talent" schema="talent_management">
+    <class name="com.entity.Talent" table="talent" schema="talent_management" dynamic-update="true">
         <id name="talentId" column="TalentID"/>
         <property name="password" column="Password"/>
         <property name="name" column="Name"/>
