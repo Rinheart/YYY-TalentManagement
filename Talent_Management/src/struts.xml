@@ -5,10 +5,21 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <!--设置开发者模式为false，出错信息前端不显示-->
+    <constant name="struts.devMode" value="false" />
+
     <package name="strutsBean" extends="struts-default" namespace="/">
-        <!--此处要全换成spring形式，是否研究一下注解，会简化很多-->
+
+        <global-results>
+            <result name="exception-error">/error/exception.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="exception-error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+
+        <!--待使用多配置文件-->
         <action name="login" class="talentAction" method="login">
-            <result name="loginTalent">/basic/talentInfo.jsp</result>
+            <result name="loginTalent">/basic/TalentInfo.jsp</result>
             <result name="loginHR">/basic/HRInfo.jsp</result>
             <result name="loginHead">/basic/HeadInfo.jsp</result>
             <result name="loginFail">/basic/login.jsp</result>
@@ -21,10 +32,7 @@
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
-        <action name="TalentDelete" class="talentAction" method="delete">
-            <result name="deletesuccess">/basic/login.jsp</result>
-            <result name="deletefail">/basic/CURDFail.jsp</result>
-        </action>
+
 
 
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
@@ -43,7 +51,6 @@
             <result name="deletesuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="deletefail">/enterprise/CURDFail.jsp</result>
         </action>
-
 
 
         <action name="HR*" class="talentAction" method="HR{1}">

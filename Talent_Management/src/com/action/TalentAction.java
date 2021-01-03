@@ -120,18 +120,28 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     }
 
     public String update() {
+        /*前端传入不能为修改后的用户名
+        * 以下set的值全是默认不改的
+        * */
+        Talent oldTalent = talentService.getFullTalent(talent);
+        talent.setName(oldTalent.getName());
+        talent.setSex(oldTalent.getSex());
+        talent.setIdNumber(oldTalent.getIdNumber());
+        talent.setBirthday(oldTalent.getBirthday());
+        talent.setInformationReview(oldTalent.isInformationReview());
+        talent.setIdentity(oldTalent.getIdentity());
         if (talentService.update(talent)) {
             return "updatesuccess";
         }
         return "updatefail";
     }
 
-    public String delete() {
+    /*public String delete() {
         if (talentService.delete(talent)) {
             return "deletesuccess";
         }
         return "deletefail";
-    }
+    }*/
 
     /*待补充员工查看自己工作信息*/
     public String info() {

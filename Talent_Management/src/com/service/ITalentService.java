@@ -13,7 +13,6 @@ public interface ITalentService {
     Talent getFullTalent(Talent talent);
 
     boolean update(Talent talent);
-    boolean delete(Talent talent);
     public v_WorkExperience MyWorkExperience(Talent talent);
     public List HRWorkExperience(String enterpriseId);
     public List HRWorkedExperience(String enterpriseId);

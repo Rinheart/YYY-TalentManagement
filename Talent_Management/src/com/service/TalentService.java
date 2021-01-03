@@ -78,10 +78,6 @@ public class TalentService implements ITalentService {
         return true;
     }
 
-    public boolean delete(Talent talent){
-        /*不写delete*/
-        return true;
-    }
 
     //查看当前登录的用户的工作经历信息
     public v_WorkExperience MyWorkExperience(Talent talent) {
@@ -99,6 +95,12 @@ public class TalentService implements ITalentService {
             System.out.println("你不讲工德，同时在两家企业工作！");
         }else if (work.size()==0) {
             System.out.println("hhh太惨了，你竟然没有工作！");
+        }
+
+        if(work.isEmpty()){
+            Map request = (Map) ActionContext.getContext().get("request");
+            request.put("tip","查询当前登录的用户的工作经历信息有误");
+            return null;
         }
         return work.get(0);
     }
