@@ -40,45 +40,34 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     public Talent getTalent() {
         return talent;
     }
-
     public void setTalent(Talent talent) {
         this.talent = talent;
     }
-
     public v_WorkExperience getWorkExperience() {
         return workExperience;
     }
-
     public void setWorkExperience(v_WorkExperience workExperience) {
         this.workExperience = workExperience;
     }
-
     public ITalentService getTalentService() {
         return talentService;
     }
-
     public void setTalentService(ITalentService talentService) {
         this.talentService = talentService;
     }
-
     public List<v_WorkExperience> getHRworkExperiences() {
         return HRworkExperiences;
     }
-
     public void setHRworkExperiences(List<v_WorkExperience> HRworkExperiences) {
         this.HRworkExperiences = HRworkExperiences;
     }
-
     public List<v_WorkExperience> getHRworkedExperiences() {
         return HRworkedExperiences;
     }
-
     public void setServletRequest(HttpServletRequest request) {
-
         this.request=request;
     }
     public void setServletResponse(HttpServletResponse response) {
-
         this.response=response;
     }
     public void setServletContext(ServletContext application) {
@@ -91,7 +80,6 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
             talent=talentService.getFullTalent(talent);
             //把登录的用户加到session中以便让系统知道这是谁
             session.setAttribute("talent",talent);
-            //Map tmp = (Map)ActionContext.getContext().getValueStack();
             //登录时查询工作经历，获取当前工作信息
             workExperience=talentService.MyWorkExperience(talent);
             session.setAttribute("workExperience",workExperience);
@@ -119,6 +107,12 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
         return "registerfail";
     }
 
+    public String getUpdatePage(){
+        HttpSession session=request.getSession();
+        talent=(Talent) session.getAttribute("talent");
+        return "success";
+    }
+
     public String update() {
         /*前端传入不能为修改后的用户名
         * 以下set的值全是默认不改的
@@ -136,12 +130,6 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
         return "updatefail";
     }
 
-    /*public String delete() {
-        if (talentService.delete(talent)) {
-            return "deletesuccess";
-        }
-        return "deletefail";
-    }*/
 
     /*待补充员工查看自己工作信息*/
     public String info() {

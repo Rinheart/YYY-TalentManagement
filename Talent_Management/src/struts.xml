@@ -5,8 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <!--设置开发者模式为false，出错信息前端不显示-->
-    <constant name="struts.devMode" value="false" />
+    <!--设置开发者模式为false，出错信息不显示，最后发布时设为false-->
+    <constant name="struts.devMode" value="true" />
 
     <package name="strutsBean" extends="struts-default" namespace="/">
 
@@ -31,6 +31,9 @@
         <action name="TalentUpdate" class="talentAction" method="update">
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
+        </action>
+        <action name="updatePage" class="talentAction" method="getUpdatePage">
+            <result name="success">/basic/update.jsp</result>
         </action>
 
 

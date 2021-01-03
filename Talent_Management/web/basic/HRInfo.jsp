@@ -12,19 +12,8 @@ request tip:
     修改个人信息
 
 <p>
-    <s:form action="TalentUpdate" method="post">
-        <s:textfield name="talent.talentId" label="用户名不能修改"
-                     value="%{#request.loginUser.account}" readonly="true"/>
-        <s:textfield type="password" name="talent.password"
-                     label="修改密码" value="%{#request.loginUser.password}"/>
-    <!-- 省略其它表单域 -->
-        <s:submit value="修改"/>
-    </s:form>
-    <s:form action="TalentDelete" method="post">
-        <s:hidden name="loginUser.customerId"
-                  value="%{#request.loginUser.customerId}"/>
-        <s:submit value="删除"/>
-    </s:form>
+    <h3>员工管理</h3>
+    <a href="updatePage.action">修改个人信息</a>
     <br>
     <h3>员工管理</h3>
     <a href="HRWorkExperience.action">查看员工工作信息</a><br>
