@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.v_Disciplinary" table="v_disciplinary" schema="talent_management">
+        <id name="disciplinaryId" column="DisciplinaryID"/>
+        <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="talentId" column="TalentID"/>
+        <property name="name" column="Name"/>
+        <property name="enterpriseId" column="EnterpriseID"/>
+        <property name="enterpriseName" column="EnterpriseName"/>
+        <property name="departmentId" column="DepartmentID"/>
+        <property name="departmentName" column="DepartmentName"/>
+        <property name="content" column="Content"/>
+        <property name="date" column="Date"/>
+        <property name="recorder" column="Recorder"/>
+        <property name="recorderName" column="RecorderName"/>
+        <property name="recordTime" column="RecordTime"/>
+    </class>
+</hibernate-mapping>

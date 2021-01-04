@@ -55,6 +55,10 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com/entity/TalentUdit.hbm.xml</value>
                 <value>com/entity/WorkExperience.hbm.xml</value>
                 <value>com/entity/v_WorkExperience.hbm.xml</value>
+                <value>com/entity/v_Attend.hbm.xml</value>
+                <value>com/entity/v_Disciplinary.hbm.xml</value>
+                <value>com/entity/v_Reward.hbm.xml</value>
+                <value>com/entity/v_BigEvent.hbm.xml</value>
                 <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
@@ -78,6 +82,10 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com.entity.TalentUdit</value>
                 <value>com.entity.WorkExperience</value>
                 <value>com.entity.v_WorkExperience</value>
+                <value>com.entity.v_Attend</value>
+                <value>com.entity.v_Disciplinary</value>
+                <value>com.entity.v_Reward</value>
+                <value>com.entity.v_BigEvent</value>
             </list>
         </property>
     </bean>

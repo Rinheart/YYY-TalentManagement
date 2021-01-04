@@ -1,7 +1,6 @@
 package com.service;
 import com.dao.ITalentDAO;
-import com.entity.Talent;
-import com.entity.v_WorkExperience;
+import com.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -143,7 +142,7 @@ public class TalentService implements ITalentService {
         }
         return relist;
     }
-    //查看某人才的工作经历
+    //HR查看已离职人才的过去工作经历
     public List<v_WorkExperience> WorkedExperience(String talentId,String enterpriseId) {
         String hql = "from v_WorkExperience where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
         System.out.println(hql);
@@ -164,5 +163,93 @@ public class TalentService implements ITalentService {
             }
             return relist;
         }
+    }
+    //查看某人才的异常出勤记录
+    public List<v_Attend> WorkAttend(String talentId) {
+        String hql = "from v_Attend where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Attend> relist=new ArrayList<v_Attend>();
+        for (int i=0; i<list.size(); i++) {
+            v_Attend attend = (v_Attend) list.get(i);
+            relist.add(attend);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的异常出勤记录
+    public List<v_Attend> WorkedAttend(String talentId,String enterpriseId) {
+        String hql = "from v_Attend where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Attend> relist=new ArrayList<v_Attend>();
+        for (int i=0; i<list.size(); i++) {
+            v_Attend attend = (v_Attend) list.get(i);
+            relist.add(attend);
+        }
+        return relist;
+    }
+    //查看某人才的违纪记录
+    public List<v_Disciplinary> WorkDisciplinary(String talentId) {
+        String hql = "from v_Disciplinary where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Disciplinary> relist=new ArrayList<v_Disciplinary>();
+        for (int i=0; i<list.size(); i++) {
+            v_Disciplinary disciplinary = (v_Disciplinary) list.get(i);
+            relist.add(disciplinary);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的违纪记录
+    public List<v_Disciplinary> WorkedDisciplinary(String talentId,String enterpriseId) {
+        String hql = "from v_Disciplinary where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Disciplinary> relist=new ArrayList<v_Disciplinary>();
+        for (int i=0; i<list.size(); i++) {
+            v_Disciplinary attend = (v_Disciplinary) list.get(i);
+            relist.add(attend);
+        }
+        return relist;
+    }
+    //查看某人才的奖励记录
+    public List<v_Reward> WorkReward(String talentId) {
+        String hql = "from v_Reward where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Reward> relist=new ArrayList<v_Reward>();
+        for (int i=0; i<list.size(); i++) {
+            v_Reward reward = (v_Reward) list.get(i);
+            relist.add(reward);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的奖励记录
+    public List<v_Reward> WorkedReward(String talentId,String enterpriseId) {
+        String hql = "from v_Reward where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Reward> relist=new ArrayList<v_Reward>();
+        for (int i=0; i<list.size(); i++) {
+            v_Reward reward = (v_Reward) list.get(i);
+            relist.add(reward);
+        }
+        return relist;
+    }
+    //查看某人才的重大事件
+    public List<v_BigEvent> WorkBigEvent(String talentId) {
+        String hql = "from v_Reward where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_BigEvent> relist=new ArrayList<v_BigEvent>();
+        for (int i=0; i<list.size(); i++) {
+            v_BigEvent bigEvent = (v_BigEvent) list.get(i);
+            relist.add(bigEvent);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的重大事件
+    public List<v_BigEvent> WorkedBigEvent(String talentId,String enterpriseId) {
+        String hql = "from v_BigEvent where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_BigEvent> relist=new ArrayList<v_BigEvent>();
+        for (int i=0; i<list.size(); i++) {
+            v_BigEvent bigEvent = (v_BigEvent) list.get(i);
+            relist.add(bigEvent);
+        }
+        return relist;
     }
 }

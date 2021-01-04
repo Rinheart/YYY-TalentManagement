@@ -1,7 +1,6 @@
 package com.action;
 
-import com.entity.Talent;
-import com.entity.v_WorkExperience;
+import com.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -33,6 +32,10 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
     List<v_WorkExperience> HRworkedExperiences=new ArrayList<v_WorkExperience>();
     List<v_WorkExperience> workExperiences=new ArrayList<v_WorkExperience>();
+    List <v_Attend> attend=new ArrayList<v_Attend>();
+    List<v_Disciplinary> disciplinary=new ArrayList<v_Disciplinary>();
+    List<v_Reward> reward=new ArrayList<v_Reward>();
+    List<v_BigEvent> bigEvent=new ArrayList<v_BigEvent>();
 
     private ServletContext application;// Servlet上下文
     private HttpServletRequest request;// request对象
@@ -67,6 +70,18 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     }
     public List<v_WorkExperience> getWorkExperiences() {
         return workExperiences;
+    }
+    public List<v_Attend> getAttend() {
+        return attend;
+    }
+    public List<v_Disciplinary> getDisciplinary() {
+        return disciplinary;
+    }
+    public List<v_Reward> getReward() {
+        return reward;
+    }
+    public List<v_BigEvent> getBigEvent() {
+        return bigEvent;
     }
     public void setServletRequest(HttpServletRequest request) {
         this.request=request;
@@ -136,7 +151,11 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
 
 
     /*待补充员工查看自己工作信息
-    * 可以使用Service中的public List WorkExperience(String talentId)方法*/
+    * 可以使用Service中的public List WorkExperience(String talentId)方法查看工作经历
+    * public List<v_Attend> WorkAttend(String talentId)查看异常出勤
+    * public List<v_Disciplinary> WorkDisciplinary(String talentId)查看违纪记录
+    * public List<v_Reward> WorkReward(String talentId)查看奖励记录
+    * public List<v_BigEvent> WorkBigEvent(String talentId)查看重大事件*/
     public String info() {
         return "";
     }
@@ -145,7 +164,6 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     //HR查看员工工作信息
     public String HRWorkExperience() {
         HttpSession session=request.getSession();
-        talent=(Talent) session.getAttribute("talent");
         workExperience=(v_WorkExperience) session.getAttribute("workExperience");
         if (workExperience!=null) {
             HRworkExperiences=talentService.HRWorkExperience(workExperience.getEnterpriseId());
@@ -164,6 +182,26 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
         String talentId=request.getParameter("talentId");
         String enterpriseId=request.getParameter("enterpriseId");
         workExperiences=talentService.WorkedExperience(talentId,enterpriseId);
+        return "success";
+    }
+    //HR查看某员工的工作表现
+    public String HRWorkPerformance() {
+        String talentId=request.getParameter("talentId");
+        attend=talentService.WorkAttend(talentId);
+        disciplinary=talentService.WorkDisciplinary(talentId);
+        reward=talentService.WorkReward(talentId);
+        bigEvent=talentService.WorkBigEvent(talentId);
+        return "success";
+    }
+    //HR查看已离职某员工在职期间工作表现
+    public String HRWorkedPerformance() {
+        HttpSession session=request.getSession();
+        workExperience=(v_WorkExperience) session.getAttribute("workExperience");
+        String talentId=request.getParameter("talentId");
+        attend=talentService.WorkedAttend(talentId,workExperience.getEnterpriseId());
+        disciplinary=talentService.WorkedDisciplinary(talentId,workExperience.getEnterpriseId());
+        reward=talentService.WorkedReward(talentId,workExperience.getEnterpriseId());
+        bigEvent=talentService.WorkedBigEvent(talentId,workExperience.getEnterpriseId());
         return "success";
     }
 }
