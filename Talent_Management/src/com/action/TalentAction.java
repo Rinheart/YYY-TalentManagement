@@ -32,6 +32,7 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     private ITalentService talentService;
     List<v_WorkExperience> HRworkExperiences=new ArrayList<v_WorkExperience>();
     List<v_WorkExperience> HRworkedExperiences=new ArrayList<v_WorkExperience>();
+    List<v_WorkExperience> workExperiences=new ArrayList<v_WorkExperience>();
 
     private ServletContext application;// Servlet上下文
     private HttpServletRequest request;// request对象
@@ -63,6 +64,9 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     }
     public List<v_WorkExperience> getHRworkedExperiences() {
         return HRworkedExperiences;
+    }
+    public List<v_WorkExperience> getWorkExperiences() {
+        return workExperiences;
     }
     public void setServletRequest(HttpServletRequest request) {
         this.request=request;
@@ -131,7 +135,8 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     }
 
 
-    /*待补充员工查看自己工作信息*/
+    /*待补充员工查看自己工作信息
+    * 可以使用Service中的public List WorkExperience(String talentId)方法*/
     public String info() {
         return "";
     }
@@ -148,5 +153,17 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
         }
         return "success";
     }
-
+    //HR查看某员工既往工作经历
+    public String HRWorkedExperience() {
+        String talentId=request.getParameter("talentId");
+        workExperiences=talentService.WorkExperience(talentId);
+        return "success";
+    }
+    //HR查看已离职员工既往工作经历
+    public String HRWorkedExperiences() {
+        String talentId=request.getParameter("talentId");
+        String enterpriseId=request.getParameter("enterpriseId");
+        workExperiences=talentService.WorkedExperience(talentId,enterpriseId);
+        return "success";
+    }
 }

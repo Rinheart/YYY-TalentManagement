@@ -105,7 +105,7 @@ public class TalentService implements ITalentService {
         return work.get(0);
     }
     //HR查看本公司员工工作信息
-    public List HRWorkExperience(String enterpriseId) {
+    public List<v_WorkExperience> HRWorkExperience(String enterpriseId) {
         String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
@@ -119,7 +119,7 @@ public class TalentService implements ITalentService {
         return relist;
     }
     //HR查看本公司过去的员工工作信息
-    public List HRWorkedExperience(String enterpriseId) {
+    public List<v_WorkExperience> HRWorkedExperience(String enterpriseId) {
         String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
@@ -131,5 +131,38 @@ public class TalentService implements ITalentService {
             }
         }
         return relist;
+    }
+    //查看某人才的工作经历
+    public List<v_WorkExperience> WorkExperience(String talentId) {
+        String hql = "from v_WorkExperience where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
+        for (int i=0; i<list.size(); i++) {
+            v_WorkExperience experience = (v_WorkExperience) list.get(i);
+            relist.add(experience);
+        }
+        return relist;
+    }
+    //查看某人才的工作经历
+    public List<v_WorkExperience> WorkedExperience(String talentId,String enterpriseId) {
+        String hql = "from v_WorkExperience where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        System.out.println(hql);
+        List list = talentDAO.findByHql(hql);
+        if (list.size()==0) return null;
+        else {
+            v_WorkExperience w=(v_WorkExperience)list.get(0);
+            Date endTime=w.getEndTime();
+            String hql_1 = "from v_WorkExperience where talentId='"+talentId+"'";
+            List list_1 = talentDAO.findByHql(hql_1);
+            List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
+            for (int i=0; i<list_1.size(); i++) {
+                v_WorkExperience experience = (v_WorkExperience) list_1.get(i);
+                if (experience.getStartTime().compareTo(endTime)<0 && experience.getEndTime().compareTo(endTime)<0) {
+                    relist.add(experience);
+                }
+                relist.add(w);
+            }
+            return relist;
+        }
     }
 }

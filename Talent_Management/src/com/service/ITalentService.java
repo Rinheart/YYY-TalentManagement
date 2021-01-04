@@ -14,6 +14,8 @@ public interface ITalentService {
 
     boolean update(Talent talent);
     public v_WorkExperience MyWorkExperience(Talent talent);
-    public List HRWorkExperience(String enterpriseId);
-    public List HRWorkedExperience(String enterpriseId);
+    public List<v_WorkExperience> HRWorkExperience(String enterpriseId);
+    public List<v_WorkExperience> HRWorkedExperience(String enterpriseId);
+    public List<v_WorkExperience> WorkExperience(String talentId);
+    public List<v_WorkExperience> WorkedExperience(String talentId,String enterpriseId);
 }
