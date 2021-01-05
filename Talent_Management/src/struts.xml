@@ -6,16 +6,16 @@
 
 <struts>
     <!--设置开发者模式为false，出错信息不显示，最后发布时设为false-->
-    <constant name="struts.devMode" value="true" />
+    <!--<constant name="struts.devMode" value="true" />-->
 
     <package name="strutsBean" extends="struts-default" namespace="/">
 
-        <global-results>
+        <!--<global-results>
             <result name="exception-error">/error/exception.jsp</result>
         </global-results>
         <global-exception-mappings>
             <exception-mapping result="exception-error" exception="java.lang.Exception"/>
-        </global-exception-mappings>
+        </global-exception-mappings>-->
 
         <!--待使用多配置文件-->
         <action name="login" class="talentAction" method="login">
@@ -28,14 +28,19 @@
             <result name="registersuccess">/basic/regSuccess.jsp</result>
             <result name="registerfail">/basic/register.jsp</result>
         </action>
+        <action name="updatePage" class="talentAction" method="getUpdatePage">
+            <result name="success">/basic/update.jsp</result>
+        </action>
+        <action name="myWorkExp" class="talentAction" method="MyWorkExp">
+            <result name="success">/find/MyWorkedExperience.jsp</result>
+        </action>
+
+
+
         <action name="TalentUpdate" class="talentAction" method="update">
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
-        <action name="updatePage" class="talentAction" method="getUpdatePage">
-            <result name="success">/basic/update.jsp</result>
-        </action>
-
 
 
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
@@ -59,6 +64,15 @@
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
         </action>
+
+        <!--有个表单填 就离职信息-->
+        <action name="applyEmploy" class="applyAction" method="apply">
+            <result name="success">applyResult.action</result>
+        </action>
+        <action name="applyResult" class="applyAction" method="result">
+
+        </action>
+
 
     </package>
 </struts>

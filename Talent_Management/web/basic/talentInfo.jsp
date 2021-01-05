@@ -18,6 +18,7 @@ request tip:
 
 <h3>员工管理</h3>
 <a href="updatePage.action">修改个人信息</a>
+<a href="myWorkExp.action">查看个人工作经历(申请变动)</a>
 
 
 </body>

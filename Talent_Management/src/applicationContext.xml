@@ -15,7 +15,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT%2b8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
         <property name="username" value="root"/>
 <!--        <property name="password" value="root"/>-->
-        <property name="password" value="LYHwz13506657764"/>
+        <property name="password" value="root"/>
     </bean>
     <!--注入SessionFactory实例配置信息-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -95,21 +95,27 @@ http://www.springframework.org/schema/context/spring-context.xsd">
     </bean>
 
     <bean id="talentDAO" class="com.dao.TalentDAO" parent="baseDAO"/>
-
     <bean id="talentService" class="com.service.TalentService">
         <property name="talentDAO" ref="talentDAO"/>
     </bean>
-
     <bean id="talentAction" class="com.action.TalentAction" scope="prototype">
         <property name="talentService" ref="talentService"/>
     </bean>
 
-    <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
 
+    <bean id="applyDAO" class="com.dao.ApplyDAO" parent="baseDAO"/>
+    <bean id="applyService" class="com.service.ApplyService">
+        <property name="applyDAO" ref="applyDAO"/>
+    </bean>
+    <bean id="applyAction" class="com.action.ApplyAction" scope="prototype">
+        <property name="applyService" ref="applyService"/>
+    </bean>
+
+
+    <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
     <bean id="enterpriseService" class="com.service.EnterpriseService">
         <property name="enterpriseDAO" ref="enterpriseDAO"/>
     </bean>
-
     <bean id="enterpriseAction" class="com.action.EnterpriseAction" scope="prototype">
         <property name="enterpriseService" ref="enterpriseService"/>
     </bean>
