@@ -116,9 +116,9 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
             talent = talentService.getFullTalent(talent);
             //把登录的用户加到session中以便让系统知道这是谁
             session.setAttribute("talent", talent);
-            //登录时查询工作经历，获取当前工作信息-------------能不能分开写？？别刚登陆就全载入了
-            /*workExperience=talentService.MyWorkExperience(talent);
-            session.setAttribute("workExperience",workExperience);*/
+            //登录时查询工作经历，获取当前工作信息
+            workExperience=talentService.MyWorkExperience(talent);
+            session.setAttribute("workExperience",workExperience);
             //不同身份返回不同Strng，转到不同页面
             if (talent.getIdentity() == 0 || talent.getIdentity() == 1) {
                 return "loginTalent";

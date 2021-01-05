@@ -46,7 +46,6 @@ public class TalentService implements ITalentService {
 
     public boolean login(Talent talent) {
         Map request = (Map) ActionContext.getContext().get("request");
-
         String talentId = talent.getTalentId();
         String password = talent.getPassword();
         String hql = "from Talent as talent where TalentId='" + talentId + "' and password='" + password + "'";
@@ -77,7 +76,6 @@ public class TalentService implements ITalentService {
         return true;
     }
 
-
     //查看当前登录的用户的工作经历信息
     public v_WorkExperience MyWorkExperience(Talent talent) {
         String hql = "from v_WorkExperience where talentId='"+talent.getTalentId()+"'";
@@ -98,7 +96,7 @@ public class TalentService implements ITalentService {
 
         if(work.isEmpty()){
             Map request = (Map) ActionContext.getContext().get("request");
-            request.put("tip","查询当前登录的用户的工作经历信息有误");
+            request.put("tip","当前无工作");
             return null;
         }
         return work.get(0);
@@ -252,4 +250,7 @@ public class TalentService implements ITalentService {
         }
         return relist;
     }
+
+
+
 }

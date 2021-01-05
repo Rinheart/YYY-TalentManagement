@@ -1,4 +1,5 @@
 package com.dao;
+import com.entity.Applicate;
 import com.entity.Talent;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -6,7 +7,7 @@ import org.hibernate.Transaction;
 
 public class ApplyDAO extends BaseHibernateDAO implements IApplyDAO {
 
-    public void save(Talent transientInstance) {
+    public void save(Applicate transientInstance) {
         Transaction tran = null;
         Session session = null;
 
@@ -31,7 +32,7 @@ public class ApplyDAO extends BaseHibernateDAO implements IApplyDAO {
     /*无覆写，直接用父类的findHql*/
     /*public List findByHql(String hql){}*/
 
-    public void update(Talent transientInstance) {
+    public void update(Applicate transientInstance) {
         Transaction tran = null;
         Session session = null;
 

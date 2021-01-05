@@ -4,13 +4,15 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.entity.EmployApplicate" table="employ_applicate" schema="talent_management">
-        <id name="employApplicateId" column="EmployApplicateID"/>
-        <property name="interviewId" column="InterviewID"/>
+    <class name="com.entity.Applicate" table="applicate" schema="talent_management">
+        <id name="applicateId" column="ApplicateID"/>
         <property name="workExperienceId" column="WorkExperienceID"/>
+        <property name="applicateType" column="ApplicateType"/>
+        <property name="enterpriseId" column="EnterpriseID"/>
+        <property name="departmentId" column="DepartmentID"/>
         <property name="applicateTime" column="ApplicateTime"/>
         <property name="applicateResult" column="ApplicateResult"/>
-        <property name="hrReviewer" column="HRReviewer"/>
+        <property name="hrReview" column="HRReview"/>
         <property name="reviewTime" column="ReviewTime"/>
     </class>
 </hibernate-mapping>

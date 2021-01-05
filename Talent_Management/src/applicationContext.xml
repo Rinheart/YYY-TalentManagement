@@ -25,7 +25,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT&amp;useSSL=false</prop>
+                <prop key="hibernate.connection.url"><![CDATA[jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT&useSSL=false]]></prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>
                 <!--控制台打印HQL语句和SQL语句-->
                 <prop key="hibernate.show_sql">true</prop>
@@ -44,12 +44,10 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com/entity/BigEvent.hbm.xml</value>
                 <value>com/entity/Department.hbm.xml</value>
                 <value>com/entity/Disciplinary.hbm.xml</value>
-                <value>com/entity/EmployApplicate.hbm.xml</value>
                 <value>com/entity/EnterpriseUdit.hbm.xml</value>
                 <value>com/entity/Evaluate.hbm.xml</value>
                 <value>com/entity/Interview.hbm.xml</value>
                 <value>com/entity/Recruit.hbm.xml</value>
-                <value>com/entity/ResignApplicate.hbm.xml</value>
                 <value>com/entity/Resume.hbm.xml</value>
                 <value>com/entity/Reward.hbm.xml</value>
                 <value>com/entity/TalentUdit.hbm.xml</value>
@@ -59,6 +57,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com/entity/v_Disciplinary.hbm.xml</value>
                 <value>com/entity/v_Reward.hbm.xml</value>
                 <value>com/entity/v_BigEvent.hbm.xml</value>
+                <value>com/entity/Applicate.hbm.xml</value>
                 <!--<value>classpath:com/entity/Talent.hbm.xml</value>-->
             </list>
         </property>
@@ -71,12 +70,10 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com.entity.BigEvent</value>
                 <value>com.entity.Department</value>
                 <value>com.entity.Disciplinary</value>
-                <value>com.entity.EmployApplicate</value>
                 <value>com.entity.EnterpriseUdit</value>
                 <value>com.entity.Evaluate</value>
                 <value>com.entity.Interview</value>
                 <value>com.entity.Recruit</value>
-                <value>com.entity.ResignApplicate</value>
                 <value>com.entity.Resume</value>
                 <value>com.entity.Reward</value>
                 <value>com.entity.TalentUdit</value>
@@ -86,6 +83,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com.entity.v_Disciplinary</value>
                 <value>com.entity.v_Reward</value>
                 <value>com.entity.v_BigEvent</value>
+                <value>com.entity.Applicate</value>
             </list>
         </property>
     </bean>

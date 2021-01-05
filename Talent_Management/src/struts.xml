@@ -68,9 +68,14 @@
         <!--有个表单填 就离职信息-->
         <action name="applyEmploy" class="applyAction" method="apply">
             <result name="success">applyResult.action</result>
+            <result name="false"></result>
         </action>
         <action name="applyResult" class="applyAction" method="result">
 
+        </action>
+        <action name="applyHRCheck" class="applyAction" method="HRCheck">
+            <result name="success">/find/HRCheckResult.jsp</result>
+            <result name="noHR">/find/error.jsp</result>
         </action>
 
 

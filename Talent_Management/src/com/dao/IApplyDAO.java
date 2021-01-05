@@ -1,11 +1,11 @@
 package com.dao;
 
-import com.entity.Talent;
+import com.entity.Applicate;
 
 import java.util.List;
 
 public interface IApplyDAO {
-    void save(Talent transientInstance);
+    void save(Applicate transientInstance);
     List findByHql(String hql);
-    void update(Talent transientInstance);
+    void update(Applicate transientInstance);
 }

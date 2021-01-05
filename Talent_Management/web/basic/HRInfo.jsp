@@ -17,5 +17,7 @@ request tip:
     <br>
     <h3>员工管理</h3>
     <a href="HRWorkExperience.action">管理员工工作信息</a><br>
+<br>
+<a href="applyHRCheck.action">管理本公司人事变动申请</a>
 </body>
 </html>
