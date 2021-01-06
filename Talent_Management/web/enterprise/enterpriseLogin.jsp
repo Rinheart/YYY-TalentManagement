@@ -11,7 +11,6 @@
 
 <form action="enterpriseLogin.action" method="post">
     <table style="border: 1px solid #222222;" rules="none" cellspacing="0" width="320">
-
         <tr height="40">
             <td colspan=2>
                 <h2 align="center">

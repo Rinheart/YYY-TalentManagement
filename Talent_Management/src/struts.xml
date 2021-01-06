@@ -42,24 +42,46 @@
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
 
-
+<!--        企业登录-->
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
             <result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="loginfail">/enterprise/enterpriseLogin.jsp</result>
         </action>
+<!--        企业注册-->
         <action name="enterpriseRegister" class="enterpriseAction" method="register">
             <result name="registersuccess">/enterprise/enterpriseLogin.jsp</result>
             <result name="registerfail">/enterprise/enterpriseRegister.jsp</result>
         </action>
+<!--        通过Action转发到更新页面-->
+        <action name="enterpriseUpdatePage" class="enterpriseAction" method="getUpdatePage">
+            <result name="success">/enterprise/updateEnterprise.jsp</result>
+        </action>
+<!--        更新企业信息-->
         <action name="enterpriseUpdate" class="enterpriseAction" method="update">
             <result name="updatesuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="updatefail">/enterprise/CURDFail.jsp</result>
         </action>
-        <action name="enterpriseDelete" class="enterpriseAction" method="delete">
-            <result name="deletesuccess">/enterprise/enterpriseMessage.jsp</result>
-            <result name="deletefail">/enterprise/CURDFail.jsp</result>
+<!--        管理部门信息-->
+        <action name="departmentPage" class="enterpriseAction" method="getDepartmentPage">
+            <result name="success">/enterprise/manageDepartment.jsp</result>
         </action>
-
+<!--        转发到增加部门页面-->
+        <action name="addDepartmentPage" class="enterpriseAction" method="addDepartmentPage">
+            <result name="success">/enterprise/addDepartment.jsp</result>
+        </action>
+<!--        增加部门-->
+        <action name="addDepartment" class="enterpriseAction" method="addDepartment">
+            <result name="addsuccess">/enterprise/enterpriseMessage.jsp</result>
+            <result name="addfail">/enterprise/enterpriseMessage.jsp</result>
+        </action>
+<!--        管理HR信息页面-->
+        <action name="manageHRPage" class="enterpriseAction" method="manageHRPage">
+            <result name="success">/enterprise/manageHR.jsp</result>
+        </action>
+<!--        修改HR信息-->
+        <action name="alterHR" class="enterpriseAction" method="alterHR" >
+        <result name="success">/enterprise/alterHR.jsp</result>
+        </action>
 
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
