@@ -59,37 +59,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="talent_management@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="talent_management: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="views" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -97,8 +67,8 @@
       <list>
         <option value="struts_2_3" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -131,12 +101,26 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/find" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15527344" />
-    <property name="project.structure.side.proportion" value="0.19779006" />
+    <property name="project.structure.side.proportion" value="0.23552631" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.service" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.entity" />
+      <recent name="com." />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\find" />
+      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\lib\Jstl" />
+      <recent name="D:\GitHub\YYY-TalentManagement\Talent_Management\web" />
+      <recent name="D:\GitHub\YYY-TalentManagement\Talent_Management\lib" />
+      <recent name="C:\Users\小坏坏\Documents\GitHub\YYY-TalentManagement_withoutlibs\Talent_Management\lib\log4j" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.service" />
       <recent name="com.dao" />
@@ -145,20 +129,6 @@
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\HR" />
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web" />
       <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\basic" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Connor\Documents\GitHub\YYY-TalentManagement\Talent_Management\web\find" />
-      <recent name="D:\GitHub\YYY-TalentManagement\Talent_Management\web" />
-      <recent name="D:\GitHub\YYY-TalentManagement\Talent_Management\lib" />
-      <recent name="C:\Users\小坏坏\Documents\GitHub\YYY-TalentManagement_withoutlibs\Talent_Management\lib\log4j" />
-      <recent name="C:\Users\小坏坏\Documents\GitHub\YYY-TalentManagement_withoutlibs\Talent_Management\src" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.entity" />
-      <recent name="com." />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -360,17 +330,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ba9bb444" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c8b17412" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ba9bb444" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6dca331a" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ba9bb444" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@388e20a6" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c8b17412" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@39c53bbb" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -581,11 +546,6 @@
           <url>file://$PROJECT_DIR$/src/com/service/EnterpriseService.java</url>
           <line>28</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/action/ApplyAction.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

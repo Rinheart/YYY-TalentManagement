@@ -10,7 +10,7 @@ import java.util.Objects;
 @Entity
 public class Applicate {
     private int applicateId;
-    private Integer workExperienceId;
+    private String talentId;
     private Boolean applicateType;
     private String enterpriseId;
     private Integer departmentId;
@@ -30,13 +30,13 @@ public class Applicate {
     }
 
     @Basic
-    @Column(name = "WorkExperienceID")
-    public Integer getWorkExperienceId() {
-        return workExperienceId;
+    @Column(name = "TalentID")
+    public String getTalentId() {
+        return talentId;
     }
 
-    public void setWorkExperienceId(Integer workExperienceId) {
-        this.workExperienceId = workExperienceId;
+    public void setTalentId(String talentId) {
+        this.talentId = talentId;
     }
 
     @Basic
@@ -115,7 +115,7 @@ public class Applicate {
         if (o == null || getClass() != o.getClass()) return false;
         Applicate applicate = (Applicate) o;
         return applicateId == applicate.applicateId &&
-                Objects.equals(workExperienceId, applicate.workExperienceId) &&
+                Objects.equals(talentId, applicate.talentId) &&
                 Objects.equals(applicateType, applicate.applicateType) &&
                 Objects.equals(enterpriseId, applicate.enterpriseId) &&
                 Objects.equals(departmentId, applicate.departmentId) &&
@@ -127,6 +127,6 @@ public class Applicate {
 
     @Override
     public int hashCode() {
-        return Objects.hash(applicateId, workExperienceId, applicateType, enterpriseId, departmentId, applicateTime, applicateResult, hrReview, reviewTime);
+        return Objects.hash(applicateId, talentId, applicateType, enterpriseId, departmentId, applicateTime, applicateResult, hrReview, reviewTime);
     }
 }

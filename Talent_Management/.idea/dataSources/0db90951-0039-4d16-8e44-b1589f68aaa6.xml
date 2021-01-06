@@ -1292,9 +1292,9 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="286" name="WorkExperienceID">
+    <column id="324" parent="286" name="TalentID">
       <Position>2</Position>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(8)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="325" parent="286" name="ApplicateType">
@@ -1332,8 +1332,8 @@
       <DataType>datetime(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="332" parent="286" name="FK_Applicate_WorkExperience">
-      <ColNames>WorkExperienceID</ColNames>
+    <index id="332" parent="286" name="FK_Applicate_Talent2">
+      <ColNames>TalentID</ColNames>
       <Type>btree</Type>
     </index>
     <index id="333" parent="286" name="FK_Applicate_Enterprise">
@@ -1353,10 +1353,10 @@
       <ColNames>ApplicateID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="337" parent="286" name="FK_Applicate_WorkExperience">
-      <ColNames>WorkExperienceID</ColNames>
-      <RefTableName>work_experience</RefTableName>
-      <RefColNames>WorkExperienceID</RefColNames>
+    <foreign-key id="337" parent="286" name="FK_Applicate_Talent2">
+      <ColNames>TalentID</ColNames>
+      <RefTableName>talent</RefTableName>
+      <RefColNames>TalentID</RefColNames>
     </foreign-key>
     <foreign-key id="338" parent="286" name="FK_Applicate_Enterprise">
       <ColNames>EnterpriseID</ColNames>
