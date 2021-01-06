@@ -35,11 +35,12 @@
             <td><s:property value="applicateResult"/></td>
             <%--<td><s:property value="hrReview"/></td>
             <td><s:property value="reviewTime"/></td>--%>
-            <td><a href="applyResult.action?Id=${applicateId}&Result=1">通过</a>
-            <a href="applyResult.action?Id=${applicateId}&Result=0">拒绝</a></td>
+            <td><a href="applyHRReview.action?Id=${applicateId}&Result=true">通过</a>
+            <a href="applyHRReview.action?Id=${applicateId}&Result=false">拒绝</a></td>
         </tr>
     </s:iterator>
 </table>
 
 </body>
 </html>
+

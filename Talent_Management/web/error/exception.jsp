@@ -5,7 +5,7 @@
     <title>访问不正确</title>
 </head>
 <body>
-<h1>Exception错误提示页</h1>
+<h1>通用Exception错误提示页</h1>
 <br>
 最近的request tip提示：<br>
 <s:property value="#request.tip"/>

@@ -17,7 +17,7 @@
             <exception-mapping result="exception-error" exception="java.lang.Exception"/>
         </global-exception-mappings>-->
 
-        <!--待使用多配置文件-->
+
         <action name="login" class="talentAction" method="login">
             <result name="loginTalent">/basic/TalentInfo.jsp</result>
             <result name="loginHR">/basic/HRInfo.jsp</result>
@@ -28,6 +28,7 @@
             <result name="registersuccess">/basic/regSuccess.jsp</result>
             <result name="registerfail">/basic/register.jsp</result>
         </action>
+        <!--href=updatePage.Action::为修改个人基础信息页面-->
         <action name="updatePage" class="talentAction" method="getUpdatePage">
             <result name="success">/basic/update.jsp</result>
         </action>
@@ -70,16 +71,26 @@
             <result name="success">applyResult.action</result>
             <result name="false"></result>
         </action>
+        <!--个人查看自己的最新申请情况-->
         <action name="applyResult" class="applyAction" method="result">
-
+            <result name="error">/find/error.jsp</result>
+            <result name="success">/find/MyApplyResult.jsp</result>
         </action>
+        <!--HR审核本公司待批准申请-->
         <action name="applyHRCheck" class="applyAction" method="HRCheck">
             <result name="success">/find/HRCheckResult.jsp</result>
             <result name="noHR">/find/error.jsp</result>
         </action>
-        <action name="applyHRReview" class="applyAction" method="HRReview">
-            <result name="success">applyHRCheck.action</result>
+        <!--HR看本公司所有申请记录历史-->
+        <action name="applyHRCheckAll" class="applyAction" method="HRCheckAll">
+            <result name="success" type="redirectAction">applyHRCheck</result>
+            <result name="error">find/error.jsp</result>
         </action>
+        <action name="applyHRReview" class="applyAction" method="HRReview">
+            <result name="success" type="redirectAction">applyHRCheck</result>
+            <result name="error">find/error.jsp</result>
+        </action>
+
 
 
     </package>

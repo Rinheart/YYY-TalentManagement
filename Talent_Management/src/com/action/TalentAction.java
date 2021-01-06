@@ -116,6 +116,7 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
             talent = talentService.getFullTalent(talent);
             //把登录的用户加到session中以便让系统知道这是谁
             session.setAttribute("talent", talent);
+            session.setAttribute("talentId",talent.getTalentId());
             //登录时查询工作经历，获取当前工作信息
             workExperience=talentService.MyWorkExperience(talent);
             session.setAttribute("workExperience",workExperience);
