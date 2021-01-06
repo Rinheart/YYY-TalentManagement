@@ -31,16 +31,12 @@ public class ApplyService implements IApplyService {
 
     public boolean talentAdd(Applicate applicate,String talentId){
         applicate.setApplicateTime(new Timestamp(System.currentTimeMillis()));
-        int currentExpId = getCurrentExpId(talentId);
-        applicate.setWorkExperienceId(currentExpId);
+        applicate.setTalentId(talentId);
         applicate.setApplicateResult(null);
 
         applyDAO.save(applicate);
         return true;
     }
-
-
-
 
 
     public int getCurrentExpId(String talentId) {
@@ -68,16 +64,16 @@ public class ApplyService implements IApplyService {
     @Override
     public List<Applicate> getEntApp(String enterpriseId) {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"'";
-
         /*List<Applicate> entApp=new ArrayList<Applicate>();
         *//*引用是否有误？*//*
         entApp = applyDAO.findByHql(hql);*/
-
         return applyDAO.findByHql(hql);
     }
 
     @Override
     public List<Applicate> getTalApp(String talentId) {
-        return null;
+        String hql = "from Applicate where talentId='"+talentId+"'";
+
+        return applyDAO.findByHql(hql);
     }
 }

@@ -77,6 +77,9 @@
             <result name="success">/find/HRCheckResult.jsp</result>
             <result name="noHR">/find/error.jsp</result>
         </action>
+        <action name="applyHRReview" class="applyAction" method="HRReview">
+            <result name="success">applyHRCheck.action</result>
+        </action>
 
 
     </package>

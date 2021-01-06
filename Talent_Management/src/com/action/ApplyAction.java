@@ -24,7 +24,6 @@ import java.util.Map;
 public class ApplyAction extends ActionSupport implements ServletContextAware, ServletRequestAware, ServletResponseAware {
     private Talent talent;
     private IApplyService applyService;
-    private Applicate applicate;
     List<Applicate> applicateList;
 
     public Talent getTalent() {
@@ -38,12 +37,6 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
     }
     public void setApplyService(IApplyService applyService) {
         this.applyService = applyService;
-    }
-    public Applicate getApplicate() {
-        return applicate;
-    }
-    public void setApplicate(Applicate applicate) {
-        this.applicate = applicate;
     }
     public List<Applicate> getApplicateList() {
         return applicateList;
@@ -87,7 +80,7 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
         if(talent.getIdentity() == 2){
             v_WorkExperience nowExp =(v_WorkExperience) request.getSession().getAttribute("workExperience");
             applicateList = applyService.getEntApp(nowExp.getEnterpriseId());
-            request.getSession().setAttribute("applicateList", applicateList);
+            ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
             return "success";
         }
         else{
@@ -99,6 +92,7 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
 
     /*HR审核操作,update审核表*/
     public String HRReview(){
+        String Result = request.getParameter("Result");
         return "success";
     }
 

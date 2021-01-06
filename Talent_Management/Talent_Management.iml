@@ -32,7 +32,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="sessionFactory" />
+          <unit-entry name="sessionFactory" value="0db90951-0039-4d16-8e44-b1589f68aaa6" />
         </datasource-map>
         <naming-strategy-map />
       </configuration>
@@ -50,5 +50,6 @@
     <orderEntry type="library" name="Spring" level="project" />
     <orderEntry type="library" name="Struts2" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="Jstl" level="project" />
   </component>
 </module>

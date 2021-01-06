@@ -76,7 +76,7 @@ public class TalentService implements ITalentService {
         return true;
     }
 
-    //查看当前登录的用户的工作经历信息
+    //查看登录用户 现在的工作经历信息
     public v_WorkExperience MyWorkExperience(Talent talent) {
         String hql = "from v_WorkExperience where talentId='"+talent.getTalentId()+"'";
         List list = talentDAO.findByHql(hql);
@@ -93,7 +93,6 @@ public class TalentService implements ITalentService {
         }else if (work.size()==0) {
             System.out.println("hhh太惨了，你竟然没有工作！");
         }
-
         if(work.isEmpty()){
             Map request = (Map) ActionContext.getContext().get("request");
             request.put("tip","当前无工作");
