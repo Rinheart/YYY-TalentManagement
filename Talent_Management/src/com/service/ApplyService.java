@@ -30,6 +30,11 @@ public class ApplyService implements IApplyService {
         return true;
     }
 
+    public boolean save(Applicate applicate) {
+        applyDAO.save(applicate);
+        return true;
+    }
+
     public boolean talentAdd(Applicate applicate,String talentId){
         applicate.setApplicateTime(new Timestamp(System.currentTimeMillis()));
         applicate.setTalentId(talentId);
@@ -63,9 +68,6 @@ public class ApplyService implements IApplyService {
 
     public List<Applicate> getEntApp(String enterpriseId) {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"'";
-        /*List<Applicate> entApp=new ArrayList<Applicate>();
-        *//*引用是否有误？*//*
-        entApp = applyDAO.findByHql(hql);*/
         return applyDAO.findByHql(hql);
     }
 
@@ -73,7 +75,6 @@ public class ApplyService implements IApplyService {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"' and applicateResult=null";
         return applyDAO.findByHql(hql);
     }
-
 
     public List<Applicate> getTalApp(String talentId) {
         String hql = "from Applicate where talentId='"+talentId+"'";
@@ -88,6 +89,23 @@ public class ApplyService implements IApplyService {
             return null;
         }
         return list.get(0);
+    }
+
+    /*获取人才当前最新申请*/
+    public Applicate getCurrentApp(String talentId) {
+        List<Applicate> applicateList = getTalApp(talentId);
+        if(applicateList.isEmpty()){
+            Map request = (Map) ActionContext.getContext().get("request");
+            request.put("tip", "用户通过id查看的申请列表为空，即您在系统中从未有过人事变动记录");
+            return null;
+        }
+        Applicate applicate_new = applicateList.get(0);
+        for (int i = 0; i < applicateList.size(); i++) {
+            /*找到最大申请id(由于id自增)*/
+            if(applicateList.get(i).getApplicateId()>applicate_new.getApplicateId());
+            applicate_new = applicateList.get(i);
+        }
+        return applicate_new;
     }
 
 

@@ -96,9 +96,17 @@
 
         <!--有个表单填 就离职信息-->
         <action name="applyEmploy" class="applyAction" method="apply">
-            <result name="success">applyResult.action</result>
-            <result name="false"></result>
+            <result name="out">/find/MyOutRequest.jsp</result>
+            <result name="in">/find/MyInRequest.jsp</result>
+            <result name="false">/find/error.jsp</result>
         </action>
+        <action name="applyIn" class="applyAction" method="applyIn">
+            <result name="success">/find/MyApplySuccess.jsp</result>
+        </action>
+        <action name="applyOut" class="applyAction" method="applyOut">
+            <result name="success">/find/MyApplySuccess.jsp</result>
+        </action>
+
         <!--个人查看自己的最新申请情况-->
         <action name="applyResult" class="applyAction" method="result">
             <result name="error">/find/error.jsp</result>

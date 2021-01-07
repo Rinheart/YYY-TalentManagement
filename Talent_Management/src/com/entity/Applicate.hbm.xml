@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="com.entity.Applicate" table="applicate" schema="talent_management">
-        <id name="applicateId" column="ApplicateID"/>
+        <id name="applicateId" column="ApplicateID">
+            <!--<generator class="increment"/>-->
+        </id>
         <property name="talentId" column="TalentID"/>
         <property name="applicateType" column="ApplicateType"/>
         <property name="enterpriseId" column="EnterpriseID"/>
@@ -15,4 +17,5 @@
         <property name="hrReview" column="HRReview"/>
         <property name="reviewTime" column="ReviewTime"/>
     </class>
+
 </hibernate-mapping>
