@@ -6,13 +6,10 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.IApplyService;
 import com.service.ITalentService;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.interceptor.*;
 import org.apache.struts2.util.ServletContextAware;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +18,7 @@ import java.util.Map;
 * 为申请就职离职的action
 *
 * */
-public class ApplyAction extends ActionSupport implements ServletContextAware, ServletRequestAware, ServletResponseAware {
+public class ApplyAction extends ActionSupport implements RequestAware, SessionAware, ApplicationAware {
     private Talent talent;
     private IApplyService applyService;
     List<Applicate> applicateList;
@@ -52,25 +49,24 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
         this.applicateList = applicateList;
     }
 
-    private ServletContext application;// Servlet上下文
-    private HttpServletRequest request;// request对象
-    private HttpServletResponse response;// response对象
-    public void setServletRequest(HttpServletRequest request) {
-        this.request = request;
+    private Map request,session,application;
+    public void setRequest(Map<String, Object> request) {
+        this.request=request;
     }
-    public void setServletResponse(HttpServletResponse response) {
-        this.response = response;
+    public void setSession(Map<String, Object> session) {
+        this.session=session;
     }
-    public void setServletContext(ServletContext application) {
-        this.application = application;
+    public void setApplication(Map<String, Object> application) {
+        this.application=application;
     }
 
     /*填申请*/
     /*如果已有申请未通过，不能填*/
     public String apply(){
-        talent =(Talent) request.getSession().getAttribute("talent");
+        talent =(Talent) session.get("talent");
+
         if(talent.getIdentity() == 2){
-            request.setAttribute("tip", "HR离职注销账号请向公司申报");
+            request.put("tip", "HR离职注销账号请向公司申报");
             return "false";
         }
 
@@ -79,16 +75,16 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
 
     /*查申请审核是否通过,查申请表!!!自己的，最新一个！*/
     public String result(){
-        talent =(Talent) request.getSession().getAttribute("talent");
+        talent =(Talent) session.get("talent");
         /*从目前的工作记录中取最新公司*/
         if(talent.getIdentity() != 0) {
-            v_WorkExperience nowExp = (v_WorkExperience) request.getSession().getAttribute("workExperience");
+            v_WorkExperience nowExp = (v_WorkExperience) session.get("workExperience");
             ActionContext.getContext().getSession().put("myEntName", nowExp.getEnterpriseName());
         }
 
         applicateList = applyService.getTalApp(talent.getTalentId());
         if(applicateList.isEmpty()){
-            request.setAttribute("tip", "用户通过id查看的申请列表为空，即您在系统中从未有过人事变动记录");
+            request.put("tip", "用户通过id查看的申请列表为空，即您在系统中从未有过人事变动记录");
             return "error";
         }
         /*此时action中applicate为本人最新申请*/
@@ -104,9 +100,9 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
 
     /*HR查本公司所有申请(就职离职)*/
     public String HRCheckAll(){
-        talent =(Talent) request.getSession().getAttribute("talent");
+        talent =(Talent) session.get("talent");
         if(talent.getIdentity() == 2){
-            v_WorkExperience nowExp =(v_WorkExperience) request.getSession().getAttribute("workExperience");
+            v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
             applicateList = applyService.getEntApp(nowExp.getEnterpriseId());
             ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
             return "success";
@@ -119,9 +115,9 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
     }
     /*HR查本公司未批申请*/
     public String HRCheck(){
-        talent =(Talent) request.getSession().getAttribute("talent");
+        talent =(Talent) session.get("talent");
         if(talent.getIdentity() == 2){
-            v_WorkExperience nowExp =(v_WorkExperience) request.getSession().getAttribute("workExperience");
+            v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
             applicateList = applyService.getNoResApp(nowExp.getEnterpriseId());
             ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
             return "success";
@@ -135,8 +131,8 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
 
     /*HR审核操作,写审核表,用update*/
     public String HRReview(){
-        boolean Result = Boolean.parseBoolean(request.getParameter("Result"));
-        int Id = Integer.parseInt(request.getParameter("Id"));
+        boolean Result = Boolean.parseBoolean((String) request.get("Result"));
+        int Id = Integer.parseInt((String) request.get("Id"));
 
         if(applyService.review(Id,Result)){
             /*改工作经历，待补充！！！！*/
@@ -145,5 +141,4 @@ public class ApplyAction extends ActionSupport implements ServletContextAware, S
         return "error";
 
     }
-
 }

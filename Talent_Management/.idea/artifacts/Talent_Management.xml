@@ -12,7 +12,6 @@
           <element id="library" level="project" name="MySQLconnector" />
           <element id="library" level="project" name="Spring" />
           <element id="library" level="project" name="Struts2" />
-          <element id="library" level="project" name="Jstl" />
         </element>
       </element>
     </root>

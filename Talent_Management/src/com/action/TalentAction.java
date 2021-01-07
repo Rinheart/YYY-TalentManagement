@@ -6,15 +6,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.ITalentService;
 import javafx.application.Application;
+import org.apache.struts2.interceptor.*;
 import org.springframework.context.ApplicationContext;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.util.ServletContextAware;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +20,7 @@ import java.util.Map;
  * UserAction为人才进行的系列操作
  *
  * */
-public class TalentAction extends ActionSupport implements ServletContextAware, ServletRequestAware, ServletResponseAware {
+public class TalentAction extends ActionSupport implements RequestAware, SessionAware, ApplicationAware {
     private Talent talent;
     private v_WorkExperience workExperience;
     private ITalentService talentService;
@@ -37,9 +32,7 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     private List<v_Reward> reward = new ArrayList<v_Reward>();
     private List<v_BigEvent> bigEvent = new ArrayList<v_BigEvent>();
 
-    private ServletContext application;// Servlet上下文
-    private HttpServletRequest request;// request对象
-    private HttpServletResponse response;// response对象
+
 
     public Talent getTalent() {
         return talent;
@@ -97,29 +90,27 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
         return bigEvent;
     }
 
-    public void setServletRequest(HttpServletRequest request) {
-        this.request = request;
+    private Map request,session,application;
+    public void setRequest(Map<String, Object> request) {
+        this.request=request;
     }
-
-    public void setServletResponse(HttpServletResponse response) {
-        this.response = response;
+    public void setSession(Map<String, Object> session) {
+        this.session=session;
     }
-
-    public void setServletContext(ServletContext application) {
-        this.application = application;
+    public void setApplication(Map<String, Object> application) {
+        this.application=application;
     }
 
     /*通用方法*/
     public String login() {
-        HttpSession session = request.getSession();
         if (talentService.login(talent)) {
             talent = talentService.getFullTalent(talent);
             //把登录的用户加到session中以便让系统知道这是谁
-            session.setAttribute("talent", talent);
-            session.setAttribute("talentId",talent.getTalentId());
+            session.put("talent", talent);
+            session.put("talentId",talent.getTalentId());
             //登录时查询工作经历，获取当前工作信息
             workExperience=talentService.MyWorkExperience(talent);
-            session.setAttribute("workExperience",workExperience);
+            session.put("workExperience",workExperience);
             //不同身份返回不同Strng，转到不同页面
             if (talent.getIdentity() == 0 || talent.getIdentity() == 1) {
                 return "loginTalent";
@@ -144,8 +135,8 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
     }
 
     public String getUpdatePage() {
-        HttpSession session = request.getSession();
-        talent = (Talent) session.getAttribute("talent");
+
+        talent = (Talent) session.get("talent");
         return "success";
     }
 
@@ -168,9 +159,9 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
 
 
     public String MyWorkExp() {
-        talent =(Talent) request.getSession().getAttribute("talent");
+        talent =(Talent) session.get("talent");
         workExperiences = talentService.WorkExperience(talent.getTalentId());
-        request.getSession().setAttribute("workExperience", workExperience);
+        session.put("workExperience", workExperience);
         return "success";
     }
 
@@ -186,8 +177,8 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
 
     //HR查看员工工作信息
     public String HRWorkExperience() {
-        HttpSession session = request.getSession();
-        workExperience = (v_WorkExperience) session.getAttribute("workExperience");
+
+        workExperience = (v_WorkExperience) session.get("workExperience");
         if (workExperience != null) {
             HRworkExperiences = talentService.HRWorkExperience(workExperience.getEnterpriseId());
             HRworkedExperiences = talentService.HRWorkedExperience(workExperience.getEnterpriseId());
@@ -197,23 +188,23 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
 
     //查看某员工既往工作经历
     public String HRWorkedExperience() {
-        String talentId = request.getParameter("talentId");
+        String talentId = (String) request.get("talentId");
         workExperiences = talentService.WorkExperience(talentId);
-        request.getSession().setAttribute("workExperience", workExperience);
+        session.put("workExperience", workExperience);
         return "success";
     }
 
     //HR查看已离职员工既往工作经历
     public String HRWorkedExperiences() {
-        String talentId = request.getParameter("talentId");
-        String enterpriseId = request.getParameter("enterpriseId");
+        String talentId = (String) request.get("talentId");
+        String enterpriseId = (String) request.get("enterpriseId");
         workExperiences = talentService.WorkedExperience(talentId, enterpriseId);
         return "success";
     }
 
     //HR查看某员工的工作表现
     public String HRWorkPerformance() {
-        String talentId = request.getParameter("talentId");
+        String talentId = (String) request.get("talentId");
         attend = talentService.WorkAttend(talentId);
         disciplinary = talentService.WorkDisciplinary(talentId);
         reward = talentService.WorkReward(talentId);
@@ -223,9 +214,9 @@ public class TalentAction extends ActionSupport implements ServletContextAware, 
 
     //HR查看已离职某员工在职期间工作表现
     public String HRWorkedPerformance() {
-        HttpSession session = request.getSession();
-        workExperience = (v_WorkExperience) session.getAttribute("workExperience");
-        String talentId = request.getParameter("talentId");
+
+        workExperience = (v_WorkExperience) session.get("workExperience");
+        String talentId = (String) request.get("talentId");
         attend = talentService.WorkedAttend(talentId, workExperience.getEnterpriseId());
         disciplinary = talentService.WorkedDisciplinary(talentId, workExperience.getEnterpriseId());
         reward = talentService.WorkedReward(talentId, workExperience.getEnterpriseId());
