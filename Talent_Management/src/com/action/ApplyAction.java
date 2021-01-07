@@ -6,10 +6,13 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.IApplyService;
 import com.service.ITalentService;
+import javafx.application.Application;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.*;
 import org.apache.struts2.util.ServletContextAware;
 
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -65,35 +68,76 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
     public String apply(){
         talent =(Talent) session.get("talent");
 
+        Applicate c_applicate = applyService.getCurrentApp(talent.getTalentId());
+        if(c_applicate == null){
+            request.put("tip", "最近申请列表为空，本用户无人事变动信息，若你是企业成员则为数据库插入的成员");
+        }
+        else if (c_applicate.getApplicateResult() == null){
+            request.put("tip", "您有人事变动申请还未通过，暂时不能再次申请，请联系本公司HR");
+            return "false";
+        }
         if(talent.getIdentity() == 2){
             request.put("tip", "HR离职注销账号请向公司申报");
             return "false";
         }
 
+        v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+        if(nowExp != null)
+            ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
+
+        /*如果当前无身份，即申请就职*/
+        if(talent.getIdentity() == 0){
+            request.put("ap_tip", "您当前未加入任何企业，可申请就职");
+
+            return "in";
+        }
+        /*有身份即申请离职*/
+        else {
+            request.put("ap_tip", "您当前已就职，可申请离职");
+            return "out";
+        }
+    }
+
+    public String applyIn(){
+        String talentId =(String) session.get("talentId");
+        applicate.setTalentId(talentId);
+        applicate.setApplicateType(true);
+        applicate.setApplicateTime(new Timestamp(System.currentTimeMillis()));
+        applyService.save(applicate);
+        return "success";
+    }
+    public String applyOut(){
+        Map param= ActionContext.getContext().getParameters();
+        String[] value1 = (String[])param.get("talentId");
+
+        v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+
+        Applicate newApp = new Applicate();
+        newApp.setTalentId(value1[0]);
+        newApp.setApplicateType(false);
+        newApp.setEnterpriseId(nowExp.getEnterpriseId());
+        newApp.setDepartmentId(Integer.parseInt(nowExp.getDepartmentId()));
+        newApp.setApplicateTime(new Timestamp(System.currentTimeMillis()));
+
+        applyService.save(newApp);
         return "success";
     }
 
-    /*查申请审核是否通过,查申请表!!!自己的，最新一个！*/
+
+    /*自己可以查申请审核是否通过,查申请表!!!自己的，最新一个！*/
     public String result(){
         talent =(Talent) session.get("talent");
         /*从目前的工作记录中取最新公司*/
         if(talent.getIdentity() != 0) {
             v_WorkExperience nowExp = (v_WorkExperience) session.get("workExperience");
-            ActionContext.getContext().getSession().put("myEntName", nowExp.getEnterpriseName());
+            if(nowExp!=null)
+                ActionContext.getContext().getSession().put("myEntName", nowExp.getEnterpriseName());
         }
-
-        applicateList = applyService.getTalApp(talent.getTalentId());
-        if(applicateList.isEmpty()){
-            request.put("tip", "用户通过id查看的申请列表为空，即您在系统中从未有过人事变动记录");
+        applicate = applyService.getCurrentApp(talent.getTalentId());
+        if(applicate == null){
             return "error";
         }
         /*此时action中applicate为本人最新申请*/
-        applicate = applicateList.get(0);
-        for (int i = 0; i < applicateList.size(); i++) {
-            /*找到最大申请id(由于id自增)*/
-            if(applicateList.get(i).getApplicateId()>applicate.getApplicateId());
-                applicate = applicateList.get(i);
-        }
         return "success";
     }
 
@@ -118,6 +162,10 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
         talent =(Talent) session.get("talent");
         if(talent.getIdentity() == 2){
             v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+            if(nowExp == null){
+                request.put("tip","您的当前工作记录为空，不为任何公司的HR");
+                return "noHR";
+            }
             applicateList = applyService.getNoResApp(nowExp.getEnterpriseId());
             ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
             return "success";
@@ -131,8 +179,14 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
 
     /*HR审核操作,写审核表,用update*/
     public String HRReview(){
-        boolean Result = Boolean.parseBoolean((String) request.get("Result"));
-        int Id = Integer.parseInt((String) request.get("Id"));
+
+
+        Map param= ActionContext.getContext().getParameters();
+        String[] value1 = (String[])param.get("Result");
+        String[] value2 = (String[])param.get("Id");
+
+        boolean Result = Boolean.parseBoolean(value1[0]);
+        int Id = Integer.parseInt(value2[0]);
 
         if(applyService.review(Id,Result)){
             /*改工作经历，待补充！！！！*/

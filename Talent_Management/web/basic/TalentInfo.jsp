@@ -21,7 +21,8 @@
 <a href="myWorkExp.action">查看个人工作经历</a>
 
 <h3>个人管理</h3>
-<a href="applyResult.action">查看本人最新人事变动申请</a>
+<a href="applyResult.action">查看本人最新人事变动申请结果</a>
+<a href="applyEmploy.action">申请人事变动</a>
 
 </body>
 </html>

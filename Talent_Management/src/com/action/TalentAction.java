@@ -152,6 +152,7 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
         talent.setInformationReview(oldTalent.isInformationReview());
         talent.setIdentity(oldTalent.getIdentity());
         if (talentService.update(talent)) {
+            ActionContext.getContext().getSession().clear();
             return "updatesuccess";
         }
         return "updatefail";
