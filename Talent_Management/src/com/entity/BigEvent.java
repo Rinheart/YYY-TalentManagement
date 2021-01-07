@@ -12,7 +12,7 @@ public class BigEvent {
     private String content;
     private Date date;
     private String recorder;
-    private String recordTime;
+    private Date recordTime;
 
     @Id
     @Column(name = "BigEventID")
@@ -66,13 +66,14 @@ public class BigEvent {
 
     @Basic
     @Column(name = "RecordTime")
-    public String getRecordTime() {
+    public Date getRecordTime() {
         return recordTime;
     }
 
-    public void setRecordTime(String recordTime) {
+    public void setRecordTime(Date recordTime) {
         this.recordTime = recordTime;
     }
+
 
     @Override
     public boolean equals(Object o) {

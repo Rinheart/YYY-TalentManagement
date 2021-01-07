@@ -31,6 +31,13 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     private List<v_Disciplinary> disciplinary = new ArrayList<v_Disciplinary>();
     private List<v_Reward> reward = new ArrayList<v_Reward>();
     private List<v_BigEvent> bigEvent = new ArrayList<v_BigEvent>();
+    private String p_talentId,p_enterpriseId,p_content,p_rewordName,p_rewordResult,p_prize,
+            p_achievementScore, p_achievementComment,p_totalScore,p_abilityScore, p_abilityComment,
+            p_attitudeScore,p_attitudeComment;
+    private List<v_Achievement> achievement=new ArrayList<v_Achievement>();
+    private List<v_Evaluate> evaluate=new ArrayList<v_Evaluate>();
+    private v_Attend newAttend;
+    private Date p_date,p_startTime,p_endTime;
 
 
 
@@ -90,6 +97,150 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
         return bigEvent;
     }
 
+    public String getP_talentId() {
+        return p_talentId;
+    }
+
+    public void setP_talentId(String p_talentId) {
+        this.p_talentId = p_talentId;
+    }
+
+    public String getP_enterpriseId() {
+        return p_enterpriseId;
+    }
+
+    public void setP_enterpriseId(String p_enterpriseId) {
+        this.p_enterpriseId = p_enterpriseId;
+    }
+
+    public List<v_Achievement> getAchievement() {
+        return achievement;
+    }
+
+    public List<v_Evaluate> getEvaluate() {
+        return evaluate;
+    }
+
+    public v_Attend getNewAttend() {
+        return newAttend;
+    }
+
+    public void setNewAttend(v_Attend newAttend) {
+        this.newAttend = newAttend;
+    }
+
+    public Date getP_date() {
+        return p_date;
+    }
+
+    public void setP_date(Date p_date) {
+        this.p_date = p_date;
+    }
+
+    public String getP_content() {
+        return p_content;
+    }
+
+    public void setP_content(String p_content) {
+        this.p_content = p_content;
+    }
+
+    public String getP_rewordName() {
+        return p_rewordName;
+    }
+
+    public void setP_rewordName(String p_rewordName) {
+        this.p_rewordName = p_rewordName;
+    }
+
+    public String getP_rewordResult() {
+        return p_rewordResult;
+    }
+
+    public void setP_rewordResult(String p_rewordResult) {
+        this.p_rewordResult = p_rewordResult;
+    }
+
+    public String getP_prize() {
+        return p_prize;
+    }
+
+    public void setP_prize(String p_prize) {
+        this.p_prize = p_prize;
+    }
+
+    public String getP_achievementScore() {
+        return p_achievementScore;
+    }
+
+    public void setP_achievementScore(String p_achievementScore) {
+        this.p_achievementScore = p_achievementScore;
+    }
+
+    public String getP_achievementComment() {
+        return p_achievementComment;
+    }
+
+    public void setP_achievementComment(String p_achievementComment) {
+        this.p_achievementComment = p_achievementComment;
+    }
+
+    public Date getP_startTime() {
+        return p_startTime;
+    }
+
+    public void setP_startTime(Date p_startTime) {
+        this.p_startTime = p_startTime;
+    }
+
+    public Date getP_endTime() {
+        return p_endTime;
+    }
+
+    public void setP_endTime(Date p_endTime) {
+        this.p_endTime = p_endTime;
+    }
+
+    public String getP_totalScore() {
+        return p_totalScore;
+    }
+
+    public void setP_totalScore(String p_totalScore) {
+        this.p_totalScore = p_totalScore;
+    }
+
+    public String getP_abilityScore() {
+        return p_abilityScore;
+    }
+
+    public void setP_abilityScore(String p_abilityScore) {
+        this.p_abilityScore = p_abilityScore;
+    }
+
+    public String getP_abilityComment() {
+        return p_abilityComment;
+    }
+
+    public void setP_abilityComment(String p_abilityComment) {
+        this.p_abilityComment = p_abilityComment;
+    }
+
+    public String getP_attitudeScore() {
+        return p_attitudeScore;
+    }
+
+    public void setP_attitudeScore(String p_attitudeScore) {
+        this.p_attitudeScore = p_attitudeScore;
+    }
+
+    public String getP_attitudeComment() {
+        return p_attitudeComment;
+    }
+
+    public void setP_attitudeComment(String p_attitudeComment) {
+        this.p_attitudeComment = p_attitudeComment;
+    }
+
     private Map request,session,application;
     public void setRequest(Map<String, Object> request) {
         this.request=request;
@@ -109,7 +260,7 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
             session.put("talent", talent);
             session.put("talentId",talent.getTalentId());
             //登录时查询工作经历，获取当前工作信息
-            workExperience=talentService.MyWorkExperience(talent);
+            workExperience=talentService.MyWorkExperience(talent.getTalentId());
             session.put("workExperience",workExperience);
             //不同身份返回不同Strng，转到不同页面
             if (talent.getIdentity() == 0 || talent.getIdentity() == 1) {
@@ -188,39 +339,108 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
 
     //查看某员工既往工作经历
     public String HRWorkedExperience() {
-        String talentId = (String) request.get("talentId");
-        workExperiences = talentService.WorkExperience(talentId);
-        session.put("workExperience", workExperience);
+        workExperiences = talentService.WorkExperience(p_talentId);
+        //session.put("workExperience", workExperience);
         return "success";
     }
 
     //HR查看已离职员工既往工作经历
     public String HRWorkedExperiences() {
-        String talentId = (String) request.get("talentId");
-        String enterpriseId = (String) request.get("enterpriseId");
-        workExperiences = talentService.WorkedExperience(talentId, enterpriseId);
+        workExperiences = talentService.WorkedExperience(p_talentId, p_enterpriseId);
         return "success";
     }
 
     //HR查看某员工的工作表现
     public String HRWorkPerformance() {
-        String talentId = (String) request.get("talentId");
-        attend = talentService.WorkAttend(talentId);
-        disciplinary = talentService.WorkDisciplinary(talentId);
-        reward = talentService.WorkReward(talentId);
-        bigEvent = talentService.WorkBigEvent(talentId);
+        attend = talentService.WorkAttend(p_talentId);
+        disciplinary = talentService.WorkDisciplinary(p_talentId);
+        reward = talentService.WorkReward(p_talentId);
+        bigEvent = talentService.WorkBigEvent(p_talentId);
         return "success";
     }
 
     //HR查看已离职某员工在职期间工作表现
     public String HRWorkedPerformance() {
-
-        workExperience = (v_WorkExperience) session.get("workExperience");
-        String talentId = (String) request.get("talentId");
-        attend = talentService.WorkedAttend(talentId, workExperience.getEnterpriseId());
-        disciplinary = talentService.WorkedDisciplinary(talentId, workExperience.getEnterpriseId());
-        reward = talentService.WorkedReward(talentId, workExperience.getEnterpriseId());
-        bigEvent = talentService.WorkedBigEvent(talentId, workExperience.getEnterpriseId());
+        attend = talentService.WorkedAttend(p_talentId, p_enterpriseId);
+        disciplinary = talentService.WorkedDisciplinary(p_talentId, p_enterpriseId);
+        reward = talentService.WorkedReward(p_talentId, p_enterpriseId);
+        bigEvent = talentService.WorkedBigEvent(p_talentId, p_enterpriseId);
         return "success";
     }
+
+    //HR查看某员工的工作评价
+    public String HRWorkEvaluate() {
+        //绩效
+        achievement=talentService.WorkAchievement(p_talentId);
+        //主观评价
+        evaluate=talentService.WorkEvaluate(p_talentId);
+        return "success";
+    }
+
+    //HR查看已离职某员工在职期间工作评价
+    public String HRWorkedEvaluate() {
+        //绩效
+        achievement=talentService.WorkedAchievement(p_talentId,p_enterpriseId);
+        //主观评价
+        evaluate=talentService.WorkedEvaluate(p_talentId,p_enterpriseId);
+        return "success";
+    }
+
+    //添加异常出勤记录
+    public String AddAttend() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddAttend(p_talentId,newAttend.getEvent(),talent_id,p_date))
+            return "success";
+        else
+            return "fail";
+    }
+
+    //添加违纪事件记录
+    public String AddDisciplinary() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddDisciplinary(p_talentId,p_content,talent_id,p_date))
+            return "success";
+        else
+            return "fail";
+    }
+
+    //添加奖励事件记录
+    public String AddReward() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddReward(p_talentId,p_rewordName,p_rewordResult,p_prize,talent_id,p_date))
+            return "success";
+        else
+            return "fail";
+    }
+
+    //添加重大事件记录
+    public String AddBigEvent() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddBigEvent(p_talentId,p_content,talent_id,p_date))
+            return "success";
+        else
+            return "fail";
+    }
+
+    //添加绩效评价记录
+    public String AddAchievement() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddAchievement(p_talentId,p_content,p_startTime,p_endTime,
+                Integer.parseInt(p_achievementScore), p_achievementComment,talent_id))
+            return "success";
+        else
+            return "fail";
+    }
+
+    //添加主观评价记录
+    public String AddEvaluate() {
+        String talent_id=(String) session.get("talentId");
+        if (talentService.AddEvaluate(p_talentId,talent_id,Integer.parseInt(p_totalScore),
+                Integer.parseInt(p_abilityScore), p_abilityComment,Integer.parseInt(p_attitudeScore),
+                p_attitudeComment))
+            return "success";
+        else
+            return "fail";
+    }
+
 }

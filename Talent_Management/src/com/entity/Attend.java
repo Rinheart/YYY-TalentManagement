@@ -14,7 +14,7 @@ public class Attend {
     private Integer event;
     private Date date;
     private String recorder;
-    private String recordTime;
+    private Date recordTime;
 
     @Id
     @Column(name = "AttendID")
@@ -68,13 +68,15 @@ public class Attend {
 
     @Basic
     @Column(name = "RecordTime")
-    public String getRecordTime() {
+    public Date getRecordTime() {
         return recordTime;
     }
 
-    public void setRecordTime(String recordTime) {
+    public void setRecordTime(Date recordTime) {
         this.recordTime = recordTime;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

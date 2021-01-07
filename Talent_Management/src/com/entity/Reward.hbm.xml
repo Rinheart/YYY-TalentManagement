@@ -7,8 +7,8 @@
     <class name="com.entity.Reward" table="reward" schema="talent_management">
         <id name="rewardId" column="RewardID"/>
         <property name="workExperienceId" column="WorkExperienceID"/>
-        <property name="rewordName" column="RewordName"/>
-        <property name="rewordResult" column="RewordResult"/>
+        <property name="rewardName" column="RewardName"/>
+        <property name="rewardResult" column="RewardResult"/>
         <property name="prize" column="Prize"/>
         <property name="date" column="Date"/>
         <property name="recorder" column="Recorder"/>

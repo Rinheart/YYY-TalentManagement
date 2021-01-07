@@ -20,9 +20,9 @@
             <td><s:property value="#object.enterpriseName"/></td>
             <td><s:property value="#object.departmentName"/></td>
             <td><s:property value="#object.startTime"/></td>
-            <td><a href="HRWorkedExperience.action?talentId=${object.talentId}">查看</a></td>
-            <td><a href="HRWorkPerformance.action?talentId=${object.talentId}">管理</a></td>
-            <td><a href="">管理</a></td>
+            <td><a href="HRWorkedExperience.action?p_talentId=${object.talentId}">查看</a></td>
+            <td><a href="HRWorkPerformance.action?p_talentId=${object.talentId}">管理</a></td>
+            <td><a href="HRWorkEvaluate.action?p_talentId=${object.talentId}">管理</a></td>
         </tr>
     </s:iterator>
 </table>
@@ -39,9 +39,9 @@
             <td><s:property value="#object.enterpriseName"/></td>
             <td><s:property value="#object.departmentName"/></td>
             <td><s:property value="#object.startTime"/></td>
-            <td><a href="HRWorkedExperiences.action?talentId=${object.talentId}&enterpriseId=${object.enterpriseId}">查看</a></td>
-            <td><a href="HRWorkedPerformance.action?talentId=${object.talentId}&enterpriseId=${object.enterpriseId}">管理</a></td>
-            <td><a href="">管理</a></td>
+            <td><a href="HRWorkedExperiences.action?p_talentId=${object.talentId}&p_enterpriseId=${object.enterpriseId}">查看</a></td>
+            <td><a href="HRWorkedPerformance.action?p_talentId=${object.talentId}&p_enterpriseId=${object.enterpriseId}">查看</a></td>
+            <td><a href="HRWorkedEvaluate.action?p_talentId=${object.talentId}&p_enterpriseId=${object.enterpriseId}">查看</a></td>
         </tr>
     </s:iterator>
 </table>

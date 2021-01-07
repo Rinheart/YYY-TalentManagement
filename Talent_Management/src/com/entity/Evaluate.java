@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +17,7 @@ public class Evaluate {
     private String abilityComment;
     private Integer attitudeScore;
     private String attitudeComment;
-    private String time;
+    private Date time;
 
     @Id
     @Column(name = "EvaluateID")
@@ -100,13 +101,14 @@ public class Evaluate {
 
     @Basic
     @Column(name = "Time")
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
+
 
     @Override
     public boolean equals(Object o) {

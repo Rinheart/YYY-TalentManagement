@@ -4,6 +4,7 @@ import com.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,8 +66,6 @@ public class TalentService implements ITalentService {
         if (!list.isEmpty()){
             return false;
         }
-        talent.setInformationReview(true);
-        talentDAO.save(talent);
         return true;
     }
 
@@ -77,8 +76,8 @@ public class TalentService implements ITalentService {
     }
 
     //查看登录用户 现在的工作经历信息
-    public v_WorkExperience MyWorkExperience(Talent talent) {
-        String hql = "from v_WorkExperience where talentId='"+talent.getTalentId()+"'";
+    public v_WorkExperience MyWorkExperience(String talentId) {
+        String hql = "from v_WorkExperience where talentId='"+talentId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> work=new ArrayList<v_WorkExperience>();
         Date date = new Date();
@@ -229,7 +228,7 @@ public class TalentService implements ITalentService {
     }
     //查看某人才的重大事件
     public List<v_BigEvent> WorkBigEvent(String talentId) {
-        String hql = "from v_Reward where talentId='"+talentId+"'";
+        String hql = "from v_BigEvent where talentId='"+talentId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_BigEvent> relist=new ArrayList<v_BigEvent>();
         for (int i=0; i<list.size(); i++) {
@@ -249,7 +248,164 @@ public class TalentService implements ITalentService {
         }
         return relist;
     }
-
-
-
+    //查看某人才的绩效评价
+    public List<v_Achievement> WorkAchievement(String talentId) {
+        String hql = "from v_Achievement where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Achievement> relist=new ArrayList<v_Achievement>();
+        for (int i=0; i<list.size(); i++) {
+            v_Achievement achievement = (v_Achievement) list.get(i);
+            relist.add(achievement);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的绩效评价
+    public List<v_Achievement> WorkedAchievement(String talentId,String enterpriseId) {
+        String hql = "from v_Achievement where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Achievement> relist=new ArrayList<v_Achievement>();
+        for (int i=0; i<list.size(); i++) {
+            v_Achievement achievement = (v_Achievement) list.get(i);
+            relist.add(achievement);
+        }
+        return relist;
+    }
+    //查看某人才的主观评价
+    public List<v_Evaluate> WorkEvaluate(String talentId) {
+        String hql = "from v_Evaluate where talentId='"+talentId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Evaluate> relist=new ArrayList<v_Evaluate>();
+        for (int i=0; i<list.size(); i++) {
+            v_Evaluate evaluate = (v_Evaluate) list.get(i);
+            relist.add(evaluate);
+        }
+        return relist;
+    }
+    //HR查看某人才任职期间的主观评价
+    public List<v_Evaluate> WorkedEvaluate(String talentId,String enterpriseId) {
+        String hql = "from v_Evaluate where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        List list = talentDAO.findByHql(hql);
+        List<v_Evaluate> relist=new ArrayList<v_Evaluate>();
+        for (int i=0; i<list.size(); i++) {
+            v_Evaluate evaluate = (v_Evaluate) list.get(i);
+            relist.add(evaluate);
+        }
+        return relist;
+    }
+    //HR添加异常出勤记录
+    public boolean AddAttend(String talentId,int event,String HR,Date date) {
+        Attend attend=new Attend();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date recordTime=new Date();
+        attend.setWorkExperienceId(workExperience.getWorkExperienceId());
+        attend.setEvent(event);
+        attend.setDate(date);
+        attend.setRecorder(HR);
+        attend.setRecordTime(recordTime);
+        if(talentDAO.saveAttend(attend)) {
+            return true;
+        }else {
+            return false;
+        }
+//        String hql = "from Attend as attend where workExperienceId=" + workExperience.getWorkExperienceId()
+//                + " and event="+event+" and date="+date+" and recorder='"+HR+"' and recordTime="+recordTime;
+//        System.out.println(hql);
+//        List list = talentDAO.findByHql(hql);
+//        if (list.isEmpty()){
+//            return false;
+//        }else {
+//            return true;
+//        }
+    }
+    //HR添加违纪事件记录
+    public boolean AddDisciplinary(String talentId,String content,String HR,Date date) {
+        Disciplinary disciplinary=new Disciplinary();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date recordTime=new Date();
+        disciplinary.setWorkExperienceId(workExperience.getWorkExperienceId());
+        disciplinary.setContent(content);
+        disciplinary.setDate(date);
+        disciplinary.setRecorder(HR);
+        disciplinary.setRecordTime(recordTime);
+        if(talentDAO.saveDisciplinary(disciplinary)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //HR添加违纪事件记录
+    public boolean AddReward(String talentId,String rewordName,String rewordResult,String prize,String HR,Date date) {
+        Reward reward=new Reward();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date recordTime=new Date();
+        reward.setWorkExperienceId(workExperience.getWorkExperienceId());
+        reward.setRewardName(rewordName);
+        reward.setRewardResult(rewordResult);
+        reward.setPrize(prize);
+        reward.setDate(date);
+        reward.setRecorder(HR);
+        reward.setRecordTime(recordTime);
+        if(talentDAO.saveReward(reward)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //HR添加重大事件记录
+    public boolean AddBigEvent(String talentId,String content,String HR,Date date) {
+        BigEvent bigEvent=new BigEvent();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date recordTime=new Date();
+        bigEvent.setWorkExperienceId(workExperience.getWorkExperienceId());
+        bigEvent.setContent(content);
+        bigEvent.setDate(date);
+        bigEvent.setRecorder(HR);
+        bigEvent.setRecordTime(recordTime);
+        if(talentDAO.saveBigEvent(bigEvent)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //HR添加绩效评价记录
+    public boolean AddAchievement(String talentId,String content,Date startTime,Date endTime,
+                    int achievementScore,String achievementComment,String HR) {
+        Achievement achievement=new Achievement();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date recordTime=new Date();
+        Timestamp ts = new Timestamp(recordTime.getTime());
+        achievement.setWorkExperienceId(workExperience.getWorkExperienceId());
+        achievement.setContent(content);
+        achievement.setStartTime(startTime);
+        achievement.setEndTime(endTime);
+        achievement.setAchievementScore(achievementScore);
+        achievement.setAchievementComment(achievementComment);
+        achievement.setRecorder(HR);
+        achievement.setRecordTime(ts);
+        if(talentDAO.saveAchievement(achievement)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //HR添加主观评价记录
+    public boolean AddEvaluate(String talentId,String HR,Integer totalScore,Integer abilityScore,
+                    String abilityComment,Integer attitudeScore,String attitudeComment) {
+        Evaluate evaluate=new Evaluate();
+        v_WorkExperience workExperience=MyWorkExperience(talentId);
+        Date time=new Date();
+        evaluate.setWorkExperienceId(workExperience.getWorkExperienceId());
+        evaluate.setValuator(HR);
+        evaluate.setTotalScore(totalScore);
+        evaluate.setAbilityScore(abilityScore);
+        evaluate.setAbilityComment(abilityComment);
+        evaluate.setAttitudeScore(attitudeScore);
+        evaluate.setAbilityComment(attitudeComment);
+        evaluate.setTime(time);
+        if(talentDAO.saveEvaluate(evaluate)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

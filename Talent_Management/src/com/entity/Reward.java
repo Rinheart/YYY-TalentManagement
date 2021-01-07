@@ -11,12 +11,12 @@ import java.util.Objects;
 public class Reward {
     private int rewardId;
     private int workExperienceId;
-    private String rewordName;
-    private String rewordResult;
+    private String rewardName;
+    private String rewardResult;
     private String prize;
     private Date date;
     private String recorder;
-    private String recordTime;
+    private Date recordTime;
 
     @Id
     @Column(name = "RewardID")
@@ -39,24 +39,26 @@ public class Reward {
     }
 
     @Basic
-    @Column(name = "RewordName")
-    public String getRewordName() {
-        return rewordName;
+    @Column(name = "RewardName")
+    public String getRewardName() {
+        return rewardName;
     }
 
-    public void setRewordName(String rewordName) {
-        this.rewordName = rewordName;
+    public void setRewardName(String rewardName) {
+        this.rewardName = rewardName;
     }
+
 
     @Basic
-    @Column(name = "RewordResult")
-    public String getRewordResult() {
-        return rewordResult;
+    @Column(name = "RewardResult")
+    public String getRewardResult() {
+        return rewardResult;
     }
 
-    public void setRewordResult(String rewordResult) {
-        this.rewordResult = rewordResult;
+    public void setRewardResult(String rewardResult) {
+        this.rewardResult = rewardResult;
     }
+
 
     @Basic
     @Column(name = "Prize")
@@ -90,13 +92,15 @@ public class Reward {
 
     @Basic
     @Column(name = "RecordTime")
-    public String getRecordTime() {
+    public Date getRecordTime() {
         return recordTime;
     }
 
-    public void setRecordTime(String recordTime) {
+    public void setRecordTime(Date recordTime) {
         this.recordTime = recordTime;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -105,8 +109,8 @@ public class Reward {
         Reward reward = (Reward) o;
         return rewardId == reward.rewardId &&
                 workExperienceId == reward.workExperienceId &&
-                Objects.equals(rewordName, reward.rewordName) &&
-                Objects.equals(rewordResult, reward.rewordResult) &&
+                Objects.equals(rewardName, reward.rewardName) &&
+                Objects.equals(rewardResult, reward.rewardResult) &&
                 Objects.equals(prize, reward.prize) &&
                 Objects.equals(date, reward.date) &&
                 Objects.equals(recorder, reward.recorder) &&
@@ -115,6 +119,6 @@ public class Reward {
 
     @Override
     public int hashCode() {
-        return Objects.hash(rewardId, workExperienceId, rewordName, rewordResult, prize, date, recorder, recordTime);
+        return Objects.hash(rewardId, workExperienceId, rewardName, rewardResult, prize, date, recorder, recordTime);
     }
 }

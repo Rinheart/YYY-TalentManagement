@@ -10,12 +10,12 @@
 <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <html>
 <head>
-    <title>已离职员工的异常出勤</title>
+    <title>已离职员工任职期间的工作表现</title>
     <s:head theme="xhtml"/>
     <sx:head parseContent="true" extraLocales="UTF-8"/>
 </head>
 <body>
-<h4>任职期间异常出勤</h4>
+<h4>异常出勤</h4>
 <table border=1>
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>事件</th> <th>日期</th>
         <th>记录者</th> <th>记录日期</th> </tr>
@@ -45,7 +45,7 @@
     </s:iterator>
 </table>
 <br>
-<h4>任职期间违纪事件</h4>
+<h4>违纪事件</h4>
 <table border=1>
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>事件</th> <th>日期</th>
         <th>记录者</th> <th>记录日期</th> </tr>
@@ -62,7 +62,7 @@
     </s:iterator>
 </table>
 <br>
-<h4>任职期间奖励事件</h4>
+<h4>奖励事件</h4>
 <table border=1>
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>奖励名称</th> <th>奖励原因</th>
         <th>奖品</th> <th>获奖日期</th> <th>记录者</th> <th>记录日期</th> </tr>
@@ -81,7 +81,7 @@
     </s:iterator>
 </table>
 <br>
-<h4>任职期间重大事件</h4>
+<h4>重大事件</h4>
 <table border=1>
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>事件内容</th> <th>日期</th>
         <th>记录者</th> <th>记录日期</th> </tr>

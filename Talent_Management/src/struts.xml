@@ -84,8 +84,14 @@
         <result name="success">/enterprise/alterHR.jsp</result>
         </action>
 
+<!--        HR查看操作-->
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
+        </action>
+<!--        HR添加操作-->
+        <action name="Add*" class="talentAction" method="Add{1}">
+            <result name="success">/HR/addSuccess.jsp</result>
+            <result name="fail">/HR/addFail.jsp</result>
         </action>
 
         <!--有个表单填 就离职信息-->
