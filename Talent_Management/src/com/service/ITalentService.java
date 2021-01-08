@@ -12,6 +12,7 @@ public interface ITalentService {
     boolean login(Talent talent);
 
     Talent getFullTalent(Talent talent);
+    Talent getFullTalentById(String talentId);
 
     boolean update(Talent talent);
     //public v_WorkExperience MyWorkExperience(Talent talent);

@@ -39,28 +39,21 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     private v_Attend newAttend;
     private Date p_date,p_startTime,p_endTime;
 
-
-
     public Talent getTalent() {
         return talent;
     }
-
     public void setTalent(Talent talent) {
         this.talent = talent;
     }
-
     public v_WorkExperience getWorkExperience() {
         return workExperience;
     }
-
     public void setWorkExperience(v_WorkExperience workExperience) {
         this.workExperience = workExperience;
     }
-
     public ITalentService getTalentService() {
         return talentService;
     }
-
     public void setTalentService(ITalentService talentService) {
         this.talentService = talentService;
     }
@@ -68,175 +61,132 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     public List<v_WorkExperience> getHRworkExperiences() {
         return HRworkExperiences;
     }
-
     public void setHRworkExperiences(List<v_WorkExperience> HRworkExperiences) {
         this.HRworkExperiences = HRworkExperiences;
     }
-
     public List<v_WorkExperience> getHRworkedExperiences() {
         return HRworkedExperiences;
     }
-
     public List<v_WorkExperience> getWorkExperiences() {
         return workExperiences;
     }
-
     public List<v_Attend> getAttend() {
         return attend;
     }
-
     public List<v_Disciplinary> getDisciplinary() {
         return disciplinary;
     }
-
     public List<v_Reward> getReward() {
         return reward;
     }
-
     public List<v_BigEvent> getBigEvent() {
         return bigEvent;
     }
-
     public String getP_talentId() {
         return p_talentId;
     }
-
     public void setP_talentId(String p_talentId) {
         this.p_talentId = p_talentId;
     }
-
     public String getP_enterpriseId() {
         return p_enterpriseId;
     }
-
     public void setP_enterpriseId(String p_enterpriseId) {
         this.p_enterpriseId = p_enterpriseId;
     }
-
     public List<v_Achievement> getAchievement() {
         return achievement;
     }
-
     public List<v_Evaluate> getEvaluate() {
         return evaluate;
     }
-
     public v_Attend getNewAttend() {
         return newAttend;
     }
-
     public void setNewAttend(v_Attend newAttend) {
         this.newAttend = newAttend;
     }
-
     public Date getP_date() {
         return p_date;
     }
-
     public void setP_date(Date p_date) {
         this.p_date = p_date;
     }
-
     public String getP_content() {
         return p_content;
     }
-
     public void setP_content(String p_content) {
         this.p_content = p_content;
     }
-
     public String getP_rewordName() {
         return p_rewordName;
     }
-
     public void setP_rewordName(String p_rewordName) {
         this.p_rewordName = p_rewordName;
     }
-
     public String getP_rewordResult() {
         return p_rewordResult;
     }
-
     public void setP_rewordResult(String p_rewordResult) {
         this.p_rewordResult = p_rewordResult;
     }
-
     public String getP_prize() {
         return p_prize;
     }
-
     public void setP_prize(String p_prize) {
         this.p_prize = p_prize;
     }
-
     public String getP_achievementScore() {
         return p_achievementScore;
     }
-
     public void setP_achievementScore(String p_achievementScore) {
         this.p_achievementScore = p_achievementScore;
     }
-
     public String getP_achievementComment() {
         return p_achievementComment;
     }
-
     public void setP_achievementComment(String p_achievementComment) {
         this.p_achievementComment = p_achievementComment;
     }
-
     public Date getP_startTime() {
         return p_startTime;
     }
-
     public void setP_startTime(Date p_startTime) {
         this.p_startTime = p_startTime;
     }
-
     public Date getP_endTime() {
         return p_endTime;
     }
-
     public void setP_endTime(Date p_endTime) {
         this.p_endTime = p_endTime;
     }
-
     public String getP_totalScore() {
         return p_totalScore;
     }
-
     public void setP_totalScore(String p_totalScore) {
         this.p_totalScore = p_totalScore;
     }
-
     public String getP_abilityScore() {
         return p_abilityScore;
     }
-
     public void setP_abilityScore(String p_abilityScore) {
         this.p_abilityScore = p_abilityScore;
     }
-
     public String getP_abilityComment() {
         return p_abilityComment;
     }
-
     public void setP_abilityComment(String p_abilityComment) {
         this.p_abilityComment = p_abilityComment;
     }
-
     public String getP_attitudeScore() {
         return p_attitudeScore;
     }
-
     public void setP_attitudeScore(String p_attitudeScore) {
         this.p_attitudeScore = p_attitudeScore;
     }
-
     public String getP_attitudeComment() {
         return p_attitudeComment;
     }
-
     public void setP_attitudeComment(String p_attitudeComment) {
         this.p_attitudeComment = p_attitudeComment;
     }
@@ -286,8 +236,8 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     }
 
     public String getUpdatePage() {
-
-        talent = (Talent) session.get("talent");
+        String tmp_talentId = (String) session.get("talentId");
+        talent = talentService.getFullTalentById(tmp_talentId);
         return "success";
     }
 
@@ -329,8 +279,9 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
 
     //HR查看员工工作信息
     public String HRWorkExperience() {
-
-        workExperience = (v_WorkExperience) session.get("workExperience");
+        String tmp_talentId = (String) session.get("talentId");
+        workExperience = talentService.MyWorkExperience(tmp_talentId);
+        /*workExperience = (v_WorkExperience) session.get("workExperience");*/
         if (workExperience != null) {
             HRworkExperiences = talentService.HRWorkExperience(workExperience.getEnterpriseId());
             HRworkedExperiences = talentService.HRWorkedExperience(workExperience.getEnterpriseId());

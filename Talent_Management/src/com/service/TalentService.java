@@ -45,6 +45,25 @@ public class TalentService implements ITalentService {
         }
     }
 
+    public Talent getFullTalentById(String talentId) {
+        String hql = "from Talent as talent where TalentId='" + talentId + "'";
+        List list = talentDAO.findByHql(hql);
+        if(list.size()==1){
+            return (Talent) list.get(0);
+        }
+        else if(list.isEmpty()){
+            System.out.println("无此用户");
+            return null;
+        }
+        else if(list.size()>1){
+            System.out.println("注册出错，两个同名用户");
+            return null;
+        }
+        else {
+            return null;
+        }
+    }
+
     public boolean login(Talent talent) {
         Map request = (Map) ActionContext.getContext().get("request");
         String talentId = talent.getTalentId();

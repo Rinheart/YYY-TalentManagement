@@ -65,12 +65,12 @@ public class ApplyService implements IApplyService {
         return work.get(0).getWorkExperienceId();
     }
 
-
+    /*获得企业所有申请*/
     public List<Applicate> getEntApp(String enterpriseId) {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"'";
         return applyDAO.findByHql(hql);
     }
-
+    /*获得企业所有未批准申请*/
     public List<Applicate> getNoResApp(String enterpriseId) {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"' and applicateResult=null";
         return applyDAO.findByHql(hql);
@@ -108,7 +108,7 @@ public class ApplyService implements IApplyService {
         return applicate_new;
     }
 
-
+    /*HR使用review来批准申请*/
     public boolean review(int applicateId, boolean applicateResult) {
         Applicate updateApp = getAppById(applicateId);
         if(updateApp == null){

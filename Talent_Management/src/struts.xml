@@ -37,96 +37,96 @@
         </action>
 
 
-
         <action name="TalentUpdate" class="talentAction" method="update">
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
 
-<!--        企业登录-->
+        <!--        企业登录-->
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
             <result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="loginfail">/enterprise/enterpriseLogin.jsp</result>
         </action>
-<!--        企业注册-->
+        <!--        企业注册-->
         <action name="enterpriseRegister" class="enterpriseAction" method="register">
             <result name="registersuccess">/enterprise/enterpriseLogin.jsp</result>
             <result name="registerfail">/enterprise/enterpriseRegister.jsp</result>
         </action>
-<!--        通过Action转发到更新页面-->
+        <!--        通过Action转发到更新页面-->
         <action name="enterpriseUpdatePage" class="enterpriseAction" method="getUpdatePage">
             <result name="success">/enterprise/updateEnterprise.jsp</result>
         </action>
-<!--        更新企业信息-->
+        <!--        更新企业信息-->
         <action name="enterpriseUpdate" class="enterpriseAction" method="update">
             <result name="updatesuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="updatefail">/enterprise/CURDFail.jsp</result>
         </action>
-<!--        管理部门信息-->
+        <!--        管理部门信息-->
         <action name="departmentPage" class="enterpriseAction" method="getDepartmentPage">
             <result name="success">/enterprise/manageDepartment.jsp</result>
         </action>
-<!--        转发到增加部门页面-->
+        <!--        转发到增加部门页面-->
         <action name="addDepartmentPage" class="enterpriseAction" method="addDepartmentPage">
             <result name="success">/enterprise/addDepartment.jsp</result>
         </action>
-<!--        增加部门-->
+        <!--        增加部门-->
         <action name="addDepartment" class="enterpriseAction" method="addDepartment">
             <result name="addsuccess">/enterprise/enterpriseMessage.jsp</result>
             <result name="addfail">/enterprise/enterpriseMessage.jsp</result>
         </action>
-<!--        管理HR信息页面-->
+        <!--        管理HR信息页面-->
         <action name="manageHRPage" class="enterpriseAction" method="manageHRPage">
             <result name="success">/enterprise/manageHR.jsp</result>
         </action>
-<!--        修改HR信息-->
-        <action name="alterHR" class="enterpriseAction" method="alterHR" >
-        <result name="success">/enterprise/alterHR.jsp</result>
+        <!--        修改HR信息-->
+        <action name="alterHR" class="enterpriseAction" method="alterHR">
+            <result name="success">/enterprise/alterHR.jsp</result>
         </action>
 
-<!--        HR查看操作-->
+        <!--        HR查看操作-->
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
         </action>
-<!--        HR添加操作-->
+        <!--        HR添加操作-->
         <action name="Add*" class="talentAction" method="Add{1}">
             <result name="success">/HR/addSuccess.jsp</result>
             <result name="fail">/HR/addFail.jsp</result>
         </action>
 
-        <!--有个表单填 就离职信息-->
+        <!--5.1 判断目前有无工作，之后进行就离职申请，申请只能通过访问此页面-->
         <action name="applyEmploy" class="applyAction" method="apply">
             <result name="out">/find/MyOutRequest.jsp</result>
             <result name="in">/find/MyInRequest.jsp</result>
             <result name="false">/find/error.jsp</result>
         </action>
+        <!--5.1 就职申请，不要用超链接访问-->
         <action name="applyIn" class="applyAction" method="applyIn">
             <result name="success">/find/MyApplySuccess.jsp</result>
         </action>
+        <!--5.1 离职申请，不要用超链接访问-->
         <action name="applyOut" class="applyAction" method="applyOut">
             <result name="success">/find/MyApplySuccess.jsp</result>
         </action>
-
-        <!--个人查看自己的最新申请情况-->
+        <!--5.2 个人查看自己的最新申请情况-->
         <action name="applyResult" class="applyAction" method="result">
             <result name="error">/find/error.jsp</result>
             <result name="success">/find/MyApplyResult.jsp</result>
         </action>
-        <!--HR审核本公司待批准申请-->
+        <!--5.3 HR审核本公司待批准申请-->
         <action name="applyHRCheck" class="applyAction" method="HRCheck">
             <result name="success">/find/HRCheckResult.jsp</result>
             <result name="noHR">/find/error.jsp</result>
         </action>
-        <!--HR看本公司所有申请记录历史-->
+        <!--5.4 HR看本公司所有申请记录历史-->
         <action name="applyHRCheckAll" class="applyAction" method="HRCheckAll">
             <result name="success" type="redirectAction">applyHRCheck</result>
             <result name="error">find/error.jsp</result>
         </action>
+        <!--5.5 HR进行同意or拒绝申请，不要用超链接访问-->
         <action name="applyHRReview" class="applyAction" method="HRReview">
             <result name="success" type="redirectAction">applyHRCheck</result>
             <result name="error">find/error.jsp</result>
         </action>
-
 
 
     </package>

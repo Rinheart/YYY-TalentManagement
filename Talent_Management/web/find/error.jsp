@@ -5,7 +5,7 @@
     <title>访问失败</title>
 </head>
 <body>
-您的权限不足，或请求有误，请返回<br>
+您的请求有误，或权限不足，请返回<br>
 提示信息：<br>
 <s:property value="#request.tip"/>
 </body>
