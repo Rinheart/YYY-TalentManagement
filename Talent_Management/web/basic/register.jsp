@@ -24,7 +24,7 @@
     <s:textfield name="talent.education" label="请输入学历"/>
     <s:textfield name="talent.personalProfile" label="请输入个人简介"/>
 
-    <s:radio name="talent.identity" list="#{1 : '在职', 0 : '待业'}" label="请输入就业状况"/>
+    <%--注册时就业状况默认为0，需要向HR申请，要不然exp表有误--%>
 
     <s:submit value="注册"/> <s:reset value="重置"/>
 </s:form>

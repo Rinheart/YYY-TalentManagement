@@ -229,6 +229,8 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     }
 
     public String register() {
+        talent.setIdentity(0);
+        talent.setInformationReview(true);
         if (talentService.register(talent)) {
             return "registersuccess";
         }

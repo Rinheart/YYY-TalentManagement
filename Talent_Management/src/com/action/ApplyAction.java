@@ -98,6 +98,7 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
         }
     }
 
+    /*不同申请*/
     public String applyIn(){
         String talentId =(String) session.get("talentId");
         applicate.setTalentId(talentId);
@@ -189,7 +190,7 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
         int Id = Integer.parseInt(value2[0]);
 
         if(applyService.review(Id,Result)){
-            /*改工作经历，待补充！！！！*/
+            /*改工作经历，已加在service层的review中*/
             return "success";
         }
         return "error";

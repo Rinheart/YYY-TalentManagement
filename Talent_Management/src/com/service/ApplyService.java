@@ -81,7 +81,6 @@ public class ApplyService implements IApplyService {
         return applyDAO.findByHql(hql);
     }
 
-
     public Applicate getAppById(int applicateId) {
         String hql = "from Applicate where applicateId='"+applicateId+"'";
         List<Applicate> list = applyDAO.findByHql(hql);
@@ -123,12 +122,79 @@ public class ApplyService implements IApplyService {
 
         update(updateApp);
 
-        /*改工作经验，待补充!!!!*/
-        return true;
+        /*如果申请审核通过，改工作经验*/
+        if(applicateResult){
+            return changeExp(updateApp);
+        }
+        else {
+            return true;
+        }
+
+    }
+    public Talent getFullTalentById(String talentId) {
+        String hql = "from Talent as talent where TalentId='" + talentId + "'";
+        List list = applyDAO.findByHql(hql);
+        if(list.size()==1){
+            return (Talent) list.get(0);
+        }
+        else if(list.isEmpty()){
+            System.out.println("无此用户");
+            return null;
+        }
+        else if(list.size()>1){
+            System.out.println("两个同名用户");
+            return null;
+        }
+        else {
+            return null;
+        }
     }
 
-    /*根据申请号和申请类型，修改工作经验,待补充！！！！*/
-    public boolean changeExp(int applicateId, boolean applicateType){
+    /*根据申请号和申请类型，修改工作经验*/
+    public boolean changeExp(Applicate nowApp){
+        Map request =(Map) ActionContext.getContext().get("request");
+        String enterpriseId = nowApp.getEnterpriseId();
+        int depId = nowApp.getDepartmentId();
+        /*如果申请类型进入*/
+        if(nowApp.getApplicateType()){
+            WorkExperience newWorkExp = new WorkExperience();
+            newWorkExp.setTalentId(nowApp.getTalentId());
+            newWorkExp.setEnterpriseId(enterpriseId);
+            newWorkExp.setDepartmentId(depId);
+            newWorkExp.setStartTime(new Timestamp(System.currentTimeMillis()));
+            applyDAO.saveExp(newWorkExp);
+
+            /*修改talent身份*/
+            Talent tmp_talent = getFullTalentById(nowApp.getTalentId());
+            tmp_talent.setIdentity(1);
+            applyDAO.updateTalent(tmp_talent);
+
+            return true;
+        }
+        /*如果类型出*/
+        else if(!nowApp.getApplicateType()){
+            List<WorkExperience> myWorkExp= applyDAO.findByHql("from WorkExperience where talentId='"+nowApp.getTalentId()
+                    +"' and enterpriseId='"+enterpriseId+"' and departmentId='"+depId+"' and endTime=null");
+            if(myWorkExp.isEmpty()){
+                request.put("tip","查询不到工作记录，离职出错");
+                return false;
+            }
+            else if(myWorkExp.size()>1){
+                request.put("tip","工作记录非法，同时存在两个未结束工作记录，离职出错");
+                return false;
+            }
+            WorkExperience WorkExp = myWorkExp.get(0);
+            WorkExp.setEndTime(new Timestamp(System.currentTimeMillis()));
+            applyDAO.updateExp(WorkExp);
+
+            /*修改talent身份*/
+            Talent tmp_talent = getFullTalentById(nowApp.getTalentId());
+            tmp_talent.setIdentity(0);
+            applyDAO.updateTalent(tmp_talent);
+
+            return true;
+        }
+        request.put("tip","申请类型有误");
         return false;
     }
 }

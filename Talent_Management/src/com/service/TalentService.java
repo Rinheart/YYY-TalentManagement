@@ -79,12 +79,8 @@ public class TalentService implements ITalentService {
     }
 
     public boolean register(Talent talent) {
-        String talentId = talent.getTalentId();
-        String hql = "from Talent as talent where TalentId='" + talentId + "'";
-        List list = talentDAO.findByHql(hql);
-        if (!list.isEmpty()){
-            return false;
-        }
+        System.out.println(talent);
+        talentDAO.save(talent);
         return true;
     }
 

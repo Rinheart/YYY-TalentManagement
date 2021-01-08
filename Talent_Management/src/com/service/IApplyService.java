@@ -21,5 +21,6 @@ public interface IApplyService {
 
     boolean review(int applicateId,boolean applicateResult);
 
-    boolean changeExp(int applicateId, boolean applicateType);
+    boolean changeExp(Applicate nowApp);
+    Talent getFullTalentById(String talentId);
 }
