@@ -4,6 +4,7 @@ import com.dao.IEnterpriseDAO;
 import com.entity.Department;
 import com.entity.Enterprise;
 import com.entity.Talent;
+import com.entity.v_Enterprise_Talent;
 import com.opensymphony.xwork2.ActionContext;
 
 import java.util.List;
@@ -53,8 +54,8 @@ public class EnterpriseService implements IEnterpriseService{
         return true;
     }
     //补全session
-    public Enterprise getFullEnterprise(Enterprise enterprise) {
-        String enterpriseId = enterprise.getEnterpriseId();
+    public Enterprise getFullEnterpriseById(String enterpriseId) {
+        //String enterpriseId = enterprise.getEnterpriseId();
         String hql = "from Enterprise as enterprise where EnterpriseId='"
                 + enterpriseId + "'";
         List list = enterpriseDAO.findByHql(hql);
@@ -80,7 +81,7 @@ public class EnterpriseService implements IEnterpriseService{
         String hql = "from Department as department where DepartmentId='" + departmentId + "'";
         List list = enterpriseDAO.findByHql(hql);
         if (!list.isEmpty()){
-            //request.put("tip","添加失败，出现ID相同的部门");
+            request.put("tip","添加失败，出现ID相同的部门");
             return false;
         }
         enterpriseDAO.saveDepartment(department);
@@ -94,17 +95,40 @@ public class EnterpriseService implements IEnterpriseService{
         List<Department> list = enterpriseDAO.findByHql(hql);
         return list;
     }
+
+    //修改部门信息
+    public Boolean updateDepartment(Department department) {
+        enterpriseDAO.updateDepartment(department);
+        return true;
+    }
     //获取企业所有HR信息
-    public List<Talent> getHRList(Enterprise enterprise) {
+    public List<v_Enterprise_Talent> getHRList(Enterprise enterprise) {
         String enterpriseId = enterprise.getEnterpriseId();
-        String hql = "from Talent as talent where EnterpriseId='"
-                + enterpriseId + "' and (Identity='"
-                + 2 + "'or'"+ 4 +"'";
-        List<Talent> list = enterpriseDAO.findByHql(hql);
+//        String hql = "from v_Enterprise_Talent as enterprise_talent where (Identity='" + 2 +"' or Identity = '" + 4 +"') and EnterpriseId='" + enterpriseId + "'";
+        String hql = "From v_Enterprise_Talent as enterprise_talent where EnterpriseId='" + enterpriseId + "'";
+        List<v_Enterprise_Talent> list = enterpriseDAO.findByHql(hql);
         return list;
     }
-    //修改HR信息功能（待实现逻辑）
+
+    //修改hr信息
     public boolean alterHR(Talent talent) {
-        return false;
+        enterpriseDAO.updateHR(talent);
+        return true;
+    }
+    public List<Department> getDepartmentById(int departmentId) {
+        String hql = "from Department as department where DepartmentId='" + departmentId + "'";
+        List<Department> list = enterpriseDAO.findByHql(hql);
+        return list;
+    }
+    //删除部门
+    public boolean deleteDepartment(Department department){
+        enterpriseDAO.deleteDepartment(department.getDepartmentId());
+        return true;
+    }
+    //通过id获得HR
+    public List<Talent> getHRById(String id) {
+        String hql = "from Talent as talent where TalentId ='" + id + "'";
+        List<Talent> list = enterpriseDAO.findByHql(hql);
+        return list;
     }
 }

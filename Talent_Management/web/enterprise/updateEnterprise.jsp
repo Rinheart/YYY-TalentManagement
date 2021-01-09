@@ -28,7 +28,7 @@
 <%--    <s:textfield name="enterprise.registeredCapital" label="请输入企业注册资本"/>--%>
 <%--    <s:textfield name="enterprise.websiteAddress" label="请输入公司主页"/>--%>
 <%--    <s:submit value="注册"/> <s:reset value="重置"/>--%>
-    <button type="submit">提交修改</button>
+    <input type="submit">提交修改</input>
 </form>
 </body>
 </html>

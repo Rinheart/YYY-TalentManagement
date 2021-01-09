@@ -11,7 +11,6 @@
     <title>更新或删除失败</title>
 </head>
 <body>
-修改或删除企业信息失败
 <s:property value="#request.tip"/>
 </body>
 </html>

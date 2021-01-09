@@ -1,61 +1,68 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-    <title>企业登录</title></head>
-<body>
-
-<s:property value="#request.tip"/>
-<br>
-
-<form action="enterpriseLogin.action" method="post">
-    <table style="border: 1px solid #222222;" rules="none" cellspacing="0" width="320">
-        <tr height="40">
-            <td colspan=2>
-                <h2 align="center">
-                    <span style="color: #9d9d9d; ">登录系统</span>
-                </h2>
-            </td>
-        </tr>
-
-        <tr height=40>
-            <td width=100 height=40 align="center">用&nbsp;&nbsp;&nbsp;户&nbsp;&nbsp;&nbsp;名</td>
-            <td width=220><input style="width: 95%;height: 25px;" required="required"
-                                 type="text" placeholder="请输入用户名"
-                                 onfocus="if(value==defaultValue){value='';this.style.color='#000'}"
-                                 onblur="if(!value){value='';this.style.color='#999'}"
-                                 name="enterprise.enterpriseId" id="username"></td>
-        </tr>
-
-
-        <tr height=40>
-            <td width=100 height=40 align="center">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</td>
-            <td width=220><input style="width: 95%;height: 25px;" required="required"
-                                 type="password" placeholder="请输入密码"
-                                 onfocus="if(value==defaultValue){value='';this.style.color='#000'}"
-                                 onblur="if(!value){value='';this.style.color='#999'}"
-                                 name="enterprise.password" id="password"></td>
-             </tr>
-
-
-
-        <tr height=40>
-            <td colspan=2 align="center">
-                <input type="submit" value="登录" onclick="return custCheck()">
-                <%--onclick被return false后，提交表单会被阻止，写custCheck的js函数判断并阻止提交--%>
-        </tr>
-
-        <tr>
-            <td align="right" colspan="2">
-                没有账户?<a href="register.jsp">请注册</a>
-            </td>
-        </tr>
-    </table>
-</form>
-
-
-</body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>小微企业跨组织人才管理系统</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" href="../assets/css/backend.min.css">
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
+<body class=" ">
+<!-- loader Start -->
+<div id="loading">
+    <div id="loading-center">
+    </div>
+</div>
+<!-- loader END -->
+<div class="wrapper">
+    <section class="login-content">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center height-self-center">
+                <div class="col-md-5 col-sm-12 col-12 align-self-center">
+                    <div class="sign-user_card">
+                        <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo logo" alt="logo">
+                        <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo logo" alt="logo">
+                        <h3 class="mb-3">登录系统</h3>
+                        <p><s:property value="#request.tip"/></p>
+                        <form action="enterpriseLogin.action" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="floating-label form-group">
+                                        <input class="floating-input form-control" name="enterprise.enterpriseId" id="username" type="text" placeholder=" ">
+                                        <label>用户名</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="floating-label form-group">
+                                        <input class="floating-input form-control" name="enterprise.password" id="password" type="password" placeholder=" ">
+                                        <label>密码</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="custom-control custom-checkbox mb-3 text-left">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1">记住我</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="" class="text-primary float-right">忘记密码?</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="return custCheck()">登录</button>
+                            <p class="mt-3">
+                                没有账号？ <a href="/enterprise/enterpriseRegister.jsp" class="text-primary">注册</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <script language="JavaScript">
     function custCheck() {
         var n2 = document.getElementById("username");
@@ -68,11 +75,20 @@
             alert("密码不能为空！");
             return false;
         }
-
         if(n2.value.length>8||n3.value().length>8){
             alert("用户名/密码不能超过8位");
             return false;
         }
     }
 </script>
+<!-- Backend Bundle JavaScript -->
+<script src="../assets/js/backend-bundle.min.js"></script>
+<!-- Chart Custom JavaScript -->
+<script src="../assets/js/customizer.js"></script>
+<!-- Chart Custom JavaScript -->
+<script src="../assets/js/chart-custom.js"></script>
+<script src="../assets/js/doc-viewer.js"></script>
+<!-- app JavaScript -->
+<script src="../assets/js/app.js"></script>
+</body>
 </html>

@@ -4,6 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=GBK">
     <title>用户登录页面</title></head>
+<link rel="shortcut icon" href="../assets/images/favicon.ico" />
+<link rel="stylesheet" href="../assets/css/backend.min.css">
+<link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+<link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
 <body>
 
 <s:property value="#request.tip"/>

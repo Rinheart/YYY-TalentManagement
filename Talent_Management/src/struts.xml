@@ -65,22 +65,44 @@
         <action name="departmentPage" class="enterpriseAction" method="getDepartmentPage">
             <result name="success">/enterprise/manageDepartment.jsp</result>
         </action>
+        <!--        进入修改部门信息页面-->
+        <action name="departmentUpdatePage" class="enterpriseAction" method="departmentUpdatePage">
+            <result name="success">/enterprise/updateDepartment.jsp</result>
+        </action>
+        <!--        修改部门信息-->
+        <action name="departmentUpdate" class="enterpriseAction" method="departmentUpdate">
+            <result name="success">/enterprise/enterpriseMessage.jsp</result>
+        </action>
+        <!--        删除部门信息-->
+        <action name="departmentDelete" class="enterpriseAction" method="departmentDelete">
+            <result name="success">/enterprise/manageDepartment.jsp</result>
+            <result name="fail">/enterprise/CURDFail.jsp</result>
+        </action>
         <!--        转发到增加部门页面-->
         <action name="addDepartmentPage" class="enterpriseAction" method="addDepartmentPage">
             <result name="success">/enterprise/addDepartment.jsp</result>
+            <result name="fail">/enterprise/CURDFail.jsp</result>
         </action>
         <!--        增加部门-->
         <action name="addDepartment" class="enterpriseAction" method="addDepartment">
             <result name="addsuccess">/enterprise/enterpriseMessage.jsp</result>
-            <result name="addfail">/enterprise/enterpriseMessage.jsp</result>
+            <result name="addfail">/enterprise/CURDFail.jsp</result>
         </action>
         <!--        管理HR信息页面-->
         <action name="manageHRPage" class="enterpriseAction" method="manageHRPage">
             <result name="success">/enterprise/manageHR.jsp</result>
         </action>
+        <!--        转发到修改HR信息页面-->
+        <action name="alterHRPage" class="enterpriseAction" method="alterHRPage">
+            <result name="success">/enterprise/alterHR.jsp</result>
+        </action>
         <!--        修改HR信息-->
         <action name="alterHR" class="enterpriseAction" method="alterHR">
-            <result name="success">/enterprise/alterHR.jsp</result>
+            <result name="success">/enterprise/enterpriseMessage.jsp</result>
+        </action>
+        <!--        清除所有session并退出登录-->
+        <action name="deleteSession" class="enterpriseAction" method="deleteSession">
+            <result name="success">/enterprise/enterpriseLogin.jsp</result>
         </action>
 
         <!--        HR查看操作-->

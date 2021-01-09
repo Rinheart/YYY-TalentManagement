@@ -60,6 +60,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com/entity/Applicate.hbm.xml</value>
                 <value>com/entity/v_Achievement.hbm.xml</value>
                 <value>com/entity/v_Evaluate.hbm.xml</value>
+                <value>com/entity/v_Enterprise_Talent.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
@@ -87,6 +88,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
                 <value>com.entity.Applicate</value>
                 <value>com.entity.v_Achievement</value>
                 <value>com.entity.v_Evaluate</value>
+                <value>com.entity.v_Enterprise_Talent</value>
             </list>
         </property>
     </bean>
@@ -112,7 +114,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="applyService" ref="applyService"/>
     </bean>
 
-
+<!--    企业bean-->
     <bean id="enterpriseDAO" class="com.dao.EnterpriseDAO" parent="baseDAO"/>
     <bean id="enterpriseService" class="com.service.EnterpriseService">
         <property name="enterpriseDAO" ref="enterpriseDAO"/>

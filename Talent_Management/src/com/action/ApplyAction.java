@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.IApplyService;
 import com.service.ITalentService;
-import javafx.application.Application;
+//import javafx.application.Application;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.*;
 import org.apache.struts2.util.ServletContextAware;
