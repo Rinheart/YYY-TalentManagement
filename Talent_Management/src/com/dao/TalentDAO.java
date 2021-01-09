@@ -1,10 +1,12 @@
 package com.dao;
 import com.entity.*;
+import com.opensymphony.xwork2.ActionContext;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class TalentDAO extends BaseHibernateDAO implements ITalentDAO {
@@ -22,6 +24,8 @@ public class TalentDAO extends BaseHibernateDAO implements ITalentDAO {
             System.out.println("正在保存:\n"+transientInstance.toString());
             tran.commit();
         } catch (RuntimeException re) {
+            Map req =(Map) ActionContext.getContext().get("request");
+            req.put("tip","注册失败，已有同名用户");
             if(tran != null) tran.rollback();
             throw re;
         } finally {

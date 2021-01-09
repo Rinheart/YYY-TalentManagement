@@ -217,16 +217,31 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
                 return "loginTalent";
             } else if (talent.getIdentity() == 2) {
                 return "loginHR";
-            } else if (talent.getIdentity() == 3) {
-                return "loginHead";
             } else {
                 return "loginFail";
             }
         } else {
             return "loginFail";
         }
+    }
+
+    public String exit(){
+        ActionContext.getContext().getSession().clear();
+        return "exit";
+    }
+
+    public String loginPage(){
+        talent = (Talent) session.get("talent");
+        workExperience = (v_WorkExperience) session.get("workExperience");
+        if(talent.getIdentity() == 2){
+            return "H";
+        }
+        else{
+            return "T";
+        }
 
     }
+
 
     public String register() {
         talent.setIdentity(0);
