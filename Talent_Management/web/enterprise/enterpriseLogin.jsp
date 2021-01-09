@@ -1,8 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!doctype html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>小微企业跨组织人才管理系统</title>
     <!-- Favicon -->
@@ -24,9 +24,9 @@
             <div class="row justify-content-center align-items-center height-self-center">
                 <div class="col-md-5 col-sm-12 col-12 align-self-center">
                     <div class="sign-user_card">
-                        <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo logo" alt="logo">
+                        <img src="../assets/images/logo1.png" class="img-fluid rounded-normal light-logo logo" alt="logo">
                         <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo logo" alt="logo">
-                        <h3 class="mb-3">登录系统</h3>
+                        <h3 class="mb-3">企业登录</h3>
                         <p><s:property value="#request.tip"/></p>
                         <form action="enterpriseLogin.action" method="post">
                             <div class="row">
@@ -54,7 +54,10 @@
                             </div>
                             <button type="submit" class="btn btn-primary" onclick="return custCheck()">登录</button>
                             <p class="mt-3">
-                                没有账号？ <a href="/enterprise/enterpriseRegister.jsp" class="text-primary">注册</a>
+                                没有账号？ <a href="/enterprise/enterpriseRegister.jsp" class="text-primary">注册</a> <br>
+                                <br>
+                                <a href="../index.jsp">返回首页</a>
+
                             </p>
                         </form>
                     </div>

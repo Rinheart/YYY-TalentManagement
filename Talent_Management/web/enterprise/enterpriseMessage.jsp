@@ -20,7 +20,7 @@
     }
 </script>
 <s:property value="#request.tip"/>
-欢迎您${enterprise.enterpriseId}，登陆系统! <br>
+欢迎您登陆系统，${enterprise.enterpriseId}登陆系统! <br>
 <a href="enterpriseUpdatePage.action">修改、发布企业信息</a> <br>
 <%--待修改--%>
 <a href="departmentPage.action">管理部门信息</a> <br>
