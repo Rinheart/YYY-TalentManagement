@@ -158,7 +158,8 @@
         <a href="updatePage.action">修改个人信息</a>
         <br>
         <h3>员工管理</h3>
-        <a href="HRWorkExperience.action">管理员工工作信息</a><br>
+        <a href="HRWorkExperience.action">员工工作信息管理</a><br>
+        <a href="HRWorkExperience1.action">已离职员工工作信息</a><br>
         <br>
 
 
