@@ -6,24 +6,39 @@
 
 <struts>
     <!--设置开发者模式为false，出错信息不显示，最后发布时设为false-->
-    <!--<constant name="struts.devMode" value="true" />-->
+    <constant name="struts.devMode" value="false" />
 
     <package name="strutsBean" extends="struts-default" namespace="/">
 
-        <!--<global-results>
+        <global-results>
             <result name="exception-error">/error/exception.jsp</result>
         </global-results>
         <global-exception-mappings>
             <exception-mapping result="exception-error" exception="java.lang.Exception"/>
-        </global-exception-mappings>-->
+        </global-exception-mappings>
 
+
+        <action name="exit" class="talentAction" method="exit">
+            <result name="exit">/basic/login.jsp</result>
+        </action>
 
         <action name="login" class="talentAction" method="login">
-            <result name="loginTalent">/basic/TalentInfo.jsp</result>
-            <result name="loginHR">/basic/HRInfo.jsp</result>
-            <result name="loginHead">/basic/HeadInfo.jsp</result>
+            <!--<result name="loginTalent">/basic/TalentInfo.jsp</result>
+            <result name="loginHR">/basic/HRInfo.jsp</result>-->
+            <result name="loginTalent" type="redirectAction">loginPage</result>
+            <result name="loginHR" type="redirectAction">loginPage</result>
+            <!--<result name="loginTalent">/basic/TalentInfo_base.html</result>
+            <result name="loginHR">/basic/HRInfo_base.jsp</result>-->
             <result name="loginFail">/basic/login.jsp</result>
         </action>
+        <action name="loginPage" class="talentAction" method="loginPage">
+            <!--<result name="T">/basic/TalentInfo.jsp</result>
+            <result name="H">/basic/HRInfo.jsp</result>-->
+            <result name="T">/basic/TalentInfo_base.jsp</result>
+            <result name="H">/basic/HRInfo_base.jsp</result>
+        </action>
+
+
         <action name="register" class="talentAction" method="register">
             <result name="registersuccess">/basic/regSuccess.jsp</result>
             <result name="registerfail">/basic/register.jsp</result>

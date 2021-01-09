@@ -217,16 +217,31 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
                 return "loginTalent";
             } else if (talent.getIdentity() == 2) {
                 return "loginHR";
-            } else if (talent.getIdentity() == 3) {
-                return "loginHead";
             } else {
                 return "loginFail";
             }
         } else {
             return "loginFail";
         }
+    }
+
+    public String exit(){
+        ActionContext.getContext().getSession().clear();
+        return "exit";
+    }
+
+    public String loginPage(){
+        talent = (Talent) session.get("talent");
+        workExperience = (v_WorkExperience) session.get("workExperience");
+        if(talent.getIdentity() == 2){
+            return "H";
+        }
+        else{
+            return "T";
+        }
 
     }
+
 
     public String register() {
         talent.setIdentity(0);
@@ -283,9 +298,17 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
     public String HRWorkExperience() {
         String tmp_talentId = (String) session.get("talentId");
         workExperience = talentService.MyWorkExperience(tmp_talentId);
-        /*workExperience = (v_WorkExperience) session.get("workExperience");*/
         if (workExperience != null) {
             HRworkExperiences = talentService.HRWorkExperience(workExperience.getEnterpriseId());
+        }
+        return "success";
+    }
+
+    //HR查看已离职员工工作信息
+    public String HRWorkExperience1() {
+        String tmp_talentId = (String) session.get("talentId");
+        workExperience = talentService.MyWorkExperience(tmp_talentId);
+        if (workExperience != null) {
             HRworkedExperiences = talentService.HRWorkedExperience(workExperience.getEnterpriseId());
         }
         return "success";

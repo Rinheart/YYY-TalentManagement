@@ -6,7 +6,7 @@
 </head>
 <body>
 <h4>我的人事变动申请</h4>
-欢迎您，${talent.name}！您目前是所在公司：${myEntName}。<br>
+欢迎您，${talent.name}！您目前是所在公司：${myEntName} <br>
 
 <s:debug></s:debug>
 

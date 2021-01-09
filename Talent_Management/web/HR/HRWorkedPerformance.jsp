@@ -13,10 +13,15 @@
     <title>已离职员工任职期间的工作表现</title>
     <s:head theme="xhtml"/>
     <sx:head parseContent="true" extraLocales="UTF-8"/>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/backend.min.css">
+    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
 </head>
 <body>
 <h4>异常出勤</h4>
-<table border=1>
+<table class="table">
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>事件</th> <th>日期</th>
         <th>记录者</th> <th>记录日期</th> </tr>
     <s:iterator value="attend" id="object">

@@ -13,6 +13,11 @@
     <title>已离职员工任职期间工作评价</title>
     <s:head theme="xhtml"/>
     <sx:head parseContent="true" extraLocales="UTF-8"/>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/backend.min.css">
+    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
 </head>
 <body>
 <h4>绩效评价</h4>
