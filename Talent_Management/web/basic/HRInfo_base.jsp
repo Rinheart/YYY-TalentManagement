@@ -99,13 +99,13 @@
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="pages-blank-page.html">
-                                    <i class="las la-pager"></i><span>Blank Page</span>
+                                <a href="#" onclick="a('HRWorkedExperiences.action')">
+                                    <i class="las la-pager"></i><span>已离职员工既往工作经历</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="pages-maintenance.html">
-                                    <i class="las la-cubes"></i><span>Maintenance</span>
+                                <a href="#" onclick="a('HRWorkedExperience.action')">
+                                    <i class="las la-cubes"></i><span>某员工既往工作经历</span>
                                 </a>
                             </li>
                         </ul>
