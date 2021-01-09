@@ -81,7 +81,7 @@
 
                     <li class=" ">
                         <a href="basic/login.jsp" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>退出</span>
+                            <i class="lar la-trash-alt iq-arrow-left"></i><span>退出</span>
                         </a>
                         <ul id="" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
@@ -122,16 +122,14 @@
             提示信息:
             <s:property value="#request.tip"/>
 
-            <br>
-
+            <%--<br>
             <h3>信息管理</h3>
             <a href="updatePage.action">修改个人信息</a>
-
 
             <h3>人事管理</h3>
             <a href="myWorkExp.action">查看个人工作经历</a><br>
             <a href="applyResult.action">查看本人最新人事变动申请结果</a><br>
-            <a href="applyEmploy.action">申请人事变动</a>
+            <a href="applyEmploy.action">申请人事变动</a>--%>
 
         </div>
     </div>

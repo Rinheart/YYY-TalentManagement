@@ -79,40 +79,34 @@
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="#" onclick="a('applyEmploy.action')">
+                                <a href="#" onclick="a('applyHRCheck.action')">
                                     <i class="las la-bomb"></i><span>管理公司人事变动</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
                     <li class=" ">
-                        <a href="#otherpage" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                        <a href="#other" class="collapsed" data-toggle="collapse" aria-expanded="false">
                             <i class="lab la-wpforms iq-arrow-left"></i><span>员工管理</span>
                             <i class="las la-angle-right iq-arrow-right arrow-active"></i>
                             <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
                         </a>
-                        <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        <ul id="other" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class=" ">
-                                <a href="#" onclick="a('HRWorkExperience.action')">
-                                    <i class="las la-id-card"></i><span>管理人才档案</span>
+                                <a href="HRWorkExperience.action"><%--onclick="a('HRWorkExperience.action')"--%>
+                                    <i class="las la-id-card"></i><span>就职员工档案管理</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="#" onclick="a('HRWorkedExperiences.action')">
-                                    <i class="las la-pager"></i><span>已离职员工既往工作经历</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="#" onclick="a('HRWorkedExperience.action')">
-                                    <i class="las la-cubes"></i><span>某员工既往工作经历</span>
+                                <a href="HRWorkExperience1.action"><%--onclick="a('HRWorkExperience1.action')"--%>
+                                    <i class="las la-pager"></i><span>离职员工档案管理</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class=" ">
                         <a href="basic/login.jsp" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>退出</span>
+                            <i class="lar la-trash-alt iq-arrow-left"></i><span>退出</span>
                         </a>
                         <ul id="" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
@@ -154,7 +148,7 @@
         <s:property value="#request.tip"/>
 
 
-        <h3>信息管理</h3>
+        <%--<h3>信息管理</h3>
         <a href="updatePage.action">修改个人信息</a>
         <br>
         <h3>员工管理</h3>
@@ -169,7 +163,7 @@
         <a href="applyResult.action">查看本人最新人事变动申请结果</a><br><br>
 
         <a href="applyHRCheck.action">管理本公司未批人事变动申请</a><br>
-        <a href="applyEmploy.action">申请人事变动(会提示HR不能申请)</a>
+        <a href="applyEmploy.action">申请人事变动(会提示HR不能申请)</a>--%>
 
 
     </div>
