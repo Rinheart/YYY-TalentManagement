@@ -9,12 +9,12 @@
 <h2 align="left">
     <span style="color: #9d9d9d; ">企业信息更新</span>
 </h2>
-<form action="enterpriseUpdate.action" method="post">
-    <input type="text"   name="enterprise.enterpriseId" value="${enterprise.enterpriseId}">用户名不能修改  <br>
-    <input type="password" name="enterprise.password" value="${enterprise.password}">修改密码  <br>
-    <input type="text"   name="enterprise.enterpriseName" value="${enterprise.enterpriseName}">请输入企业名称  <br>
+<form class="col-12" action="enterpriseUpdate.action" method="post">用户名不能修改
+    <input class="form-control col-6" type="text" readonly name="enterprise.enterpriseId" value="${enterprise.enterpriseId}"> 修改密码
+    <input class="form-control col-6" type="password" name="enterprise.password" value="${enterprise.password}">请输入企业名称
+    <input class="form-control col-6" type="text"   name="enterprise.enterpriseName" value="${enterprise.enterpriseName}"> 请输入企业地址
 <%--    <input type="date" name="enterprise.establishTime" value="${enterprise.establishTime}">请输入企业成立时间  <br>--%>
-    <input type="text" name="enterprise.address" value="${enterprise.address}">请输入企业地址  <br>
+    <input class="form-control col-6" type="text" name="enterprise.address" value="${enterprise.address}">
 <%--    <s:textfield name="enterprise.businessScope" label="请输入企业经营范围"/>--%>
 <%--    <s:textfield name="enterprise.enterpriseType" label="请输入企业类型"/>--%>
 <%--    <s:textfield name="enterprise.annualTurnover" label="请输入企业年营业额"/>--%>
@@ -26,7 +26,7 @@
 <%--    <s:textfield name="enterprise.registeredCapital" label="请输入企业注册资本"/>--%>
 <%--    <s:textfield name="enterprise.websiteAddress" label="请输入公司主页"/>--%>
 <%--    <s:submit value="注册"/> <s:reset value="重置"/>--%>
-    <input type="submit">提交修改</input>
+    <input class="col-6 btn btn-outline-primary" type="submit">
 </form>
 </body>
 </html>

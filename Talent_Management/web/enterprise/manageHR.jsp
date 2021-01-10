@@ -15,10 +15,10 @@
 <h1></h1>
 <h3>注意身份标识位中"2"代表HR，"4"代表既是HR又是部门主管</h3>
 <%--通过改变人才标识来实现HR管理的功能--%>
-<table border=1>
+<table class="table">
     <tr>
         <th>用户名</th>  <th>姓名</th> <th>企业</th>
-        <th>身份</th>
+        <th>身份</th><th>操作</th>
     </tr>
     <s:iterator value="HRList" id="HR">
         <tr>
@@ -26,7 +26,9 @@
             <td><s:property value="#HR.name"/></td>
             <td><s:property value="#HR.enterpriseId"/></td>
             <td><s:property value="#HR.identity"/> </td>
-            <td><a href="alterHRPage.action?tid=${HR.talentId}">修改</a></td>
+            <td><%--<a href="alterHRPage.action?tid=${HR.talentId}">修改</a>--%>
+                <a href="#" onclick="a('alterHRPage.action?tid=${HR.talentId}');return false;" class="">修改</a>
+            </td>
         </tr>
     </s:iterator>
 </table>

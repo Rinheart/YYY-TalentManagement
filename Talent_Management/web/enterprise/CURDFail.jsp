@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 小坏坏
@@ -12,5 +13,7 @@
 </head>
 <body>
 <s:property value="#request.tip"/>
+
+<a href="#" onClick="javascript :history.back(-1);return false;">返回</a>
 </body>
 </html>

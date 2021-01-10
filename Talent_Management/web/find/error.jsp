@@ -6,6 +6,7 @@
 </head>
 <body>
 您的请求有误，或权限不足，请返回<br>
+<a href="#" onClick="javascript :history.back(-1);return false;">返回</a><br>
 提示信息：<br>
 <s:property value="#request.tip"/>
 </body>

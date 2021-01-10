@@ -18,14 +18,14 @@
         }
     }
 </script>
-<form action="departmentUpdate.action" method="post">
-    请输入部门ID:<input type="text" name="department.departmentId" value="${department.departmentId}">  <br>
-    请输入企业ID:<input type="text" name="department.enterpriseId" value="${enterprise.enterpriseId}">  <br>
-    请输入部门名称<input type="text" name="department.departmentName" value="${department.departmentName}">  <br>
-    请输入部门主管<input type="text" name="department.departmentHead" value="${department.departmentHead}">  <br>
-    请输入员工数<input type="text" name="department.staffNumber" value="${department.staffNumber}"> <br>
-    请输入工作描述<input type="text" name="department.jobDescription" value="${department.jobDescription}">  <br>
-    <button type="submit" onclick="alterConfirm()">修改信息</button>
+<form class="col-12" action="departmentUpdate.action" method="post">
+    请输入部门ID:<input class="form-control col-6" type="text" name="department.departmentId" value="${department.departmentId}">  <br>
+    请输入企业ID:<input class="form-control col-6" type="text" name="department.enterpriseId" value="${enterprise.enterpriseId}">  <br>
+    请输入部门名称<input class="form-control col-6" type="text" name="department.departmentName" value="${department.departmentName}">  <br>
+    请输入部门主管<input class="form-control col-6" type="text" name="department.departmentHead" value="${department.departmentHead}">  <br>
+    请输入员工数<input class="form-control col-6" type="text" name="department.staffNumber" value="${department.staffNumber}"> <br>
+    请输入工作描述<input class="form-control col-6" type="text" name="department.jobDescription" value="${department.jobDescription}">  <br>
+    <button class="col-6 btn btn-outline-primary" type="submit" onclick="alterConfirm()">修改信息</button>
 </form>
 </body>
 </html>
