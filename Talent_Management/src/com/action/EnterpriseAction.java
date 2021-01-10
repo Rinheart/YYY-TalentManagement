@@ -132,8 +132,16 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
     //修改HR信息
     public String alterHR(){
         Talent ot = enterpriseService.getHRById(talent.getTalentId()).get(0);
+        talent.setTalentId(ot.getTalentId());
         talent.setPassword(ot.getPassword());
-        talent.setName(ot.getName());
+        talent.setInformationReview(ot.isInformationReview());
+        talent.setBirthday(ot.getBirthday());
+        talent.setIdNumber(ot.getIdNumber());
+        talent.setSex(ot.getSex());
+        talent.setAddress(ot.getAddress());
+        talent.setEducation(ot.getEducation());
+        talent.setPersonalProfile(ot.getPersonalProfile());
+        talent.setPhoneNumber(ot.getPhoneNumber());
         if (enterpriseService.alterHR(talent)) {
             return "success";
         }
@@ -142,7 +150,7 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
 
     //清空session并退出登录
     public String deleteSession(){
-       ActionContext.getContext().getSession().clear();
+      // ActionContext.getContext().getSession().clear();
        session.clear();
         return "success";
     }

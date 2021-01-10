@@ -13,7 +13,6 @@
 </head>
 <body>
 <s:property value="#request.tip"/>
-
 <a href="#" onClick="javascript :history.back(-1);return false;">返回</a>
 </body>
 </html>

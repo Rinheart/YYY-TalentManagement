@@ -29,7 +29,7 @@
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
             <a href="index.html" class="header-logo">
-                <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                <img src="../assets/images/logo1.png" class="img-fluid rounded-normal light-logo" alt="logo">
                 <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
             <div class="iq-menu-bt-sidebar">
@@ -68,8 +68,21 @@
                         <ul class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
-
-
+<%--                    <li class=" ">--%>
+<%--                        <a href="#" onclick="a('deleteSession.action'); onclick=logoutConfirm(); return false;" class="">--%>
+<%--                            <i class="lar la-hdd iq-arrow-left"></i><span>退出账号</span>--%>
+<%--                        </a>--%>
+<%--                        <ul class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
+                    <li class=" ">
+<%--                        <a href="deleteSession.action"; onclick=logoutConfirm();">--%>
+                            <a href="./enterpriseLogin.jsp" class="">
+                            <i class="las la-home iq-arrow-left"></i><span>退出账号</span>
+                        </a>
+                        <ul class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="p-3"></div>
@@ -81,18 +94,16 @@
                 <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                     <i class="ri-menu-line wrapper-menu"></i>
                     <a href="index.html" class="header-logo">
-                        <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                        <img src="../assets/images/logo1.png" class="img-fluid rounded-normal light-logo" alt="logo">
                         <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo"
                              alt="logo">
                     </a>
                 </div>
-
             </nav>
         </div>
     </div>
     <div class="content-page">
         <div class="container-fluid" id="mainpage">
-
             <!--此处是内容，具体页面  定位-->
             <script language="javascript">
                 function logoutConfirm() {
@@ -101,43 +112,23 @@
                     }
                 }
             </script>
-            <s:property value="#request.tip"/>
-            欢迎您登陆系统，${enterprise.enterpriseId}登陆系统! <br>
-            <a href="enterpriseUpdatePage.action">修改、发布企业信息</a> <br>
-            <%--待修改--%>
-            <a href="departmentPage.action">管理部门信息</a> <br>
-            <a href="manageHRPage.action">管理HR信息</a> <br>
-            <a href="deleteSession.action" onclick="logoutConfirm()" style="left:200px">退出登录</a>
-
-        </div>
+<%--           <h5><s:property value="#request.tip"/></h5>--%>
+           <h6 style="color:#9f94d9;"> 欢迎您登陆系统，${enterprise.enterpriseId}!</h6>
+<%--            <a href="enterpriseUpdatePage.action">修改、发布企业信息</a> <br>--%>
+<%--            <a href="departmentPage.action">管理部门信息</a> <br>--%>
+<%--            <a href="manageHRPage.action">管理HR信息</a> <br>--%>
+<%--            <a href="deleteSession.action" onclick="logoutConfirm()" style="left:200px">退出登录</a>--%>
+    </div>
     </div>
 </div>
-<!-- Wrapper End-->
-<footer class="iq-footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-6 text-right">
-                Copyright 2020 <a href="http://www.bootstrapmb.com/">CloudBOX</a> All Rights Reserved.
-            </div>
-        </div>
-    </div>
-</footer>
+<!-- Wrapper End -->
+<footer class="iq-footer"></footer>
 <!-- Backend Bundle JavaScript -->
 <script src="../assets/js/backend-bundle.min.js"></script>
-
 <!-- Chart Custom JavaScript -->
 <script src="../assets/js/customizer.js"></script>
-
 <!-- Chart Custom JavaScript -->
 <script src="../assets/js/chart-custom.js"></script>
-
-
 <script src="../assets/js/doc-viewer.js"></script>
 <!-- app JavaScript -->
 <script src="../assets/js/app.js"></script>
@@ -161,10 +152,7 @@
         </div>
     </div>
 </div>
-
-
 </body>
-
 <script type="text/javascript">
     function a(url){
         $.get(url,function(data){

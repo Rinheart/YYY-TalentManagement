@@ -19,7 +19,11 @@
         }
     }
 </script>
-<h1>${enterprise.enterpriseId}部门管理系统</h1>
+
+<h6 align="left" >
+    <span style="color:#9f94d9; ">${enterprise.enterpriseId}部门管理系统</span>
+</h6>
+<div style="height: 25px;"></div>
 <%--显示各部门信息--%>
 <table class="table">
     <tr>
@@ -34,8 +38,9 @@
             <td><s:property value="#department.departmentHead"/></td>
             <td><s:property value="#department.staffNumber"/></td>
             <td><s:property value="#department.jobDescription"/></td>
-            <td><a href="departmentUpdatePage.action?did=${department.departmentId}">修改</a>
-            <a href="departmentDelete.action?did=${department.departmentId}" onclick="deleteConfirm()">删除</a></td>
+            <td><a href="#" onclick="a('departmentUpdatePage.action?did=${department.departmentId}');return false;" class="">修改</a></td>
+<%--            <td><a href="departmentUpdatePage.action?did=${department.departmentId}">修改</a>--%>
+<%--            <a href="departmentDelete.action?did=${department.departmentId}" onclick="deleteConfirm()">删除</a></td>--%>
         </tr>
     </s:iterator>
 </table>

@@ -13,7 +13,10 @@
 </head>
 <body>
 <h1></h1>
-<h3>注意身份标识位中"2"代表HR，"4"代表既是HR又是部门主管</h3>
+<h6 align="left" >
+    <span style=" color:#9f94d9;text-align: center;">注意：身份标识位中"2"代表HR，"4"代表既是HR又是部门主管</span>
+</h6>
+<div style="height: 25px;"></div>
 <%--通过改变人才标识来实现HR管理的功能--%>
 <table class="table">
     <tr>
@@ -26,7 +29,7 @@
             <td><s:property value="#HR.name"/></td>
             <td><s:property value="#HR.enterpriseId"/></td>
             <td><s:property value="#HR.identity"/> </td>
-            <td><%--<a href="alterHRPage.action?tid=${HR.talentId}">修改</a>--%>
+            <td>
                 <a href="#" onclick="a('alterHRPage.action?tid=${HR.talentId}');return false;" class="">修改</a>
             </td>
         </tr>

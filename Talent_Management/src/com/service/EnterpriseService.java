@@ -1,12 +1,10 @@
 package com.service;
 
 import com.dao.IEnterpriseDAO;
-import com.entity.Department;
-import com.entity.Enterprise;
-import com.entity.Talent;
-import com.entity.v_Enterprise_Talent;
+import com.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -131,4 +129,5 @@ public class EnterpriseService implements IEnterpriseService{
         List<Talent> list = enterpriseDAO.findByHql(hql);
         return list;
     }
+    //增加经验
 }
