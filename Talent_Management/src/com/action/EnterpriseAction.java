@@ -45,6 +45,11 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
         return "loginfail";
     }
 
+    public String getEntPage(){
+        enterprise =(Enterprise) session.get("enterprise");
+        return "success";
+    }
+
     public String register() {
         if (enterpriseService.register(enterprise)) {
             return "registersuccess";

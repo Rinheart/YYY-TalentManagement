@@ -65,6 +65,25 @@ public class ApplyService implements IApplyService {
         return work.get(0).getWorkExperienceId();
     }
 
+    public v_WorkExperience getCurrentExpById(String talentId) {
+        String hql = "from v_WorkExperience where talentId='"+talentId+"'";
+        List list = applyDAO.findByHql(hql);
+        List<v_WorkExperience> work=new ArrayList<v_WorkExperience>();
+        Date date = new Date();
+        for (int i=0; i<list.size(); i++) {
+            v_WorkExperience experience=(v_WorkExperience) list.get(i);
+            if(experience.getEndTime()== null && experience.getStartTime().compareTo(date)<=0) {
+                work.add(experience);
+            }
+        }
+        if(work.isEmpty()){
+            Map request = (Map) ActionContext.getContext().get("request");
+            request.put("tip","当前无工作");
+            return null;
+        }
+        return work.get(0);
+    }
+
     /*获得企业所有申请*/
     public List<Applicate> getEntApp(String enterpriseId) {
         String hql = "from Applicate where enterpriseId='"+enterpriseId+"'";

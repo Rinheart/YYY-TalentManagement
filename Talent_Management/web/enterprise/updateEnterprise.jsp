@@ -3,8 +3,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <s:head theme="xhtml"/>
-    <sx:head parseContent="true" extraLocales="UTF-8"/>
     <title>企业信息更新</title>
 </head>
 <body>

@@ -10,7 +10,7 @@
 <h4>员工过去工作经历</h4><br>
 欢迎您！
 ${talent.name}"
-<table border=1>
+<table class="table">
 
     <tr> <th>用户名</th> <th>姓名</th> <th>企业ID</th> <th>企业名称</th> <th>部门</th> <th>入职日期</th> <th>离职日期</th> </tr>
     <s:iterator value="workExperiences" id="object">

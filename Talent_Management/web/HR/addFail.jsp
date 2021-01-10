@@ -11,8 +11,6 @@
 <html>
 <head>
     <title>添加失败</title>
-    <s:head theme="xhtml"/>
-    <sx:head parseContent="true" extraLocales="UTF-8"/>
 </head>
 <body>
 添加失败！

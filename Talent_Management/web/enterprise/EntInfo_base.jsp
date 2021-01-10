@@ -7,12 +7,12 @@
     <title>小微企业跨组织人才管理系统</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico"/>
 
-    <link rel="stylesheet" href="assets/css/backend.min.css">
-    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="../assets/css/backend.min.css">
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
 
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 
@@ -29,8 +29,8 @@
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
             <a href="index.html" class="header-logo">
-                <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
+                <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
             <div class="iq-menu-bt-sidebar">
                 <i class="las la-bars wrapper-menu"></i>
@@ -41,53 +41,34 @@
                 <ul id="iq-sidebar-toggle" class="iq-menu">
                     <!--此处是导航  定位-->
                     <li class="active">
-                        <a href="loginPage.action" class="">
-                            <i class="las la-home iq-arrow-left"></i><span>人才主页</span>
+                        <a href="getEntPage.action" class="">
+                            <i class="las la-home iq-arrow-left"></i><span>企业主页</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="#" onclick="a('updatePage.action');return false;" class="">
-                            <i class="lar la-file-alt iq-arrow-left"></i><span>个人信息管理</span>
+                        <a href="#" onclick="a('enterpriseUpdatePage.action');return false;" class="">
+                            <i class="lar la-file-alt iq-arrow-left"></i><span>企业信息管理</span>
                         </a>
                         <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
-
                     <li class=" ">
-                        <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                            <i class="las la-hdd"></i><span>人事管理</span>
-                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                        <a href="#" onclick="a('departmentPage.action');return false;" class="">
+                            <i class="lar la-hdd iq-arrow-left"></i><span>部门信息管理</span>
                         </a>
-                        <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <!--定位 此处是小下拉框-->
-                            <li class=" ">
-                                <a href="#" onclick="a('myWorkExp.action');return false;">
-                                    <i class="lab la-blogger-b"></i><span>个人工作经历</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="#" onclick="a('applyResult.action');return false;">
-                                    <i class="las la-share-alt"></i><span>人事申请结果</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="#" onclick="a('applyEmploy.action');return false;">
-                                    <i class="las la-icons"></i><span>申请人事变动</span>
-                                </a>
-                            </li>
+                        <ul class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="#" onclick="a('manageHRPage.action');return false;" class="">
+                            <i class="lar la-share-square iq-arrow-left"></i><span>HR信息管理</span>
+                        </a>
+                        <ul class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         </ul>
                     </li>
 
-                    <li class=" ">
-                        <a href="basic/login.jsp" class="">
-                            <i class="lar la-trash-alt iq-arrow-left"></i><span>退出</span>
-                        </a>
-                        <ul id="" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        </ul>
-                    </li>
 
                 </ul>
             </nav>
@@ -100,8 +81,8 @@
                 <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                     <i class="ri-menu-line wrapper-menu"></i>
                     <a href="index.html" class="header-logo">
-                        <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                        <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo"
+                        <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                        <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo"
                              alt="logo">
                     </a>
                 </div>
@@ -111,27 +92,22 @@
     </div>
     <div class="content-page">
         <div class="container-fluid" id="mainpage">
+
             <!--此处是内容，具体页面  定位-->
-            登录成功,欢迎您！
-            <s:property value="%{talent.name}" />
-            <br>
-            您的身份为：
-            <%--<s:property value="%{talent.identity}" />--%>
-            <s:if test="talent.identity == 0">待业</s:if>
-            <s:if test="talent.identity == 1">在职</s:if>
-            <s:if test="talent.identity == 2">HR</s:if>
-            <br>
-            提示信息:
+            <script language="javascript">
+                function logoutConfirm() {
+                    if (!confirm("确定要退出账号吗？")) {
+                        window.returnValue = false;
+                    }
+                }
+            </script>
             <s:property value="#request.tip"/>
-
-            <%--<br>
-            <h3>信息管理</h3>
-            <a href="updatePage.action">修改个人信息</a>
-
-            <h3>人事管理</h3>
-            <a href="myWorkExp.action">查看个人工作经历</a><br>
-            <a href="applyResult.action">查看本人最新人事变动申请结果</a><br>
-            <a href="applyEmploy.action">申请人事变动</a>--%>
+            欢迎您登陆系统，${enterprise.enterpriseId}登陆系统! <br>
+            <a href="enterpriseUpdatePage.action">修改、发布企业信息</a> <br>
+            <%--待修改--%>
+            <a href="departmentPage.action">管理部门信息</a> <br>
+            <a href="manageHRPage.action">管理HR信息</a> <br>
+            <a href="deleteSession.action" onclick="logoutConfirm()" style="left:200px">退出登录</a>
 
         </div>
     </div>
@@ -153,18 +129,18 @@
     </div>
 </footer>
 <!-- Backend Bundle JavaScript -->
-<script src="assets/js/backend-bundle.min.js"></script>
+<script src="../assets/js/backend-bundle.min.js"></script>
 
 <!-- Chart Custom JavaScript -->
-<script src="assets/js/customizer.js"></script>
+<script src="../assets/js/customizer.js"></script>
 
 <!-- Chart Custom JavaScript -->
-<script src="assets/js/chart-custom.js"></script>
+<script src="../assets/js/chart-custom.js"></script>
 
 
-<script src="assets/js/doc-viewer.js"></script>
+<script src="../assets/js/doc-viewer.js"></script>
 <!-- app JavaScript -->
-<script src="assets/js/app.js"></script>
+<script src="../assets/js/app.js"></script>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">

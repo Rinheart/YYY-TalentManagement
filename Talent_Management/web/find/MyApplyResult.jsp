@@ -10,7 +10,7 @@
 
 <s:debug></s:debug>
 
-<table border=1>
+<table class="table">
     <tr>
         <th>申请编号</th>
         <th>申请人ID</th>

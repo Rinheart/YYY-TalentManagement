@@ -11,17 +11,10 @@
 <html>
 <head>
     <title>已离职员工任职期间工作评价</title>
-    <s:head theme="xhtml"/>
-    <sx:head parseContent="true" extraLocales="UTF-8"/>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/backend.min.css">
-    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
 </head>
 <body>
 <h4>绩效评价</h4>
-<table border=1>
+<table class="table">
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>阶段工作内容</th> <th>阶段工作起始时间</th>
         <th>阶段工作结束时间</th> <th>评分</th> <th>评语</th> <th>评价者</th> <th>评价时间</th> </tr>
     <s:iterator value="achievement" id="object">
@@ -41,7 +34,7 @@
 </table>
 <br>
 <h4>主观评价</h4>
-<table border=1>
+<table class="table">
     <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>阶段工作内容</th> <th>阶段工作起始时间</th>
         <th>阶段工作结束时间</th> <th>评分</th> <th>评语</th> <th>评价者</th> <th>评价时间</th> </tr>
     <s:iterator value="evaluate" id="object">

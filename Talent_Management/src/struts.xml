@@ -59,8 +59,14 @@
 
         <!--        企业登录-->
         <action name="enterpriseLogin" class="enterpriseAction" method="login">
-            <result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>
+            <!--<result name="loginsuccess">/enterprise/enterpriseMessage.jsp</result>-->
+            <!--换新前端-->
+            <result name="loginsuccess">/enterprise/EntInfo_base.jsp</result>
             <result name="loginfail">/enterprise/enterpriseLogin.jsp</result>
+        </action>
+        <!--为了访问主页加入-by lk-->
+        <action name="getEntPage" class="enterpriseAction" method="getEntPage">
+            <result name="success">/enterprise/EntInfo_base.jsp</result>
         </action>
         <!--        企业注册-->
         <action name="enterpriseRegister" class="enterpriseAction" method="register">
@@ -120,10 +126,12 @@
             <result name="success">/enterprise/enterpriseLogin.jsp</result>
         </action>
 
-        <!--        HR查看操作-->
+        <!--HR查看操作-->
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
         </action>
+
+        
         <!--        HR添加操作-->
         <action name="Add*" class="talentAction" method="Add{1}">
             <result name="success">/HR/addSuccess.jsp</result>
@@ -156,7 +164,7 @@
         </action>
         <!--5.4 HR看本公司所有申请记录历史-->
         <action name="applyHRCheckAll" class="applyAction" method="HRCheckAll">
-            <result name="success" type="redirectAction">applyHRCheck</result>
+            <result name="success">/find/HRCheckResultAll.jsp</result>
             <result name="error">find/error.jsp</result>
         </action>
         <!--5.5 HR进行同意or拒绝申请，不要用超链接访问-->

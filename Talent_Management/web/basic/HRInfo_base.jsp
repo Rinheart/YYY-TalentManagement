@@ -48,7 +48,7 @@
                         </ul>
                     </li>
                     <li class=" ">
-                        <a href="#" onclick="a('updatePage.action')" class="">
+                        <a href="#" onclick="a('updatePage.action');return false;" class="">
                             <i class="lar la-file-alt iq-arrow-left"></i><span>个人信息管理</span>
                         </a>
                         <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
@@ -64,23 +64,28 @@
                         <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <!--定位 此处是小下拉框-->
                             <li class=" ">
-                                <a href="#" onclick="a('myWorkExp.action')">
+                                <a href="#" onclick="a('myWorkExp.action');return false;">
                                     <i class="lab la-blogger-b"></i><span>个人工作经历</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="#" onclick="a('applyResult.action')">
+                                <a href="#" onclick="a('applyResult.action');return false;">
                                     <i class="las la-share-alt"></i><span>人事申请结果</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="#" onclick="a('applyEmploy.action')">
+                                <a href="#" onclick="a('applyEmploy.action');return false;">
                                     <i class="las la-icons"></i><span>申请人事变动</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="#" onclick="a('applyHRCheck.action')">
+                                <a href="#" onclick="a('applyHRCheck.action');return false;">
                                     <i class="las la-bomb"></i><span>管理公司人事变动</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="#" onclick="a('applyHRCheckAll.action');return false;">
+                                    <i class="las la-address-book"></i><span>公司人事变动记录</span>
                                 </a>
                             </li>
                         </ul>
@@ -93,12 +98,14 @@
                         </a>
                         <ul id="other" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class=" ">
-                                <a href="HRWorkExperience.action"><%--onclick="a('HRWorkExperience.action')"--%>
+                                <%--<a href="HRWorkExperience.action">--%>
+                                    <a href="#" onclick="a('HRWorkExperience.action');return false;">
                                     <i class="las la-id-card"></i><span>就职员工档案管理</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="HRWorkExperience1.action"><%--onclick="a('HRWorkExperience1.action')"--%>
+                                <%--<a href="HRWorkExperience1.action">--%>
+                                    <a href="#" onclick="a('HRWorkExperience1.action');return false;">
                                     <i class="las la-pager"></i><span>离职员工档案管理</span>
                                 </a>
                             </li>

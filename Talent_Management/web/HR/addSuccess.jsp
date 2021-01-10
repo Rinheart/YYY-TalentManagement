@@ -11,11 +11,10 @@
 <html>
 <head>
     <title>添加成功</title>
-    <s:head theme="xhtml"/>
-    <sx:head parseContent="true" extraLocales="UTF-8"/>
 
 </head>
 <body>
-添加成功！
+<h2>添加成功！</h2>
+<a href="#" onClick="javascript :history.back(-1);return false;">返回</a>
 </body>
 </html>

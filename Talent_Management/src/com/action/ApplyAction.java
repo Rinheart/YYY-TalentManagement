@@ -81,9 +81,11 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
             return "false";
         }
 
+        session.put("workExperience",applyService.getCurrentExpById(talent.getTalentId()));
         v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
         if(nowExp != null)
-            ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
+            ActionContext.getContext().getSession().put("myEntName", nowExp.getEnterpriseName());
+
 
         /*如果当前无身份，即申请就职*/
         if(talent.getIdentity() == 0){

@@ -10,7 +10,7 @@
 ${tip}<br>
 <s:debug></s:debug>
 <br>我在当前公司的入职信息
-<table border=1>
+<table class="table">
 
     <tr>
         <th>用户名</th>
@@ -30,6 +30,7 @@ ${tip}<br>
     </tr>
 </table>
 
-<a href="applyOut.action?talentId=${talent.talentId}">申请离职</a>
+<%--<a href="applyOut.action?talentId=${talent.talentId}">申请离职</a>--%>
+<a href="#" onclick="a('applyOut.action?talentId=${talent.talentId}');return false;">申请离职</a>
 </body>
 </html>

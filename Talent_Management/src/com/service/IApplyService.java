@@ -12,6 +12,8 @@ public interface IApplyService {
     boolean talentAdd(Applicate applicate,String talentId);
     public int getCurrentExpId(String talentId);
 
+    v_WorkExperience getCurrentExpById(String talentId);
+
     List<Applicate> getEntApp(String enterpriseId);
     List<Applicate> getNoResApp(String enterpriseId);
     List<Applicate> getTalApp(String talentId);
