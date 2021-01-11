@@ -107,6 +107,14 @@ public class EnterpriseService implements IEnterpriseService{
         List<v_Enterprise_Talent> list = enterpriseDAO.findByHql(hql);
         return list;
     }
+    //获取企业非HR员工信息
+    public List<v_Enterprise_Talent> getTalentList(Enterprise enterprise) {
+        String enterpriseId = enterprise.getEnterpriseId();
+//        String hql = "from v_Enterprise_Talent as enterprise_talent where (Identity='" + 2 +"' or Identity = '" + 4 +"') and EnterpriseId='" + enterpriseId + "'";
+        String hql = "From v_Enterprise_Talent as enterprise_talent where EnterpriseId='" + enterpriseId + "' and Identity ='1'";
+        List<v_Enterprise_Talent> list = enterpriseDAO.findByHql(hql);
+        return list;
+    }
 
     //修改hr信息
     public boolean alterHR(Talent talent) {
@@ -128,6 +136,11 @@ public class EnterpriseService implements IEnterpriseService{
         String hql = "from Talent as talent where TalentId ='" + id + "'";
         List<Talent> list = enterpriseDAO.findByHql(hql);
         return list;
+    }
+
+    @Override
+    public List<Talent> getTalentById(String id) {
+        return null;
     }
     //增加经验
 }

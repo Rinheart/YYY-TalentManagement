@@ -114,15 +114,23 @@
             </script>
 <%--           <h5><s:property value="#request.tip"/></h5>--%>
            <h6 style="color:#9f94d9;"> 欢迎您登陆系统，${enterprise.enterpriseId}!</h6>
-<%--            <a href="enterpriseUpdatePage.action">修改、发布企业信息</a> <br>--%>
-<%--            <a href="departmentPage.action">管理部门信息</a> <br>--%>
-<%--            <a href="manageHRPage.action">管理HR信息</a> <br>--%>
-<%--            <a href="deleteSession.action" onclick="logoutConfirm()" style="left:200px">退出登录</a>--%>
-    </div>
+       </div>
     </div>
 </div>
 <!-- Wrapper End -->
-<footer class="iq-footer"></footer>
+<footer class="iq-footer"><div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-6 text-right">
+            Copyright 2021 <a href="http://www.bootstrapmb.com/">JAVA EE</a> All Rights Reserved.
+        </div>
+    </div>
+</div></footer>
 <!-- Backend Bundle JavaScript -->
 <script src="../assets/js/backend-bundle.min.js"></script>
 <!-- Chart Custom JavaScript -->

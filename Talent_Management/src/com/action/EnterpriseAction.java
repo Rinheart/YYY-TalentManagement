@@ -32,6 +32,7 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
 
     private List<Department> departmentList;
     private List<v_Enterprise_Talent> HRList;
+    private List<v_Enterprise_Talent> TalentList;
 
     private Map request,session,application;
 
@@ -65,10 +66,16 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
     }
     //更新企业信息
     public String update() {
+        //补全企业信息
         Enterprise oldEnterprise = enterpriseService.getFullEnterpriseById(enterprise.getEnterpriseId());
         enterprise.setEstablishTime(oldEnterprise.getEstablishTime());
-        //等等...
+        enterprise.setFounder(oldEnterprise.getFounder());
+        enterprise.setStaffNumber(oldEnterprise.getStaffNumber());
+        enterprise.setResignNumber(oldEnterprise.getResignNumber());
+        enterprise.setRegistrar(oldEnterprise.getRegistrar());
+        enterprise.setRegistrar(oldEnterprise.getRegistrar());
         if (enterpriseService.update(enterprise)) {
+            ActionContext.getContext().getSession().clear();
             return "updatesuccess";
         }
         return "updatefail";
@@ -114,7 +121,6 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
         }
         return "fail";
     }
-
     //转发到管理HR信息页面
     public String manageHRPage(){
         //获取enterprise的值，用来显示公司名称等信息
@@ -123,7 +129,12 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
         request.put("HRList",HRList);
         return "success";
     }
-
+    public String addHRPage(){
+        //enterprise = (Enterprise) session.get("enterprise");
+        TalentList = enterpriseService.getTalentList(enterprise);
+        request.put("TalentList",TalentList);
+        return "success";
+    }
     public String alterHRPage(){
         talent = enterpriseService.getHRById(tid).get(0);
        // request.put("talent",talent);
@@ -147,14 +158,12 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
         }
         return "fail";
     }
-
     //清空session并退出登录
     public String deleteSession(){
       // ActionContext.getContext().getSession().clear();
        session.clear();
         return "success";
     }
-
 //以下皆为getter &setter & 接口实现
     public Talent getTalent() {
         return talent;
@@ -258,5 +267,13 @@ public class EnterpriseAction extends ActionSupport implements RequestAware, Ses
 
     public void setTalentService(ITalentService talentService) {
         this.talentService = talentService;
+    }
+
+    public List<v_Enterprise_Talent> getTalentList() {
+        return TalentList;
+    }
+
+    public void setTalentList(List<v_Enterprise_Talent> talentList) {
+        TalentList = talentList;
     }
 }

@@ -24,10 +24,13 @@ public interface IEnterpriseService {
     Boolean updateDepartment(Department department);
     //获得公司所有HR信息
     List<v_Enterprise_Talent> getHRList(Enterprise enterprise);
+    //获得公司非HR员工信息
+    List<v_Enterprise_Talent> getTalentList(Enterprise enterprise);
     //修改HR信息
     boolean alterHR(Talent talent);
     //通过ID获取到部门信息
     List<Department> getDepartmentById(int departmentId);
     boolean deleteDepartment(Department department);
     List<Talent> getHRById(String id);
+    List<Talent> getTalentById(String id);
 }

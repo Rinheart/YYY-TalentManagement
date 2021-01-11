@@ -29,7 +29,7 @@
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
             <a href="index.html" class="header-logo">
-                <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                <img src="assets/images/logo1.png" class="img-fluid rounded-normal light-logo" alt="logo">
                 <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
             <div class="iq-menu-bt-sidebar">
@@ -186,7 +186,7 @@
                 </ul>
             </div>
             <div class="col-lg-6 text-right">
-                Copyright 2020 <a href="http://www.bootstrapmb.com/">CloudBOX</a> All Rights Reserved.
+                Copyright 2021 <a href="http://www.bootstrapmb.com/">JAVA EE</a> All Rights Reserved.
             </div>
         </div>
     </div>

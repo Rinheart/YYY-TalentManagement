@@ -50,8 +50,6 @@
         <action name="myWorkExp" class="talentAction" method="MyWorkExp">
             <result name="success">/find/MyWorkedExperience.jsp</result>
         </action>
-
-
         <action name="TalentUpdate" class="talentAction" method="update">
             <result name="updatesuccess">/basic/login.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
@@ -79,7 +77,7 @@
         </action>
         <!--        更新企业信息-->
         <action name="enterpriseUpdate" class="enterpriseAction" method="update">
-            <result name="updatesuccess">/enterprise/enterpriseMessage.jsp</result>
+            <result name="updatesuccess">/enterprise/updateMessage.jsp</result>
             <result name="updatefail">/enterprise/CURDFail.jsp</result>
         </action>
         <!--        管理部门信息-->
@@ -96,7 +94,7 @@
         </action>
         <!--        删除部门信息-->
         <action name="departmentDelete" class="enterpriseAction" method="departmentDelete">
-            <result name="success">/enterprise/manageDepartment.jsp</result>
+            <result name="success">/enterprise/enterpriseMessage.jsp</result>
             <result name="fail">/enterprise/CURDFail.jsp</result>
         </action>
         <!--        转发到增加部门页面-->
@@ -125,19 +123,17 @@
         <action name="deleteSession" class="enterpriseAction" method="deleteSession">
             <result name="success">/enterprise/enterpriseLogin.jsp</result>
         </action>
-
         <!--HR查看操作-->
         <action name="HR*" class="talentAction" method="HR{1}">
             <result name="success">/HR/HR{1}.jsp</result>
         </action>
 
-        
+
         <!--        HR添加操作-->
         <action name="Add*" class="talentAction" method="Add{1}">
             <result name="success">/HR/addSuccess.jsp</result>
             <result name="fail">/HR/addFail.jsp</result>
         </action>
-
         <!--5.1 判断目前有无工作，之后进行就离职申请，申请只能通过访问此页面-->
         <action name="applyEmploy" class="applyAction" method="apply">
             <result name="out">/find/MyOutRequest.jsp</result>
@@ -172,7 +168,5 @@
             <result name="success" type="redirectAction">applyHRCheck</result>
             <result name="error">find/error.jsp</result>
         </action>
-
-
     </package>
 </struts>

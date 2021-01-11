@@ -1,15 +1,15 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-    <title>用户登录页面</title></head>
-<link rel="shortcut icon" href="../assets/images/favicon.ico" />
-<link rel="stylesheet" href="../assets/css/backend.min.css">
-<link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-<link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
-<body>
+<%--<head>--%>
+<%--    <meta http-equiv="Content-Type" content="text/html; charset=GBK">--%>
+<%--    <title>用户登录页面</title></head>--%>
+<%--<link rel="shortcut icon" href="../assets/images/favicon.ico" />--%>
+<%--<link rel="stylesheet" href="../assets/css/backend.min.css">--%>
+<%--<link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">--%>
+<%--<link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">--%>
+<%--<link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">--%>
+<%--<body>--%>
 <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +33,7 @@
             <div class="row justify-content-center align-items-center height-self-center">
                <div class="col-md-5 col-sm-12 col-12 align-self-center">
                   <div class="sign-user_card">
-                        <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo logo" alt="logo">
+                        <img src="../assets/images/logo1.png" class="img-fluid rounded-normal light-logo logo" alt="logo">
                         <img src="../assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo logo" alt="logo">
                      <h3 class="mb-3">登录系统</h3>
                      <p><s:property value="#request.tip"/></p>
@@ -64,6 +64,9 @@
                         <button type="submit" class="btn btn-primary" onclick="return custCheck()">登录</button>
                         <p class="mt-3">
                            没有账号？ <a href="register.jsp" class="text-primary">注册</a>
+                            <br>
+                            <br>
+                            <a href="../index.jsp">返回首页</a>
                         </p>
                      </form>
                   </div>
@@ -93,14 +96,10 @@
     </script>
     <!-- Backend Bundle JavaScript -->
     <script src="../assets/js/backend-bundle.min.js"></script>
-    
     <!-- Chart Custom JavaScript -->
     <script src="../assets/js/customizer.js"></script>
-    
     <!-- Chart Custom JavaScript -->
     <script src="../assets/js/chart-custom.js"></script>
-    
-
     <script src="../assets/js/doc-viewer.js"></script>
     <!-- app JavaScript -->
     <script src="../assets/js/app.js"></script>
