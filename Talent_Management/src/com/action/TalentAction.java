@@ -267,7 +267,7 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
         talent.setSex(oldTalent.getSex());
         talent.setIdNumber(oldTalent.getIdNumber());
         talent.setBirthday(oldTalent.getBirthday());
-        talent.setInformationReview(oldTalent.isInformationReview());
+        talent.setInformationReview(true);
         talent.setIdentity(oldTalent.getIdentity());
         if (talentService.update(talent)) {
             ActionContext.getContext().getSession().clear();
@@ -335,6 +335,14 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
         bigEvent = talentService.WorkBigEvent(p_talentId);
         return "success";
     }
+    //添加readonly
+    public String HRWorkPerformance_readonly() {
+        attend = talentService.WorkAttend(p_talentId);
+        disciplinary = talentService.WorkDisciplinary(p_talentId);
+        reward = talentService.WorkReward(p_talentId);
+        bigEvent = talentService.WorkBigEvent(p_talentId);
+        return "success";
+    }
 
     //HR查看已离职某员工在职期间工作表现
     public String HRWorkedPerformance() {
@@ -347,6 +355,14 @@ public class TalentAction extends ActionSupport implements RequestAware, Session
 
     //HR查看某员工的工作评价
     public String HRWorkEvaluate() {
+        //绩效
+        achievement=talentService.WorkAchievement(p_talentId);
+        //主观评价
+        evaluate=talentService.WorkEvaluate(p_talentId);
+        return "success";
+    }
+    //添加readonly
+    public String HRWorkEvaluate_readonly() {
         //绩效
         achievement=talentService.WorkAchievement(p_talentId);
         //主观评价

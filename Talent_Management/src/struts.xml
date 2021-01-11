@@ -6,16 +6,16 @@
 
 <struts>
     <!--设置开发者模式为false，出错信息不显示，最后发布时设为false-->
-    <constant name="struts.devMode" value="false" />
+    <!--<constant name="struts.devMode" value="false" />-->
 
     <package name="strutsBean" extends="struts-default" namespace="/">
 
-        <global-results>
+        <!--<global-results>
             <result name="exception-error">/error/exception.jsp</result>
         </global-results>
         <global-exception-mappings>
             <exception-mapping result="exception-error" exception="java.lang.Exception"/>
-        </global-exception-mappings>
+        </global-exception-mappings>-->
 
 
         <action name="exit" class="talentAction" method="exit">
@@ -51,7 +51,7 @@
             <result name="success">/find/MyWorkedExperience.jsp</result>
         </action>
         <action name="TalentUpdate" class="talentAction" method="update">
-            <result name="updatesuccess">/basic/login.jsp</result>
+            <result name="updatesuccess">/basic/updateSuccess.jsp</result>
             <result name="updatefail">/basic/CURDFail.jsp</result>
         </action>
 

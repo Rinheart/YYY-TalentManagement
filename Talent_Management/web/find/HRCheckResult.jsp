@@ -20,6 +20,9 @@
         <th>部门</th>
         <th>申请时间</th>
         <th>申请结果</th>
+
+        <th>工作经历</th> <th>工作表现</th> <th>工作评价</th>
+
         <th>审核操作</th>
     </tr>
     <s:iterator value="applicateList">
@@ -38,6 +41,18 @@
                 <s:elseif test="applicateResult==true">已通过</s:elseif>
                 <s:elseif test="applicateResult==null">未审核</s:elseif>
             </td>
+
+            <td>
+                <a href="#" onclick="a('HRWorkedExperience.action?p_talentId=${talentId}');return false;">查看</a>
+            </td>
+            <td>
+                <a href="#" onclick="a('HRWorkPerformance_readonly.action?p_talentId=${talentId}');return false;">查看</a>
+            </td>
+            <td>
+                <a href="#" onclick="a('HRWorkEvaluate_readonly.action?p_talentId=${talentId}');return false;">查看</a>
+            </td>
+
+
             <td><%--<a href="applyHRReview.action?Id=${applicateId}&Result=true">通过</a>--%>
                 <a href="#" onclick="a('applyHRReview.action?Id=${applicateId}&Result=true');return false;">通过</a>
             <%--<a href="applyHRReview.action?Id=${applicateId}&Result=false">拒绝</a>--%>
