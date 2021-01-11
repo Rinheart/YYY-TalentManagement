@@ -113,7 +113,7 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
         Map param= ActionContext.getContext().getParameters();
         String[] value1 = (String[])param.get("talentId");
 
-        v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+        v_WorkExperience nowExp = applyService.getCurrentExpById((String) session.get("talentId"));
 
         Applicate newApp = new Applicate();
         newApp.setTalentId(value1[0]);
@@ -132,7 +132,7 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
         talent =(Talent) session.get("talent");
         /*从目前的工作记录中取最新公司*/
         if(talent.getIdentity() != 0) {
-            v_WorkExperience nowExp = (v_WorkExperience) session.get("workExperience");
+            v_WorkExperience nowExp = applyService.getCurrentExpById(talent.getTalentId());
             if(nowExp!=null)
                 ActionContext.getContext().getSession().put("myEntName", nowExp.getEnterpriseName());
         }
@@ -149,7 +149,7 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
     public String HRCheckAll(){
         talent =(Talent) session.get("talent");
         if(talent.getIdentity() == 2){
-            v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+            v_WorkExperience nowExp = applyService.getCurrentExpById(talent.getTalentId());
             applicateList = applyService.getEntApp(nowExp.getEnterpriseId());
             ActionContext.getContext().getSession().put("myEntName",nowExp.getEnterpriseName());
             return "success";
@@ -164,7 +164,8 @@ public class ApplyAction extends ActionSupport implements RequestAware, SessionA
     public String HRCheck(){
         talent =(Talent) session.get("talent");
         if(talent.getIdentity() == 2){
-            v_WorkExperience nowExp =(v_WorkExperience) session.get("workExperience");
+            v_WorkExperience nowExp = applyService.getCurrentExpById(talent.getTalentId());
+
             if(nowExp == null){
                 request.put("tip","您的当前工作记录为空，不为任何公司的HR");
                 return "noHR";
