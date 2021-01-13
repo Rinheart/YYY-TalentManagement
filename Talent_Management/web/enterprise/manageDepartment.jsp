@@ -29,7 +29,7 @@
     <tr>
         <th>部门ID</th><th>企业ID</th><th>部门名称</th>
         <th>部门主管</th><th>员工数</th><th>工作描述</th><th>操作</th>
-        <th>操作</th>
+        <%--<th>操作</th>--%>
     </tr>
     <s:iterator value="departmentList" id="department">
         <tr>
@@ -40,7 +40,7 @@
             <td><s:property value="#department.staffNumber"/></td>
             <td><s:property value="#department.jobDescription"/></td>
             <td><a href="#" onclick="a('departmentUpdatePage.action?did=${department.departmentId}');return false;" class="">修改</a></td>
-            <td><a href="#" onclick="a('departmentDelete.action?did=${department.departmentId}');return false;" class="">删除</a></td>
+            <%--<td><a href="#" onclick="a('departmentDelete.action?did=${department.departmentId}');return false;" class="">删除</a></td>--%>
         </tr>
     </s:iterator>
 </table>

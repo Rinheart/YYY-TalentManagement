@@ -5,7 +5,7 @@
     <title>人事变动管理</title>
 </head>
 <body>
-<h4>本公司人事变动列表</h4>
+<h4>本公司人事申请审核</h4>
 欢迎您，${talent.name}！您是${myEntName}公司的HR<br>
 
 

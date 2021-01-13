@@ -68,7 +68,7 @@
                                     <i class="lab la-blogger-b"></i><span>个人工作经历</span>
                                 </a>
                             </li>
-                            <li class=" ">
+                            <%--<li class=" ">
                                 <a href="#" onclick="a('applyResult.action');return false;">
                                     <i class="las la-share-alt"></i><span>人事申请结果</span>
                                 </a>
@@ -77,7 +77,7 @@
                                 <a href="#" onclick="a('applyEmploy.action');return false;">
                                     <i class="las la-icons"></i><span>申请人事变动</span>
                                 </a>
-                            </li>
+                            </li>--%>
                             <li class=" ">
                                 <a href="#" onclick="a('applyHRCheck.action');return false;">
                                     <i class="las la-bomb"></i><span>管理公司人事变动</span>

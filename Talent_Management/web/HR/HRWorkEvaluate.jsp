@@ -45,6 +45,7 @@
 </table>
 <br>
 <hr>
+<br>
 <h4>添加主观评价记录</h4><br>
 <form class="col-12" action="AddEvaluate" method="post">
     <input type="hidden" name="p_talentId" value="${p_talentId}" />

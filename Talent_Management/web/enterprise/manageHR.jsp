@@ -29,7 +29,10 @@
             <td><s:property value="#HR.talentId"/></td>
             <td><s:property value="#HR.name"/></td>
 <%--            <td><s:property value="#HR.enterpriseId"/></td>--%>
-            <td><s:property value="#HR.identity"/> </td>
+            <td><%--<s:property value="#HR.identity"/> --%>
+            <s:if test="#HR.identity==1">普通员工</s:if>
+            <s:elseif test="#HR.identity==2">HR</s:elseif>
+            </td>
             <td>
                 <a href="#" onclick="a('alterHRPage.action?tid=${HR.talentId}');return false;" class="">修改</a>
             </td>

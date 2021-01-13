@@ -13,6 +13,7 @@
     <title>员工表现</title>
 </head>
 <body>
+<div class="card-header">
 <h4>添加异常出勤记录</h4><br>
 <form class="col-12" action="AddAttend" method="post">
     <input class="form-control col-6" type="hidden" name="p_talentId" value="${p_talentId}" />
@@ -57,8 +58,10 @@
         </tr>
     </s:iterator>
 </table>
+</div>
 <br>
 <hr>
+<div class="card-header">
 <h4>添加违纪事件记录</h4><br>
 <form class="col-12" action="AddDisciplinary" method="post">
     <input type="hidden" name="p_talentId" value="${p_talentId}" />
@@ -83,8 +86,10 @@
         </tr>
     </s:iterator>
 </table>
+</div>
 <br>
 <hr>
+<div class="card-header">
 <h4>添加奖励事件记录</h4><br>
 <form class="col-12" action="AddReward" method="post">
     <input type="hidden" name="p_talentId" value="${p_talentId}" />
@@ -113,8 +118,10 @@
         </tr>
     </s:iterator>
 </table>
+</div>
 <br>
 <hr>
+<div class="card-header">
 <h4>添加重大事件记录</h4><br>
 <form class="col-12" action="AddBigEvent" method="post">
     <input type="hidden" name="p_talentId" value="${p_talentId}" />
@@ -140,5 +147,6 @@
         </tr>
     </s:iterator>
 </table>
+</div>
 </body>
 </html>
