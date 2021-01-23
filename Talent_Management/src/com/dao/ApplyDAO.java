@@ -98,7 +98,6 @@ public class ApplyDAO extends BaseHibernateDAO implements IApplyDAO {
         }
     }
 
-
     public void updateTalent(Talent transientInstance) {
         Transaction tran = null;
         Session session = null;
@@ -110,6 +109,54 @@ public class ApplyDAO extends BaseHibernateDAO implements IApplyDAO {
             session.update(transientInstance);
             session.flush();
             System.out.println("正在更新:\n"+transientInstance.toString());
+            tran.commit();
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            if(session!=null){
+                session.close();
+            }
+        }
+    }
+
+
+    /*更新：修改两个表写在同一事务，保证为不可分割的工作单元*/
+    public void updateExpandTalent(WorkExperience w, Talent t) {
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+
+            session.update(w);
+            session.update(t);
+
+            session.flush();
+            System.out.println("正在更新:\n工作经历："+w+"+\n人才信息："+t);
+            tran.commit();
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            if(session!=null){
+                session.close();
+            }
+        }
+    }
+
+    public void saveExp_and_updateTalent(WorkExperience w, Talent t) {
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+
+            session.save(w);
+            session.update(t);
+
+            session.flush();
+            System.out.println("正在更新:\n工作经历："+w+"+\n人才信息："+t);
             tran.commit();
         } catch (RuntimeException re) {
             if(tran != null) tran.rollback();

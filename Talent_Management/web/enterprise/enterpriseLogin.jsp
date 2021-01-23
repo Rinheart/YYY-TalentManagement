@@ -54,7 +54,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary" onclick="return custCheck()">登录</button>
                             <p class="mt-3">
-                                没有账号？ <a href="/enterprise/enterpriseRegister.jsp" class="text-primary">注册</a> <br>
+                                没有账号？ <a href="enterpriseRegister.jsp" class="text-primary">注册</a> <br>
                                 <br>
                                 <a href="../index.jsp">返回首页</a>
                             </p>

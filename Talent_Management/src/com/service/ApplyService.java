@@ -2,6 +2,7 @@ package com.service;
 import com.dao.IApplyDAO;
 import com.entity.*;
 import com.opensymphony.xwork2.ActionContext;
+import org.hibernate.jdbc.Work;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -174,23 +175,28 @@ public class ApplyService implements IApplyService {
         Map request =(Map) ActionContext.getContext().get("request");
         String enterpriseId = nowApp.getEnterpriseId();
         int depId = nowApp.getDepartmentId();
-        /*如果申请类型进入*/
+
+        /*如果申请类型进入申请企业*/
         if(nowApp.getApplicateType()){
+            /*补全新工作信息*/
             WorkExperience newWorkExp = new WorkExperience();
             newWorkExp.setTalentId(nowApp.getTalentId());
             newWorkExp.setEnterpriseId(enterpriseId);
             newWorkExp.setDepartmentId(depId);
             newWorkExp.setStartTime(new Timestamp(System.currentTimeMillis()));
-            applyDAO.saveExp(newWorkExp);
-
-            /*修改talent身份*/
+            /*补全talent身份*/
             Talent tmp_talent = getFullTalentById(nowApp.getTalentId());
             tmp_talent.setIdentity(1);
-            applyDAO.updateTalent(tmp_talent);
+
+            /*已弃用，不在同一事务可能造成修改一个表后出错却不能回滚的情况，此时更新异常*/
+            /*applyDAO.saveExp(newWorkExp);*/
+            /*applyDAO.updateTalent(tmp_talent);*/
+
+            applyDAO.saveExp_and_updateTalent(newWorkExp,tmp_talent);
 
             return true;
         }
-        /*如果类型出*/
+        /*如果类型退出当前企业*/
         else if(!nowApp.getApplicateType()){
             List<WorkExperience> myWorkExp= applyDAO.findByHql("from WorkExperience where talentId='"+nowApp.getTalentId()
                     +"' and enterpriseId='"+enterpriseId+"' and departmentId='"+depId+"' and endTime=null");
@@ -202,14 +208,19 @@ public class ApplyService implements IApplyService {
                 request.put("tip","工作记录非法，同时存在两个未结束工作记录，离职出错");
                 return false;
             }
+            /*补全工作信息修改*/
             WorkExperience WorkExp = myWorkExp.get(0);
             WorkExp.setEndTime(new Timestamp(System.currentTimeMillis()));
-            applyDAO.updateExp(WorkExp);
-
-            /*修改talent身份*/
+            /*补全talent身份*/
             Talent tmp_talent = getFullTalentById(nowApp.getTalentId());
             tmp_talent.setIdentity(0);
-            applyDAO.updateTalent(tmp_talent);
+
+            /*已弃用，分开修改表，两个事务可能存在修改表不同步*/
+            /*applyDAO.updateExp(WorkExp);*/
+            /*applyDAO.updateTalent(tmp_talent);*/
+
+            /*同一事务，保证修改正确同一*/
+            applyDAO.updateExpandTalent(WorkExp , tmp_talent);
 
             return true;
         }

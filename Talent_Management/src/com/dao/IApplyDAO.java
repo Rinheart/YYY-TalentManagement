@@ -14,4 +14,7 @@ public interface IApplyDAO {
     void updateExp(WorkExperience transientInstance);
     void saveExp(WorkExperience transientInstance);
     void updateTalent(Talent transientInstance);
+
+    void updateExpandTalent(WorkExperience w, Talent t);
+    void saveExp_and_updateTalent(WorkExperience w , Talent t);
 }

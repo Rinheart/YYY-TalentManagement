@@ -106,7 +106,7 @@
                             <li class=" ">
                                 <%--<a href="HRWorkExperience1.action">--%>
                                     <a href="#" onclick="a('HRWorkExperience1.action');return false;">
-                                    <i class="las la-pager"></i><span>离职员工档案管理</span>
+                                    <i class="las la-pager"></i><span>离职员工档案查看</span>
                                 </a>
                             </li>
                         </ul>

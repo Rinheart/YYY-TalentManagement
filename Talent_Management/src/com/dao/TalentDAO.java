@@ -11,6 +11,36 @@ import java.util.Map;
 
 public class TalentDAO extends BaseHibernateDAO implements ITalentDAO {
 
+
+    /*分页查询接口*/
+    public List<Talent> getTalentList(int first,int max){
+        Transaction tran = null;
+        Session session = null;
+        List res_list = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+
+            res_list = session.createQuery("from Talent").
+                    setFirstResult(first).setMaxResults(max) .list();
+
+            session.flush();
+            System.out.println("正在查询:\n"+res_list.toString());
+            tran.commit();
+        } catch (RuntimeException re) {
+            Map req =(Map) ActionContext.getContext().get("request");
+            req.put("tip","查询出错");
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            if(session!=null){
+                session.close();
+            }
+        }
+        return res_list;
+    }
+
+
     public void save(Talent transientInstance) {
         Transaction tran = null;
         Session session = null;

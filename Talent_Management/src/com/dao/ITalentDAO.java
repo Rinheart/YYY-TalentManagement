@@ -5,6 +5,7 @@ import com.entity.*;
 import java.util.List;
 
 public interface ITalentDAO {
+    List<Talent> getTalentList(int first,int max);
     void save(Talent transientInstance);
     List findByHql(String hql);
     void update(Talent transientInstance);
