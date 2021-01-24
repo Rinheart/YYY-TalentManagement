@@ -116,13 +116,17 @@ public class TalentService implements ITalentService {
     }
     //HR查看本公司员工工作信息
     public List<v_WorkExperience> HRWorkExperience(String enterpriseId) {
+        //查找本公司的所有工作经历记录
         String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
         Date date = new Date();
         for (int i=0; i<list.size(); i++) {
             v_WorkExperience experience = (v_WorkExperience) list.get(i);
-            if (experience.getEndTime() == null && experience.getStartTime().compareTo(date) <= 0) {
+            //只选择当前就职的工作经历记录，筛选条件为工作经历记录中结束时间为空或当前时间在开始时间与结束时间之间
+            if (experience.getEndTime() == null ||
+                    (experience.getStartTime().compareTo(date) <= 0 &&
+                            experience.getEndTime().compareTo(date) > 0)) {
                 relist.add(experience);
             }
         }
@@ -130,13 +134,16 @@ public class TalentService implements ITalentService {
     }
     //HR查看本公司过去的员工工作信息
     public List<v_WorkExperience> HRWorkedExperience(String enterpriseId) {
+        //查找本公司的所有工作经历记录
         String hql = "from v_WorkExperience where enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
         Date date = new Date();
         for (int i=0; i<list.size(); i++) {
             v_WorkExperience experience = (v_WorkExperience) list.get(i);
-            if (experience.getEndTime() != null) {
+            //只选择已离职的工作经历记录，筛选条件为工作经历记录中结束时间不为空且当前时间结束时间之后
+            if (experience.getEndTime() != null &&
+                    experience.getEndTime().compareTo(date) < 0) {
                 relist.add(experience);
             }
         }
@@ -155,22 +162,24 @@ public class TalentService implements ITalentService {
     }
     //HR查看已离职人才的过去工作经历
     public List<v_WorkExperience> WorkedExperience(String talentId,String enterpriseId) {
-        String hql = "from v_WorkExperience where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
-        System.out.println(hql);
+        //查找人才在本公司的工作经历记录
+        String hql = "from v_WorkExperience where talentId='"+talentId+
+                "' and enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         if (list.size()==0) return null;
         else {
             v_WorkExperience w=(v_WorkExperience)list.get(0);
             Date endTime=w.getEndTime();
+            //查找人才所有工作经历记录
             String hql_1 = "from v_WorkExperience where talentId='"+talentId+"'";
             List list_1 = talentDAO.findByHql(hql_1);
             List<v_WorkExperience> relist=new ArrayList<v_WorkExperience>();
             for (int i=0; i<list_1.size(); i++) {
                 v_WorkExperience experience = (v_WorkExperience) list_1.get(i);
-                if (experience.getStartTime().compareTo(endTime)<0 && experience.getEndTime().compareTo(endTime)<0) {
+                //只选择在本公司离职日期之前的工作记录
+                if (experience.getEndTime()!=null && experience.getEndTime().compareTo(endTime)<=0) {
                     relist.add(experience);
                 }
-                relist.add(w);
             }
             return relist;
         }
@@ -210,7 +219,8 @@ public class TalentService implements ITalentService {
     }
     //HR查看某人才任职期间的违纪记录
     public List<v_Disciplinary> WorkedDisciplinary(String talentId,String enterpriseId) {
-        String hql = "from v_Disciplinary where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        String hql = "from v_Disciplinary where talentId='"+talentId+
+                "' and enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_Disciplinary> relist=new ArrayList<v_Disciplinary>();
         for (int i=0; i<list.size(); i++) {
@@ -276,7 +286,8 @@ public class TalentService implements ITalentService {
     }
     //HR查看某人才任职期间的绩效评价
     public List<v_Achievement> WorkedAchievement(String talentId,String enterpriseId) {
-        String hql = "from v_Achievement where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        String hql = "from v_Achievement where talentId='"+talentId+
+                "' and enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_Achievement> relist=new ArrayList<v_Achievement>();
         for (int i=0; i<list.size(); i++) {
@@ -298,7 +309,8 @@ public class TalentService implements ITalentService {
     }
     //HR查看某人才任职期间的主观评价
     public List<v_Evaluate> WorkedEvaluate(String talentId,String enterpriseId) {
-        String hql = "from v_Evaluate where talentId='"+talentId+"' and enterpriseId='"+enterpriseId+"'";
+        String hql = "from v_Evaluate where talentId='"+talentId+
+                "' and enterpriseId='"+enterpriseId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_Evaluate> relist=new ArrayList<v_Evaluate>();
         for (int i=0; i<list.size(); i++) {
@@ -309,6 +321,7 @@ public class TalentService implements ITalentService {
     }
     //HR添加异常出勤记录
     public boolean AddAttend(String talentId,int event,String HR,Date date) {
+        //设置要添加的记录信息
         Attend attend=new Attend();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date recordTime=new Date();
@@ -317,23 +330,16 @@ public class TalentService implements ITalentService {
         attend.setDate(date);
         attend.setRecorder(HR);
         attend.setRecordTime(recordTime);
+        //添加记录
         if(talentDAO.saveAttend(attend)) {
             return true;
         }else {
             return false;
         }
-//        String hql = "from Attend as attend where workExperienceId=" + workExperience.getWorkExperienceId()
-//                + " and event="+event+" and date="+date+" and recorder='"+HR+"' and recordTime="+recordTime;
-//        System.out.println(hql);
-//        List list = talentDAO.findByHql(hql);
-//        if (list.isEmpty()){
-//            return false;
-//        }else {
-//            return true;
-//        }
     }
     //HR添加违纪事件记录
     public boolean AddDisciplinary(String talentId,String content,String HR,Date date) {
+        //设置要添加的记录信息
         Disciplinary disciplinary=new Disciplinary();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date recordTime=new Date();
@@ -342,6 +348,7 @@ public class TalentService implements ITalentService {
         disciplinary.setDate(date);
         disciplinary.setRecorder(HR);
         disciplinary.setRecordTime(recordTime);
+        //添加记录
         if(talentDAO.saveDisciplinary(disciplinary)) {
             return true;
         }else {
@@ -349,7 +356,9 @@ public class TalentService implements ITalentService {
         }
     }
     //HR添加违纪事件记录
-    public boolean AddReward(String talentId,String rewordName,String rewordResult,String prize,String HR,Date date) {
+    public boolean AddReward(String talentId,String rewordName,String rewordResult,String prize,
+                             String HR,Date date) {
+        //设置要添加的记录信息
         Reward reward=new Reward();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date recordTime=new Date();
@@ -360,6 +369,7 @@ public class TalentService implements ITalentService {
         reward.setDate(date);
         reward.setRecorder(HR);
         reward.setRecordTime(recordTime);
+        //添加记录
         if(talentDAO.saveReward(reward)) {
             return true;
         }else {
@@ -368,6 +378,7 @@ public class TalentService implements ITalentService {
     }
     //HR添加重大事件记录
     public boolean AddBigEvent(String talentId,String content,String HR,Date date) {
+        //设置要添加的记录信息
         BigEvent bigEvent=new BigEvent();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date recordTime=new Date();
@@ -376,6 +387,7 @@ public class TalentService implements ITalentService {
         bigEvent.setDate(date);
         bigEvent.setRecorder(HR);
         bigEvent.setRecordTime(recordTime);
+        //添加记录
         if(talentDAO.saveBigEvent(bigEvent)) {
             return true;
         }else {
@@ -385,6 +397,7 @@ public class TalentService implements ITalentService {
     //HR添加绩效评价记录
     public boolean AddAchievement(String talentId,String content,Date startTime,Date endTime,
                     int achievementScore,String achievementComment,String HR) {
+        //设置要添加的记录信息
         Achievement achievement=new Achievement();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date recordTime=new Date();
@@ -397,6 +410,7 @@ public class TalentService implements ITalentService {
         achievement.setAchievementComment(achievementComment);
         achievement.setRecorder(HR);
         achievement.setRecordTime(ts);
+        //添加记录
         if(talentDAO.saveAchievement(achievement)) {
             return true;
         }else {
@@ -406,6 +420,7 @@ public class TalentService implements ITalentService {
     //HR添加主观评价记录
     public boolean AddEvaluate(String talentId,String HR,Integer totalScore,Integer abilityScore,
                     String abilityComment,Integer attitudeScore,String attitudeComment) {
+        //设置要添加的记录信息
         Evaluate evaluate=new Evaluate();
         v_WorkExperience workExperience=MyWorkExperience(talentId);
         Date time=new Date();
@@ -417,6 +432,7 @@ public class TalentService implements ITalentService {
         evaluate.setAttitudeScore(attitudeScore);
         evaluate.setAbilityComment(attitudeComment);
         evaluate.setTime(time);
+        //添加记录
         if(talentDAO.saveEvaluate(evaluate)) {
             return true;
         }else {
