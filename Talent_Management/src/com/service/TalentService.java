@@ -144,7 +144,7 @@ public class TalentService implements ITalentService {
         Date date = new Date();
         for (int i=0; i<list.size(); i++) {
             v_WorkExperience experience = (v_WorkExperience) list.get(i);
-            //只选择已离职的工作经历记录，筛选条件为工作经历记录中结束时间不为空且当前时间结束时间之后
+            //只选择已离职的工作经历记录，筛选条件为工作经历记录中结束时间不为空且当前时间在结束时间之后
             if (experience.getEndTime() != null &&
                     experience.getEndTime().compareTo(date) < 0) {
                 relist.add(experience);
