@@ -90,15 +90,18 @@ public class TalentService implements ITalentService {
         return true;
     }
 
-    //查看登录用户 现在的工作经历信息
+    //查看登录用户现在的工作经历信息
     public v_WorkExperience MyWorkExperience(String talentId) {
+        //查找当前用户的所有工作经历记录
         String hql = "from v_WorkExperience where talentId='"+talentId+"'";
         List list = talentDAO.findByHql(hql);
         List<v_WorkExperience> work=new ArrayList<v_WorkExperience>();
         Date date = new Date();
         for (int i=0; i<list.size(); i++) {
             v_WorkExperience experience=(v_WorkExperience) list.get(i);
-            if(experience.getEndTime()== null && experience.getStartTime().compareTo(date)<=0) {
+            //只选择当前就职的工作经历记录，筛选条件为工作经历记录中结束时间为空或当前时间在开始时间与结束时间之间
+            if(experience.getEndTime() == null ||
+                    (experience.getStartTime().compareTo(date) <= 0 && experience.getEndTime().compareTo(date) > 0)) {
                 work.add(experience);
             }
         }
