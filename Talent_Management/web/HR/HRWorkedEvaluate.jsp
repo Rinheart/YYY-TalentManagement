@@ -35,8 +35,8 @@
 <br>
 <h4>主观评价</h4>
 <table class="table">
-    <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>阶段工作内容</th> <th>阶段工作起始时间</th>
-        <th>阶段工作结束时间</th> <th>评分</th> <th>评语</th> <th>评价者</th> <th>评价时间</th> </tr>
+    <tr> <th>编号</th> <th>企业</th> <th>部门</th> <th>评价者</th> <th>总评分</th> <th>工作能力评分</th>
+        <th>工作能力评语</th> <th>工作态度评分</th> <th>工作态度评语</th> <th>评价时间</th> </tr>
     <s:iterator value="evaluate" id="object">
         <tr>
             <td><s:property value="#object.evaluateId"/></td>
