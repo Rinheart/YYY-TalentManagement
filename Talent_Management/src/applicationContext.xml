@@ -14,8 +14,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/talent_management?serverTimezone=GMT%2b8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
         <property name="username" value="root"/>
-        <!--<property name="password" value="root"/>-->
-        <property name="password" value="LYHwz13506657764"/>
+        <property name="password" value="root"/>
+<!--        <property name="password" value="LYHwz13506657764"/>-->
     </bean>
     <!--注入SessionFactory实例配置信息-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
