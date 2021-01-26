@@ -50,6 +50,7 @@
     </div>
 </div>
 <!-- loader END -->
+
 <div class="wrapper">
     <section class="login-content">
         <div class="container h-100">
@@ -80,81 +81,81 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" name="enterprise.enterpriseName" type="text"
+                                        <input class="floating-input form-control" name="enterprise.enterpriseName" id="enterprisename" type="text"
                                                placeholder=" ">
                                         <label>企业名称</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="date" name="enterprise.establishTime" placeholder=" ">
+                                        <input class="floating-input form-control" type="date" name="enterprise.establishTime" id="establishtime" placeholder=" ">
                                         <label>企业成立时间</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" name="enterprise." type="text" placeholder=" ">
+                                        <input class="floating-input form-control" name="enterprise." type="text" id="enteraddress" placeholder=" ">
                                         <label>企业地址</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.businessScope" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.businessScope" id="businessscope" placeholder=" ">
                                         <label>企业经营范围</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.enterpriseType" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.enterpriseType" id="enterprisetype" placeholder=" ">
                                         <label>企业类型</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.annualTurnover" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.annualTurnover" id="annualturnover" placeholder=" ">
                                         <label>年营业额</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.staffNumber" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.staffNumber" id="staffnumber" placeholder=" ">
                                         <label>企业职工编号</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.ceo" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.ceo" id="ceoname" placeholder=" ">
                                         <label>企业CEO姓名</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.resignNumber" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.resignNumber" id="resignnumber" placeholder=" ">
                                         <label>企业注册号</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.registrar" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.registrar" id="registrar" placeholder=" ">
                                         <label>企业注册地</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.registeredCapital" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.registeredCapital" id="registeredcapital" placeholder=" ">
                                         <label>企业注册资本</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="floating-label form-group">
-                                        <input class="floating-input form-control" type="text" name="enterprise.websiteAddress" placeholder=" ">
+                                        <input class="floating-input form-control" type="text" name="enterprise.websiteAddress" id="websiteaddress" placeholder=" ">
                                         <label>企业主页</label>
                                     </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" onclick="return custCheck()">注册</button>
                             <p class="mt-3">
-                                已经有账号?<a href="enterpriseLogin.jsp" class="text-primary">去登陆</a>
+                                已经有账号?<a href="enterpriseLogin.html" class="text-primary">去登陆</a>
                             </p>
                         </form>
                     </div>
@@ -164,20 +165,127 @@
     </section>
 </div>
 
+
 <script language="JavaScript">
     function custCheck() {
-        var n2 = document.getElementById("username");
-        var n3 = document.getElementById("password");
-        if(n2.value==""||n2.value=="请输入用户名"){
-            alert("用户名不能为空！");
+        var n1 = document.getElementById("username");//获取企业账号
+        var n2 = document.getElementById("password");//获取密码
+        var n3 = document.getElementById("enterprisename");//获取企业名称
+        var n4 = document.getElementById("establishtime");//获取企业成立时间
+        var n5 = document.getElementById("enteraddress");//获取企业地址
+        var n6 = document.getElementById("businessscope");//获取企业经营范围
+        var n7 = document.getElementById("enterprisetype");//获取企业类型
+        var n8 = document.getElementById("annualturnover");//获取年营业额
+        var n9 = document.getElementById("staffnumber");//获取企业职工编号
+        var n10 = document.getElementById("ceoname");//获取企业CEO姓名
+        var n11 = document.getElementById("resignnumber");//获取企业注册号
+        var n12 = document.getElementById("registrar");//获取企业注册地
+        var n13 = document.getElementById("registeredcapital");//获取企业注册资本
+        var n14 = document.getElementById("websiteaddress");//获取企业主页
+        var reg = /^[0-9]*$/;
+        if(n1.value==""){
+            alert("账号不能为空！");
             return false;
         }
-        else if(n3.value==""||n3.value=="请输入密码"){
+        else if(n2.value==""){
             alert("密码不能为空！");
             return false;
         }
-        if(n2.value.length>8||n3.value().length>8){
-            alert("用户名/密码不能超过8位");
+        else if(n3.value==""){
+            alert("企业名称不能为空！");
+            return false;
+        }
+        else if(n4.value==""){
+            alert("企业成立时间不能为空！");
+            return false;
+        }
+        else if(n5.value==""){
+            alert("企业地址不能为空！");
+            return false;
+        }
+        else if(n6.value==""){
+            alert("企业经营范围不能为空！");
+            return false;
+        }
+        else if(n7.value==""){
+            alert("企业类型不能为空！");
+            return false;
+        }
+        else if(n8.value==""){
+            alert("年营业额不能为空！");
+            return false;
+        }
+        else if(n9.value==""){
+            alert("企业职工编号不能为空！");
+            return false;
+        }
+        else if(n10.value==""){
+            alert("CEO姓名不能为空！");
+            return false;
+        }
+        else if(n11.value==""||!reg.test(n11.value)){
+            alert("企业注册号不能为空！");
+            return false;
+        }
+        else if(n12.value==""){
+            alert("企业注册地不能为空！");
+            return false;
+        }
+        else if(n13.value==""){
+            alert("企业注册资本不能为空！");
+            return false;
+        }
+        else if(n14.value==""){
+            alert("企业主页不能为空！");
+            return false;
+        }
+
+        else if(n1.value.length>8){
+            alert("用户名长度不能超过8位！");
+            return false;
+        }
+        else if(n2.value.length>20){
+            alert("密码长度不能超过20位！");
+            return false;
+        }
+        else if(n3.value.length>20){
+            alert("企业名称长度不能超过20位！");
+            return false;
+        }
+        else if(n5.value.length>100){
+            alert("企业地址长度不能超过100位！");
+            return false;
+        }
+        else if(n6.value.length>45){
+            alert("企业经验范围长度不能超过45位！");
+            return false;
+        }
+        else if(n7.value.length>45){
+            alert("企业类型长度不能超过45位！");
+            return false;
+        }
+        else if(n8.value.length>200){
+            alert("年营业额长度不能超过200位！");
+            return false;
+        }
+        else if(n10.value.length>10){
+            alert("CEO姓名长度不能超过10位！");
+            return false;
+        }
+        else if(n11.value.length!=18){
+            alert("企业注册号输入格式错误！");
+            return false;
+        }
+        else if(n12.value.length>20){
+            alert("企业登记机关地长度不能超过20位！");
+            return false;
+        }
+        else if(n13.value.length>200){
+            alert("企业注册资本长度不能超过200位！");
+            return false;
+        }
+        else if(n14.value.length>50){
+            alert("企业官网网址长度不能超过50位！");
             return false;
         }
     }

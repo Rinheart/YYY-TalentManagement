@@ -79,17 +79,20 @@
         function custCheck() {
             var n2 = document.getElementById("username");
             var n3 = document.getElementById("password");
-            if(n2.value==""||n2.value=="请输入用户名"){
+            if(n2.value==""){
                 alert("用户名不能为空！");
                 return false;
             }
-            else if(n3.value==""||n3.value=="请输入密码"){
+            else if(n3.value==""){
                 alert("密码不能为空！");
                 return false;
             }
-
-            if(n2.value.length>8||n3.value().length>8){
-                alert("用户名/密码不能超过8位");
+            else if(n2.value.length>8){
+                alert("用户名长度不能超过8位！");
+                return false;
+            }
+            else if(n3.value().length>20){
+                alert("密码长度不能超过20位！");
                 return false;
             }
         }
